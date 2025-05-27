@@ -408,8 +408,16 @@
 		class="after:pointer-none absolute right-0 left-0 -z-10 h-screen w-full bg-[url('/images/background.svg')] bg-cover bg-center bg-no-repeat brightness-30 after:absolute after:h-full after:w-full after:backdrop-blur-[100px] after:content-['']"
 	></div>
 
-	<h3 class="text-center text-2xl" id="statString">
-		Ready? Join <strong>xxx users</strong> and <strong>xxx servers</strong> and
+	<h3 class="text-center text-2xl text-white" id="statString">
+		Ready? Join <strong
+			><span class="relative top-0.5 inline-block h-6 w-12 animate-pulse rounded-full bg-gray-500"
+			></span> users</strong
+		>
+		and
+		<strong
+			><span class="relative top-0.5 inline-block h-6 w-12 animate-pulse rounded-full bg-gray-500"
+			></span> servers</strong
+		> and
 	</h3>
 	<h1
 		class="bg-linear-to-bl from-zinc-100 to-zinc-400 bg-clip-text text-center text-6xl font-bold text-transparent drop-shadow-[0_0_15px_rgba(168,162,158,0.4)] dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"

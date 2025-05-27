@@ -1,0 +1,102 @@
+<script lang="ts">
+	import { page } from '$app/state';
+	import logo from '$lib/images/titanium-logo.svg';
+</script>
+
+<footer
+	style="view-transition-name: footer;"
+	class="border-titanium-border box-border flex h-fit w-full flex-wrap items-center justify-center border-t-4 p-5 bg-zinc-100 dark:bg-zinc-900"
+>
+	<div
+		class="flex h-fit w-full max-w-5xl flex-wrap items-center justify-center gap-2.5 md:justify-between"
+	>
+		<div class="flex w-[270px] items-center justify-center gap-2.5">
+			<img src={logo} alt="Titanium Logo" height="60" width="60" />
+			<div>
+				<h1 class="font-bold">Titanium</h1>
+				<h3 class="text-base">More features than protons.</h3>
+				<p class="mt-1 text-sm font-light">2025, Restart</p>
+			</div>
+		</div>
+
+		<nav class="flex h-full flex-wrap items-center justify-center gap-2.5">
+			<ul class="flex h-full flex-col text-base">
+				<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
+					<a href="/" class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						><p>Home</p></a
+					>
+				</li>
+				<li aria-current={page.url.pathname === '/privacy' ? 'page' : undefined}>
+					<a
+						href="/privacy"
+						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						><p>About</p></a
+					>
+				</li>
+				<li aria-current={page.url.pathname === '/terms' ? 'page' : undefined}>
+					<a
+						href="/terms"
+						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						><p>Status</p></a
+					>
+				</li>
+				<li>
+					<a
+						href="/invite"
+						class=" flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors"
+						><p>Add Titanium</p></a
+					>
+				</li>
+			</ul>
+
+			<ul class="flex h-full flex-col text-base">
+				<li aria-current={page.url.pathname === '/terms' ? 'page' : undefined}>
+					<a
+						href="/terms"
+						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						><p>Terms of Use</p></a
+					>
+				</li>
+				<li aria-current={page.url.pathname === '/privacy' ? 'page' : undefined}>
+					<a
+						href="/privacy"
+						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						><p>Bot Privacy Policy</p></a
+					>
+				</li>
+				<li aria-current={page.url.pathname === '/privacy' ? 'page' : undefined}>
+					<a
+						href="/privacy"
+						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						><p>Website Privacy Policy</p></a
+					>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="flex h-full w-[270px] items-end justify-center gap-2.5 md:flex-col">
+			<a href="https://restartb.xyz" aria-labelledby="restart-88x31" title="Restart"
+				><enhanced:img
+					src="$lib/images/88x31/restart.png"
+					alt="Restart's 88x31"
+					id="restart-88x31"
+				/></a
+			>
+			<a href="/" aria-labelledby="titanium-88x31" title="Titanium"
+				><enhanced:img
+					src="$lib/images/88x31/titanium.png"
+					alt="Titanium's 88x31"
+					id="titanium-88x31"
+				/></a
+			>
+		</div>
+	</div>
+</footer>
+
+<style>
+	h1,
+	h2,
+	h3 {
+		line-height: normal;
+	}
+</style>
