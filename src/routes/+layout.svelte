@@ -20,12 +20,12 @@
 </script>
 
 <div
-	class="app font-display min-h-screen bg-linear-to-bl from-zinc-100 to-zinc-400 text-lg text-black dark:from-zinc-700 dark:to-zinc-900 dark:text-white"
+	class="app font-display bg-linear-to-bl from-zinc-100 to-zinc-400 text-lg text-black dark:from-zinc-700 dark:to-zinc-900 dark:text-white"
 >
 	<Header />
 
 	<main
-		class="flex flex-col items-center"
+		class="flex flex-col items-center min-h-screen"
 		style="view-transition-name: page-content"
 		id="page-content"
 	>

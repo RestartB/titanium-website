@@ -1,18 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
-@import "tailwindcss";
-
+@import 'tailwindcss';
 
 @theme {
-    --color-titanium-box: #313131;
-    --color-titanium-border: #767676;
-    --color-titanium-text: #E9E9E9;
-    --color-titanium-text-dark: #A2A2A2;
-    --color-titanium-button: #4E4E4E;
-    --color-titanium-button-dark: #393939;
-    --color-titanium-button-active: #5F5F5F;
-    --color-discord-button: #4550C7;
-    --color-discord-button-active: #5865F2;
-    --color-titanium-sidebar-active: #4E4E4E;
-    --color-titanium-divider: #4B4B4B;
-    --font-display: "Figtree", "sans-serif";
+	--color-titanium-border: #767676;
+	--color-titanium-sidebar-active: #4e4e4e;
+	--color-titanium-transparent-header: rgba(228, 228, 231, 0.7);
+	--font-display: 'Figtree', 'sans-serif';
 }

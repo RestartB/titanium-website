@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import logo from '$lib/images/titanium-logo.svg';
+
+	import titanium from '$lib/images/88x31/titanium.png';
+	import restart from '$lib/images/88x31/restart.png';
 </script>
 
 <footer
 	style="view-transition-name: footer;"
-	class="border-titanium-border box-border flex h-fit w-full flex-wrap items-center justify-center border-t-4 p-5 bg-zinc-100 dark:bg-zinc-900"
+	class="border-titanium-border box-border flex h-fit w-full flex-wrap items-center justify-center border-t-4 bg-zinc-100 p-5 dark:bg-zinc-900"
 >
 	<div
 		class="flex h-fit w-full max-w-5xl flex-wrap items-center justify-center gap-2.5 md:justify-between"
@@ -19,6 +22,25 @@
 			</div>
 		</div>
 
+		<div class="flex h-full items-end justify-center gap-2.5 md:flex-col">
+			<a href="https://restartb.xyz" aria-labelledby="restart-88x31" title="Restart"
+				><img
+					src={restart}
+					alt="Restart's 88x31"
+					id="restart-88x31"
+					style="image-rendering: pixelated;"
+				/></a
+			>
+			<a href="/" aria-labelledby="titanium-88x31" title="Titanium"
+				><img
+					src={titanium}
+					alt="Titanium's 88x31"
+					id="titanium-88x31"
+					style="image-rendering: pixelated;"
+				/></a
+			>
+		</div>
+
 		<nav class="flex h-full flex-wrap items-center justify-center gap-2.5">
 			<ul class="flex h-full flex-col text-base">
 				<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
@@ -26,9 +48,9 @@
 						><p>Home</p></a
 					>
 				</li>
-				<li aria-current={page.url.pathname === '/privacy' ? 'page' : undefined}>
+				<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
 					<a
-						href="/privacy"
+						href="/about"
 						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
 						><p>About</p></a
 					>
@@ -43,7 +65,7 @@
 				<li>
 					<a
 						href="/invite"
-						class=" flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors"
+						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
 						><p>Add Titanium</p></a
 					>
 				</li>
@@ -73,29 +95,11 @@
 				</li>
 			</ul>
 		</nav>
-
-		<div class="flex h-full w-[270px] items-end justify-center gap-2.5 md:flex-col">
-			<a href="https://restartb.xyz" aria-labelledby="restart-88x31" title="Restart"
-				><enhanced:img
-					src="$lib/images/88x31/restart.png"
-					alt="Restart's 88x31"
-					id="restart-88x31"
-				/></a
-			>
-			<a href="/" aria-labelledby="titanium-88x31" title="Titanium"
-				><enhanced:img
-					src="$lib/images/88x31/titanium.png"
-					alt="Titanium's 88x31"
-					id="titanium-88x31"
-				/></a
-			>
-		</div>
 	</div>
 </footer>
 
 <style>
 	h1,
-	h2,
 	h3 {
 		line-height: normal;
 	}
