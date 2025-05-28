@@ -3,9 +3,9 @@ import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
 	try {
-		const response = await fetch('http://localhost:5000/stats');
+		const response = await fetch('http://localhost:5000/status');
 
-		if (!response.ok) {
+		if (response.ok) {
 			const data = await response.json();
 
 			return json(data);
