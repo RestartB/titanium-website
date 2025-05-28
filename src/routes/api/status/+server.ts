@@ -1,4 +1,4 @@
-import { error, json } from '@sveltejs/kit';
+import { json } from '@sveltejs/kit';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
@@ -14,8 +14,11 @@ export const GET: RequestHandler = async () => {
 				`Titanium server has returned an error - ${response.status}, ${response.text()}`
 			);
 		}
-	} catch (err) {
-		console.error('Failed to fetch stats:', err);
-		throw error(500, 'Failed to fetch stats');
+	} catch {
+		const data = {
+			ready: false,
+		};
+
+		return json(data)
 	}
 };

@@ -1,5 +1,61 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
+	import { onMount, onDestroy } from 'svelte';
+
+	let connected = $state();
+	let loading = $state();
+	let latency = $state(0);
+
+	let sinceLastUpdate = $state(Date.now());
+	let secondsAgo = $state(0);
+
+	// Update seconds ago every second
+	const updateSecondsAgo = () => {
+		secondsAgo = Math.floor((Date.now() - sinceLastUpdate) / 1000);
+	};
+
+	// Request status from API
+	async function fetchStatus() {
+		try {
+			loading = true;
+
+			const response = await fetch('/api/status');
+			if (!response.ok) throw new Error('Network response was not ok');
+			const data = await response.json();
+
+			connected = data.connected;
+			latency = data.latency || 0;
+
+			loading = false;
+			sinceLastUpdate = Date.now();
+		} catch (error) {
+			console.error('Failed to fetch status:', error);
+
+			connected = false;
+			loading = false;
+		}
+	}
+
+	let secondsInterval: number;
+	let fetchTimeout: number;
+
+	async function scheduleNextFetch() {
+		await fetchStatus();
+		// Wait 5 seconds after the request completes
+		fetchTimeout = setTimeout(scheduleNextFetch, 5000);
+	}
+
+	onMount(() => {
+		scheduleNextFetch();
+
+		// Update seconds counter every second
+		secondsInterval = setInterval(updateSecondsAgo, 1000);
+	});
+
+	onDestroy(() => {
+		clearTimeout(fetchTimeout);
+		clearInterval(secondsInterval);
+	});
 </script>
 
 <svelte:head>
@@ -18,6 +74,47 @@
 		Status
 	</h1>
 
+	<div class="flex w-full items-center justify-between gap-3">
+		<div class="flex items-center gap-3">
+			<div class="ml-auto flex flex-col items-end justify-center gap-1">
+				<div class="flex items-center gap-2">
+					<span class="relative flex size-3">
+						<span
+							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-600 opacity-75 dark:bg-green-200"
+						></span>
+						<span class="relative inline-flex size-3 rounded-full bg-green-700 dark:bg-green-300"
+						></span>
+					</span>
+					<h3 class="font-bold">Live</h3>
+				</div>
+			</div>
+		</div>
+
+		<p class="w-full">
+			Last updated {secondsAgo}s ago
+		</p>
+	</div>
+
+	{#if loading}
+		<div
+			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-orange-200 p-4 dark:bg-orange-950"
+		>
+			<p>Loading status...</p>
+		</div>
+	{:else if connected}
+		<div
+			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-green-200 p-4 dark:bg-green-950"
+		>
+			<p>All systems operational.</p>
+		</div>
+	{:else}
+		<div
+			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
+		>
+			<p>Some systems are currently offline.</p>
+		</div>
+	{/if}
+
 	<div
 		class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
 	>
@@ -28,19 +125,43 @@
 				<p>The main Titanium instance.</p>
 			</div>
 
-			<div class="flex flex-col gap-1 items-end justify-center ml-auto">
+			<div class="ml-auto flex flex-col items-end justify-center gap-1">
 				<div class="flex items-center gap-2">
-					<span class="relative flex size-3">
-						<span
-							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
-						></span>
-						<span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
-					</span>
-					<h3 class="font-light">Online</h3>
+					{#if loading}
+						<span class="relative flex size-3">
+							<span
+								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
+							></span>
+							<span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
+						</span>
+						<h3 class="font-light">Loading</h3>
+					{:else if connected}
+						<span class="relative flex size-3">
+							<span
+								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+							></span>
+							<span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
+						</span>
+						<h3 class="font-light">Online</h3>
+					{:else}
+						<span class="relative flex size-3">
+							<span
+								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
+							></span>
+							<span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
+						</span>
+						<h3 class="font-light">Offline</h3>
+					{/if}
 				</div>
 
-				<div class="text-sm border-2 border-zinc-600 rounded-md bg-zinc-800 p-1 px-2 text-center">
-					<p>Ping: <code>100ms</code></p>
+				<div
+					class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
+				>
+					{#if connected}
+						<p>Ping: <code>{latency}ms</code></p>
+					{:else}
+						<p>Ping: <code>---ms</code></p>
+					{/if}
 				</div>
 			</div>
 		</div>
@@ -54,7 +175,7 @@
 				<p>Private version of Titanium.</p>
 			</div>
 
-			<div class="flex flex-col gap-1 items-end justify-center ml-auto">
+			<div class="ml-auto flex flex-col items-end justify-center gap-1">
 				<div class="flex items-center gap-2">
 					<span class="relative flex size-3">
 						<span
@@ -65,17 +186,19 @@
 					<h3 class="font-light">Online</h3>
 				</div>
 
-				<div class="text-sm border-2 border-zinc-600 rounded-md bg-zinc-800 p-1 px-2 text-center">
+				<div
+					class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
+				>
 					<p>Ping: <code>100ms</code></p>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<p class="font-light text-sm w-full">Updated: 5 seconds ago</p>
-
-	<h2 class="text-2xl font-bold w-full">Previous Outages</h2>
-	<div class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700">
-		<p class="text-center font-light">No previous outages.</p>
+	<h2 class="w-full text-2xl font-bold">Previous Incidents</h2>
+	<div
+		class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
+	>
+		<p class="text-center font-light">No previous incidents.</p>
 	</div>
 </div>
