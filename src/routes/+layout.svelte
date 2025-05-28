@@ -22,7 +22,9 @@
 <div
 	class="app font-display bg-linear-to-bl from-zinc-100 to-zinc-400 text-lg text-black dark:from-zinc-700 dark:to-zinc-900 dark:text-white"
 >
-	<Header />
+	<div class="fixed right-0 left-0 z-50 m-2.5 flex items-center justify-center">
+		<Header />
+	</div>
 
 	<main
 		class="flex flex-col items-center min-h-screen"

@@ -15,6 +15,9 @@
 	import xcx from '$lib/images/embeds/xcx.jpeg?enhanced';
 	import brat from '$lib/images/embeds/brat.png?enhanced';
 
+	import seanpaul from '$lib/images/embeds/seanpaul.jpeg?enhanced';
+	import trinity from '$lib/images/embeds/trinity.jpeg?enhanced';
+
 	// Icons
 	import IcRoundAdd from 'virtual:icons/ic/round-add';
 	import ArcticonsUrbanDictionary from 'virtual:icons/arcticons/urban-dictionary';
@@ -41,17 +44,19 @@
 				};
 
 				const response = await fetch('/api/stats');
-				if (!response.ok) {
-					throw new Error('Network response was not ok');
-				}
-				const data: Response = await response.json();
+				if (response.ok) {
+					const data: Response = await response.json();
 
-				const statString = document.getElementById('statString');
-				if (statString) {
-					statString.innerHTML = `Ready? Join <strong>${data.user_count.toLocaleString()}</strong> users and <strong>${data.server_count.toLocaleString()}</strong> servers and`;
+					const statString = document.getElementById('statString');
+					if (statString) {
+						statString.innerHTML = `Ready? Join <strong>${data.user_count.toLocaleString()}</strong> users and <strong>${data.server_count.toLocaleString()}</strong> servers and`;
+					}
+				} else {
+					const statString = document.getElementById('statString');
+					if (statString) {
+						statString.innerHTML = `Ready? Join hundreds of other users and`;
+					}
 				}
-
-				console.log('Stats fetched:', data);
 			} catch (error) {
 				console.error('Error fetching stats:', error);
 			}
@@ -72,10 +77,10 @@
 >
 	<!-- prettier-ignore -->
 	<div
-		class="absolute -z-10 left-0 right-0 w-full h-screen bg-[url('/images/background.svg')] bg-cover bg-no-repeat bg-center brightness-30 after:content-[''] after:absolute after:w-full after:h-full after:backdrop-blur-[100px] after:pointer-none"
+		class="absolute left-0 right-0 w-full h-screen bg-[url('/images/background_blur.svg')] bg-cover bg-no-repeat bg-center brightness-50"
     ></div>
 
-	<div class="mt-auto mb-auto flex flex-col gap-4 p-4">
+	<div class="z-10 mt-auto mb-auto flex flex-col gap-4 p-4">
 		<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
 			<img
 				src={logo}
@@ -102,7 +107,7 @@
 	<a
 		in:scale={{ easing: cubicOut, duration: 500 }}
 		href="/invite"
-		class="border-titanium-border flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+		class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 	>
 		<IcRoundAdd class="h-7.5 w-7.5" />
 		Add Titanium
@@ -287,13 +292,17 @@
 
 		<SongEmbed
 			artist="Sean Paul"
-			artistArtURL={xcx}
+			artistArtURL={seanpaul}
 			album="The Trinity"
-			albumArtURL={brat}
+			albumArtURL={trinity}
 			song="Temperature"
 			releaseYear={2005}
 			--colour="#1d1f20"
 		/>
+
+		<p class="text-center text-sm font-light">
+			Album artwork and artist images provided by Spotify.
+		</p>
 	</div>
 
 	<div class="flex max-w-[750px] flex-col justify-center gap-2">
@@ -347,7 +356,7 @@
 		<div
 			class="h-fit overflow-hidden rounded-xl border-2 border-zinc-600 bg-zinc-200 sm:min-w-[310px] dark:bg-zinc-700"
 		>
-			<div class="flex h-fit w-full items-center gap-2 border-l-8 border-white p-4">
+			<div class="flex h-fit w-full items-center gap-2 border-l-8 border-[#8C8C8C] p-4">
 				<div class="mr-auto flex flex-col justify-center gap-1">
 					<div class="flex items-center gap-2">
 						<ArcticonsUrbanDictionary class="h-7.5 w-7.5" />
@@ -373,7 +382,7 @@
 <section class="flex w-full flex-col items-center justify-center gap-10 p-10 md:flex-row">
 	<div class="flex flex-col items-center justify-center gap-3 select-none">
 		<p
-			class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-8xl font-black text-transparent drop-shadow-[0_0_15px_rgba(168,162,158,0.4)] dark:from-zinc-200 dark:to-zinc-600 dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
+			class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-8xl font-black text-transparent dark:from-zinc-200 dark:to-zinc-600 dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
 		>
 			48+
 		</p>
@@ -405,10 +414,10 @@
 	class="relative flex w-full flex-col items-center justify-center gap-5 overflow-hidden p-10"
 >
 	<div
-		class="after:pointer-none absolute right-0 left-0 -z-10 h-screen w-full bg-[url('/images/background.svg')] bg-cover bg-center bg-no-repeat brightness-30 after:absolute after:h-full after:w-full after:backdrop-blur-[100px] after:content-['']"
+		class="after:pointer-none absolute right-0 left-0 h-screen w-full bg-[url('/images/background_blur.svg')] bg-cover bg-center bg-no-repeat brightness-50"
 	></div>
 
-	<h3 class="text-center text-2xl text-white" id="statString">
+	<h3 class="z-10 text-center text-2xl text-white" id="statString">
 		Ready? Join <strong
 			><span class="relative top-0.5 inline-block h-6 w-12 animate-pulse rounded-full bg-gray-500"
 			></span> users</strong
@@ -420,14 +429,14 @@
 		> and
 	</h3>
 	<h1
-		class="bg-linear-to-bl from-zinc-100 to-zinc-400 bg-clip-text text-center text-6xl font-bold text-transparent drop-shadow-[0_0_15px_rgba(168,162,158,0.4)] dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
+		class="z-10 bg-linear-to-bl from-zinc-100 to-zinc-400 bg-clip-text text-center text-6xl font-bold text-transparent drop-shadow-[0_0_15px_rgba(168,162,158,0.4)] dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
 	>
 		Enhance your Discord experience
 	</h1>
 
 	<a
 		href="/invite"
-		class="border-titanium-border flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+		class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 	>
 		<IcRoundAdd class="h-7.5 w-7.5" />
 		Add Titanium Now

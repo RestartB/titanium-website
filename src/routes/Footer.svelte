@@ -93,6 +93,13 @@
 						><p>Website Privacy Policy</p></a
 					>
 				</li>
+				<li>
+					<a
+						href="https://github.com/RestartB/Titanium"
+						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						><p>Source Code</p></a
+					>
+				</li>
 			</ul>
 		</nav>
 	</div>
