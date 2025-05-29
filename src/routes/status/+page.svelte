@@ -2,9 +2,13 @@
 	import { fly } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 
-	let connected = $state();
 	let loading = $state();
-	let latency = $state(0);
+
+	let mainConnected = $state();
+	let mainLatency = $state(0);
+
+	let privateConnected = $state();
+	let privateLatency = $state(0);
 
 	let sinceLastUpdate = $state(Date.now());
 	let secondsAgo = $state(0);
@@ -23,15 +27,19 @@
 			if (!response.ok) throw new Error('Network response was not ok');
 			const data = await response.json();
 
-			connected = data.connected;
-			latency = data.latency || 0;
+			mainConnected = data.main.connected;
+			mainLatency = data.main.latency || 0;
+
+			privateConnected = data.private.connected;
+			privateLatency = data.private.latency || 0;
 
 			loading = false;
 			sinceLastUpdate = Date.now();
 		} catch (error) {
 			console.error('Failed to fetch status:', error);
 
-			connected = false;
+			mainConnected = false;
+			privateConnected = false;
 			loading = false;
 		}
 	}
@@ -74,131 +82,169 @@
 		Status
 	</h1>
 
-	<div class="flex w-full items-center justify-between gap-3">
-		<div class="flex items-center gap-3">
-			<div class="ml-auto flex flex-col items-end justify-center gap-1">
-				<div class="flex items-center gap-2">
-					<span class="relative flex size-3">
-						<span
-							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-600 opacity-75 dark:bg-green-200"
-						></span>
-						<span class="relative inline-flex size-3 rounded-full bg-green-700 dark:bg-green-300"
-						></span>
-					</span>
-					<h3 class="font-bold">Live</h3>
-				</div>
-			</div>
-		</div>
+	<noscript>
+		<style>
+			#status-content {
+				display: none;
+			}
+		</style>
 
-		<p class="w-full">
-			Last updated {secondsAgo}s ago
-		</p>
-	</div>
-
-	{#if loading}
-		<div
-			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-orange-200 p-4 dark:bg-orange-950"
-		>
-			<p>Loading status...</p>
-		</div>
-	{:else if connected}
-		<div
-			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-green-200 p-4 dark:bg-green-950"
-		>
-			<p>All systems operational.</p>
-		</div>
-	{:else}
 		<div
 			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
 		>
-			<p>Some systems are currently offline.</p>
+			<p>Please enable JavaScript to use this page.</p>
 		</div>
-	{/if}
+	</noscript>
 
-	<div
-		class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
-	>
-		<div class="flex items-center gap-3">
-			<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
-			<div>
-				<h2 class="font-bold">Titanium</h2>
-				<p>The main Titanium instance.</p>
-			</div>
-
-			<div class="ml-auto flex flex-col items-end justify-center gap-1">
-				<div class="flex items-center gap-2">
-					{#if loading}
+	<div class="flex w-full flex-col items-center gap-5" id="status-content">
+		<div class="flex w-full items-center justify-between gap-3">
+			<div class="flex items-center gap-3">
+				<div class="ml-auto flex flex-col items-end justify-center gap-1">
+					<div class="flex items-center gap-2">
 						<span class="relative flex size-3">
 							<span
-								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
+								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-600 opacity-75 dark:bg-green-200"
 							></span>
-							<span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
-						</span>
-						<h3 class="font-light">Loading</h3>
-					{:else if connected}
-						<span class="relative flex size-3">
-							<span
-								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+							<span class="relative inline-flex size-3 rounded-full bg-green-700 dark:bg-green-300"
 							></span>
-							<span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
 						</span>
-						<h3 class="font-light">Online</h3>
-					{:else}
-						<span class="relative flex size-3">
-							<span
-								class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
-							></span>
-							<span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
-						</span>
-						<h3 class="font-light">Offline</h3>
-					{/if}
+						<h3 class="font-bold">Live</h3>
+					</div>
+				</div>
+			</div>
+
+			<p class="w-full">
+				Last updated {secondsAgo}s ago
+			</p>
+		</div>
+
+		{#if loading}
+			<div
+				class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-orange-200 p-4 dark:bg-orange-950"
+			>
+				<p>Loading status...</p>
+			</div>
+		{:else if mainConnected && privateConnected}
+			<div
+				class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-green-200 p-4 dark:bg-green-950"
+			>
+				<p>All systems operational.</p>
+			</div>
+		{:else}
+			<div
+				class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
+			>
+				<p>Some systems are currently offline.</p>
+			</div>
+		{/if}
+
+		<div
+			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
+		>
+			<div class="flex items-center gap-3">
+				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
+				<div>
+					<h2 class="font-bold">Titanium</h2>
+					<p>The main Titanium instance.</p>
 				</div>
 
-				<div
-					class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
-				>
-					{#if connected}
-						<p>Ping: <code>{latency}ms</code></p>
-					{:else}
-						<p>Ping: <code>---ms</code></p>
-					{/if}
+				<div class="ml-auto flex flex-col items-end justify-center gap-1">
+					<div class="flex items-center gap-2">
+						{#if loading}
+							<span class="relative flex size-3">
+								<span
+									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
+								></span>
+								<span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
+							</span>
+							<h3 class="font-light">Loading</h3>
+						{:else if mainConnected}
+							<span class="relative flex size-3">
+								<span
+									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+								></span>
+								<span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
+							</span>
+							<h3 class="font-light">Online</h3>
+						{:else}
+							<span class="relative flex size-3">
+								<span
+									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
+								></span>
+								<span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
+							</span>
+							<h3 class="font-light">Offline</h3>
+						{/if}
+					</div>
+
+					<div
+						class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
+					>
+						{#if mainConnected}
+							<p>Ping: <code>{mainLatency}ms</code></p>
+						{:else}
+							<p>Ping: <code>---ms</code></p>
+						{/if}
+					</div>
+				</div>
+			</div>
+
+			<hr class="border-zinc-600" />
+
+			<div class="flex items-center gap-3">
+				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
+				<div>
+					<h2 class="font-bold">Titanium Private</h2>
+					<p>Private version of Titanium.</p>
+				</div>
+
+				<div class="ml-auto flex flex-col items-end justify-center gap-1">
+					<div class="flex items-center gap-2">
+						{#if loading}
+							<span class="relative flex size-3">
+								<span
+									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
+								></span>
+								<span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
+							</span>
+							<h3 class="font-light">Loading</h3>
+						{:else if privateConnected}
+							<span class="relative flex size-3">
+								<span
+									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+								></span>
+								<span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
+							</span>
+							<h3 class="font-light">Online</h3>
+						{:else}
+							<span class="relative flex size-3">
+								<span
+									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
+								></span>
+								<span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
+							</span>
+							<h3 class="font-light">Offline</h3>
+						{/if}
+					</div>
+
+					<div
+						class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
+					>
+						{#if privateConnected}
+							<p>Ping: <code>{privateLatency}ms</code></p>
+						{:else}
+							<p>Ping: <code>---ms</code></p>
+						{/if}
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<hr class="border-zinc-600" />
-
-		<div class="flex items-center gap-3">
-			<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
-			<div>
-				<h2 class="font-bold">Titanium Private</h2>
-				<p>Private version of Titanium.</p>
-			</div>
-
-			<div class="ml-auto flex flex-col items-end justify-center gap-1">
-				<div class="flex items-center gap-2">
-					<span class="relative flex size-3">
-						<span
-							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
-						></span>
-						<span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
-					</span>
-					<h3 class="font-light">Online</h3>
-				</div>
-
-				<div
-					class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
-				>
-					<p>Ping: <code>100ms</code></p>
-				</div>
-			</div>
+		<h2 class="w-full text-2xl font-bold">Previous Incidents</h2>
+		<div
+			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
+		>
+			<p class="text-center font-light">No previous incidents.</p>
 		</div>
-	</div>
-
-	<h2 class="w-full text-2xl font-bold">Previous Incidents</h2>
-	<div
-		class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
-	>
-		<p class="text-center font-light">No previous incidents.</p>
 	</div>
 </div>
