@@ -3,6 +3,8 @@
 
 	import Header from './Header.svelte';
 	import Footer from './Footer.svelte';
+
+	import "@fontsource-variable/atkinson-hyperlegible-next";
 	import '../app.css';
 
 	let { children } = $props();
@@ -22,9 +24,7 @@
 <div
 	class="app font-display bg-linear-to-bl from-zinc-100 to-zinc-400 text-lg text-black dark:from-zinc-700 dark:to-zinc-900 dark:text-white"
 >
-	<div class="fixed right-0 left-0 z-50 m-2.5 flex items-center justify-center">
-		<Header />
-	</div>
+	<Header />	
 
 	<main
 		class="flex flex-col items-center min-h-screen"

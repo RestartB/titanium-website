@@ -50,7 +50,7 @@
 	async function scheduleNextFetch() {
 		await fetchStatus();
 		// Wait 5 seconds after the request completes
-		fetchTimeout = setTimeout(scheduleNextFetch, 5000);
+		fetchTimeout = setTimeout(scheduleNextFetch, 15000);
 	}
 
 	onMount(() => {
