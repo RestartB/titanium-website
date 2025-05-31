@@ -2,6 +2,9 @@
 	import { fly } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 
+	import CharmTick from 'virtual:icons/charm/tick';
+	import CharmCross from 'virtual:icons/charm/cross';
+
 	let loading = $state();
 
 	let mainConnected = $state();
@@ -120,20 +123,33 @@
 
 		{#if loading}
 			<div
-				class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-orange-200 p-4 dark:bg-orange-950"
+				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-orange-200 p-4 dark:bg-orange-950"
 			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="21.59px"
+					height="21.59px"
+					viewBox="0 0 24 24"
+					class="shrink-0 animate-spin"
+					><path
+						fill="currentColor"
+						d="M10.72,19.9a8,8,0,0,1-6.5-9.79A7.77,7.77,0,0,1,10.4,4.16a8,8,0,0,1,9.49,6.52A1.54,1.54,0,0,0,21.38,12h.13a1.37,1.37,0,0,0,1.38-1.54,11,11,0,1,0-12.7,12.39A1.54,1.54,0,0,0,12,21.34h0A1.47,1.47,0,0,0,10.72,19.9Z"
+					></path></svg
+				>
 				<p>Loading status...</p>
 			</div>
 		{:else if mainConnected && privateConnected}
 			<div
-				class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-green-200 p-4 dark:bg-green-950"
+				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-green-200 p-4 dark:bg-green-950"
 			>
+				<CharmTick class="shrink-0" />
 				<p>All systems operational.</p>
 			</div>
 		{:else}
 			<div
-				class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
+				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
 			>
+				<CharmCross class="shrink-0" />
 				<p>Some systems are currently offline.</p>
 			</div>
 		{/if}
@@ -141,14 +157,18 @@
 		<div
 			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
 		>
-			<div class="flex items-center gap-3">
-				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
-				<div>
-					<h2 class="font-bold">Titanium</h2>
-					<p>The main Titanium instance.</p>
+			<div class="xs:flex-row flex flex-col items-center gap-3">
+				<div class="flex items-center gap-3">
+					<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
+					<div>
+						<h2 class="font-bold">Titanium</h2>
+						<p>The main Titanium instance.</p>
+					</div>
 				</div>
 
-				<div class="ml-auto flex flex-col items-end justify-center gap-1">
+				<div
+					class="xs:flex-col xs:ml-auto xs:items-end xs:gap-1 flex shrink-0 flex-row flex-nowrap items-center justify-center gap-3"
+				>
 					<div class="flex items-center gap-2">
 						{#if loading}
 							<span class="relative flex size-3">
@@ -191,14 +211,18 @@
 
 			<hr class="border-zinc-600" />
 
-			<div class="flex items-center gap-3">
-				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
-				<div>
-					<h2 class="font-bold">Titanium Private</h2>
-					<p>Private version of Titanium.</p>
+			<div class="xs:flex-row flex flex-col items-center gap-3">
+				<div class="flex items-center gap-3">
+					<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
+					<div>
+						<h2 class="font-bold">Titanium Private</h2>
+						<p>Private version of Titanium.</p>
+					</div>
 				</div>
 
-				<div class="ml-auto flex flex-col items-end justify-center gap-1">
+				<div
+					class="xs:flex-col xs:ml-auto xs:items-end xs:gap-1 flex shrink-0 flex-row flex-nowrap items-center justify-center gap-3"
+				>
 					<div class="flex items-center gap-2">
 						{#if loading}
 							<span class="relative flex size-3">

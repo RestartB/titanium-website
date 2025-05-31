@@ -41,62 +41,72 @@
 			>
 		</div>
 
-		<nav class="flex h-full flex-wrap items-center justify-center gap-2.5">
+		<nav class="flex h-full flex-wrap items-center justify-center gap-5">
 			<ul class="flex h-full flex-col text-base">
+				<li>
+					<h1 class="font-bold">Navigation</h1>
+				</li>
 				<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-					<a href="/" class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
-						><p>Home</p></a
+					<a href="/" class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
+						>
+						<p>Home</p></a
 					>
 				</li>
 				<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
 					<a
 						href="/about"
-						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
-						><p>About</p></a
+						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
+						>
+						<p>About</p></a
 					>
 				</li>
 				<li aria-current={page.url.pathname === '/terms' ? 'page' : undefined}>
 					<a
 						href="/terms"
-						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
-						><p>Status</p></a
+						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
+						>
+						<p>Status</p></a
 					>
 				</li>
 				<li>
 					<a
 						href="/invite"
-						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
-						><p>Add Titanium</p></a
+						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
+						>
+						<p>Add Titanium</p></a
 					>
 				</li>
 			</ul>
 
 			<ul class="flex h-full flex-col text-base">
+				<li>
+					<h1 class="font-bold">Policies & More</h1>
+				</li>
 				<li aria-current={page.url.pathname === '/terms' ? 'page' : undefined}>
 					<a
 						href="/terms"
-						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
 						><p>Terms of Use</p></a
 					>
 				</li>
-				<li aria-current={page.url.pathname === '/privacy' ? 'page' : undefined}>
+				<li aria-current={page.url.pathname === '/privacy/bot' ? 'page' : undefined}>
 					<a
-						href="/privacy"
-						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						href="/privacy/bot"
+						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
 						><p>Bot Privacy Policy</p></a
 					>
 				</li>
-				<li aria-current={page.url.pathname === '/privacy' ? 'page' : undefined}>
+				<li aria-current={page.url.pathname === '/privacy/website' ? 'page' : undefined}>
 					<a
-						href="/privacy"
-						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						href="/privacy/website"
+						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
 						><p>Website Privacy Policy</p></a
 					>
 				</li>
 				<li>
 					<a
 						href="https://github.com/RestartB/Titanium"
-						class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5"
+						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
 						><p>Source Code</p></a
 					>
 				</li>

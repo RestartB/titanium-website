@@ -5,4 +5,5 @@
 	--color-titanium-sidebar-active: #4e4e4e;
 	--color-titanium-transparent-header: rgba(228, 228, 231, 0.7);
 	--font-display: 'Atkinson Hyperlegible Next Variable', 'sans-serif';
+	--breakpoint-xs: 426px;
 }

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Alert from '../../components/Alert.svelte';
+	import Alert from '$lib/components/Alert.svelte';
 </script>
 
 <svelte:head>
-	<title>Titanium - Privacy Policy</title>
+	<title>Titanium - Bot Privacy Policy</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 
@@ -21,7 +21,7 @@
 			<li><span class="italic">"bot"</span> - an app developed for Discord.</li>
 			<li><span class="italic">"Titanium", "Titanium Bot", "the bot"</span> - the Titanium Discord bot.</li>
 			<li><span class="italic">"we"</span> - Restart Software.</li>
-			<li><span class="italic">"guild"</span> - a Discord server. Not to be confused with the bot hosting server (labelled *"the server"*).</li>
+			<li><span class="italic">"guild"</span> - a Discord server. Not to be confused with the bot hosting server (labelled <i>"the server"</i>).</li>
 		</ul>
 	</section>
 
@@ -48,7 +48,7 @@
 			<li>Number of selected reactions on the message</li>
 		</ul>
 
-		<Alert type="Info" content="This data is deleted if the message drops below the reaction requirement or if a guild admin disables the feature. Message content will **not** be stored by this feature." />
+		<Alert type="Info" content="This data is deleted if the message drops below the reaction requirement or if a guild admin disables the feature. Message content will <strong>not</strong> be stored by this feature." />
 
 		<p>Titanium will also store the following user-defined settings:</p>
 		<ul class="list-disc list-inside">

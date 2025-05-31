@@ -4,7 +4,7 @@
 	import { cubicOut } from 'svelte/easing';
 
 	// Components
-	import SongEmbed from '../components/SongEmbed.svelte';
+	import SongEmbed from '$lib/components/SongEmbed.svelte';
 
 	// Images
 	import logo from '$lib/images/titanium-logo.svg';
@@ -19,18 +19,28 @@
 	import trinity from '$lib/images/embeds/trinity.jpeg?enhanced';
 
 	// Icons
-	import IcRoundAdd from 'virtual:icons/ic/round-add';
+	import MaterialSymbolsAdd2Rounded from 'virtual:icons/material-symbols/add-2-rounded';
 	import ArcticonsUrbanDictionary from 'virtual:icons/arcticons/urban-dictionary';
+
+	let statString: HTMLElement | null = null;
+	let tagline: HTMLElement | null = null;
 
 	onMount(() => {
 		// Meowium easter egg
 		if (window.location.search.includes('?meow')) {
 			console.log('meow meow meow meow meow meow meow meow meow');
 			document.title = document.title.replaceAll('Titanium', 'Meowium');
-			document.body.innerHTML = document.body.innerHTML.replaceAll('Titanium', 'Meowium');
+			
+			// Get safe text elements
+			const text = document.querySelectorAll('h1, h2, h3, p');
+			text.forEach((text) => {
+				if (text.textContent) {
+					text.textContent = text.textContent.replaceAll('Titanium', 'Meowium');
+				}
+			});
 
-			const tagline = document.getElementById('tagline');
 			if (tagline) {
+				console.log(tagline.textContent)
 				tagline.textContent = 'pspspspspsppspsp meow meow';
 			}
 		}
@@ -47,14 +57,14 @@
 				if (response.ok) {
 					const data: Response = await response.json();
 
-					const statString = document.getElementById('statString');
 					if (statString) {
-						statString.innerHTML = `Ready? Join <strong>${data.user_count.toLocaleString()}</strong> users and <strong>${data.server_count.toLocaleString()}</strong> servers and`;
+						console.log(statString.innerHTML)
+						statString.innerHTML = `Ready? Join <span class="font-bold">${data.user_count.toLocaleString()}</span> users and <span class="font-bold">${data.server_count.toLocaleString()}</span> servers and`;
 					}
 				} else {
-					const statString = document.getElementById('statString');
 					if (statString) {
-						statString.innerHTML = `Ready? Join hundreds of other users and`;
+						console.log(statString.innerHTML)
+						statString.innerHTML = `Ready? Join <span class="font-bold">hundreds of other users</span> and`;
 					}
 				}
 			} catch (error) {
@@ -98,7 +108,7 @@
 		<p
 			in:fly={{ y: 20, duration: 500 }}
 			class="text-center text-3xl font-semibold text-white"
-			id="tagline"
+			bind:this={tagline}
 		>
 			Your multipurpose Discord bot.
 		</p>
@@ -109,7 +119,7 @@
 		href="/invite"
 		class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 	>
-		<IcRoundAdd class="h-7.5 w-7.5" />
+		<MaterialSymbolsAdd2Rounded class="h-7.5 w-7.5" />
 		Add Titanium
 	</a>
 </section>
@@ -417,15 +427,15 @@
 		class="after:pointer-none absolute right-0 left-0 h-screen w-full bg-[url('/images/background_blur.svg')] bg-cover bg-center bg-no-repeat brightness-50"
 	></div>
 
-	<h3 class="z-10 text-center text-2xl text-white" id="statString">
-		Ready? Join <strong
+	<h3 class="z-10 text-center text-2xl text-white" bind:this={statString}>
+		Ready? Join <span class="font-bold"
 			><span class="relative top-0.5 inline-block h-6 w-12 animate-pulse rounded-full bg-gray-500"
-			></span> users</strong
+			></span> users</span
 		>
 		and
-		<strong
+		<span class="font-bold"
 			><span class="relative top-0.5 inline-block h-6 w-12 animate-pulse rounded-full bg-gray-500"
-			></span> servers</strong
+			></span> servers</span
 		> and
 	</h3>
 	<h1
@@ -438,7 +448,7 @@
 		href="/invite"
 		class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 	>
-		<IcRoundAdd class="h-7.5 w-7.5" />
+		<MaterialSymbolsAdd2Rounded class="h-7.5 w-7.5" />
 		Add Titanium Now
 	</a>
 </section>

@@ -21,5 +21,5 @@
 
 <div class="w-full h-fit pl-2.5 border-l-3 {colour}">
 	<h3 class="font-bold">{type}</h3>
-	<p>{content}</p>
+	<p>{@html content}</p>
 </div>

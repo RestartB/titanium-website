@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import Summary from '../../components/Summary.svelte';
+	import Summary from '$lib/components/Summary.svelte';
 </script>
 
 <svelte:head>
@@ -24,7 +24,7 @@
 		</p>
 		<div class="flex items-center gap-2">
 			<enhanced:img src="$lib/images/restart.png" alt="Restart" class="w-8 rounded-full" />
-			<p><strong>Restart</strong></p>
+			<p><span class="font-bold">Restart</span></p>
 		</div>
 	</div>
 
@@ -51,7 +51,7 @@
 
 		<Summary
 			title="What is Titanium written in?"
-			content="The bot itself is written in Python with the <strong>discord.py</strong> library. This website is written using SvelteKit and TypeScript!"
+			content="The bot itself is written in <strong>Python</strong> with the <strong>discord.py</strong> library. This website is written using <strong>SvelteKit</strong> and <strong>TypeScript!</strong>"
 		/>
 
 		<Summary
