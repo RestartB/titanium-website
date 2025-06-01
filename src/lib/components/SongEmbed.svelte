@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { Picture } from 'vite-imagetools';
 
 	type Props = {
@@ -11,6 +12,14 @@
 	};
 
 	let { artist, artistArtURL, album, albumArtURL, song, releaseYear }: Props = $props();
+	let art: HTMLImageElement;
+
+	onMount(() => {
+		const pictureElements = document.querySelectorAll('picture');
+		pictureElements.forEach((pictureElement) => {
+			pictureElement.classList.add('shrink-0');
+		});
+	});
 </script>
 
 <div
@@ -29,6 +38,6 @@
 			</div>
 		</div>
 
-		<enhanced:img src={albumArtURL} alt="Album Art" class="h-20 w-20 rounded-xl" />
+		<enhanced:img src={albumArtURL} alt="Album Art" class="h-20 w-20 rounded-xl hidden xxs:block" bind:this={art} />
 	</div>
 </div>

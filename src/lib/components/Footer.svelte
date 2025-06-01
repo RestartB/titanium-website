@@ -47,8 +47,7 @@
 					<h1 class="font-bold">Navigation</h1>
 				</li>
 				<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-					<a href="/" class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
-						>
+					<a href="/" class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400">
 						<p>Home</p></a
 					>
 				</li>
@@ -56,7 +55,7 @@
 					<a
 						href="/about"
 						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
-						>
+					>
 						<p>About</p></a
 					>
 				</li>
@@ -64,7 +63,7 @@
 					<a
 						href="/terms"
 						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
-						>
+					>
 						<p>Status</p></a
 					>
 				</li>
@@ -72,7 +71,7 @@
 					<a
 						href="/invite"
 						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
-						>
+					>
 						<p>Add Titanium</p></a
 					>
 				</li>

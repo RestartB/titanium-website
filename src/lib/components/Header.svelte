@@ -21,7 +21,6 @@
 	let headerElement: HTMLElement | null = null;
 
 	function toggleMenu() {
-		console.log('Toggling menu');
 		menuActive = !menuActive;
 	}
 
@@ -91,26 +90,27 @@
 		</div>
 
 		{#if !compact || !mounted}
-			<nav class="h-full" in:fade={{ duration: 100 }}>
+			<nav class="fullnav h-full" in:fade={{ duration: 100 }}>
 				<ul class="flex h-full">
 					<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
 						<a
 							href="/"
-							class="hover:bg-titanium-sidebar-active flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors"
-							><p>Home</p></a
+							class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
 						>
+							<p>Home</p>
+						</a>
 					</li>
 					<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
 						<a
 							href="/about"
-							class="hover:bg-titanium-sidebar-active flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors"
+							class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
 							><p>About</p></a
 						>
 					</li>
 					<li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
 						<a
 							href="/status"
-							class="hover:bg-titanium-sidebar-active flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors"
+							class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
 							><p>Status</p></a
 						>
 					</li>
@@ -118,7 +118,7 @@
 			</nav>
 		{:else}
 			<button
-				class="hover:bg-titanium-sidebar-active flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors"
+				class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
 				onclick={toggleMenu}
 				in:fade={{ duration: 100 }}
 			>
@@ -145,7 +145,7 @@
 						<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
 							<a
 								href="/"
-								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center dark:bg-zinc-800"
+								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 							>
 								<MaterialSymbolsHomeRounded />
 								<p>Home</p>
@@ -154,7 +154,7 @@
 						<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
 							<a
 								href="/about"
-								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center dark:bg-zinc-800"
+								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 							>
 								<MaterialSymbolsInfoOutlineRounded />
 								<p>About</p></a
@@ -163,7 +163,7 @@
 						<li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
 							<a
 								href="/status"
-								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center dark:bg-zinc-800"
+								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 								><MaterialSymbolsCheckCircleOutlineRounded />
 								<p>Status</p></a
 							>
@@ -174,3 +174,30 @@
 		{/if}
 	</header>
 </div>
+
+<style>
+	.fullnav {
+		li {
+			position: relative;
+		}
+
+		li[aria-current='page']::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 2px;
+			background: black;
+			view-transition-name: active-bar;
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.fullnav {
+			li[aria-current='page']::before {
+				background: white;
+			}
+		}
+	}
+</style>

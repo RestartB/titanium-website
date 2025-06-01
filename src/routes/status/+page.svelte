@@ -47,8 +47,8 @@
 		}
 	}
 
-	let secondsInterval: number;
-	let fetchTimeout: number;
+	let secondsInterval: ReturnType<typeof setInterval>;
+    let fetchTimeout: ReturnType<typeof setTimeout>;
 
 	async function scheduleNextFetch() {
 		await fetchStatus();

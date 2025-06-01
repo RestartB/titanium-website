@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
 
-	import Header from './Header.svelte';
-	import Footer from './Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	import "@fontsource-variable/atkinson-hyperlegible-next";
 	import '../app.css';

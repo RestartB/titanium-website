@@ -15,12 +15,14 @@
 	}
 </script>
 
-<button type="button" {onclick} class="flex flex-col gap-2 text-left cursor-pointer">
-	<div class="flex gap-2 items-center">
-		<MaterialSymbolsArrowForwardIosRounded class="min-h-8 min-w-8 transition-transform {showContent ? 'rotate-90' : ''}" />
+<button type="button" {onclick} class="flex cursor-pointer flex-col gap-2 text-left">
+	<div class="flex items-center gap-2">
+		<MaterialSymbolsArrowForwardIosRounded
+			class="min-h-8 min-w-8 transition-transform {showContent ? 'rotate-90' : ''}"
+		/>
 		<h2 class="text-2xl font-bold">{title}</h2>
 	</div>
-	
+
 	{#if showContent}
 		<p class="pl-10" in:fly={{ y: -10, duration: 200 }} out:fly={{ y: -10, duration: 150 }}>
 			{@html content}
