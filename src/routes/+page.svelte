@@ -41,7 +41,6 @@
 			});
 
 			if (tagline) {
-				console.log(tagline.textContent);
 				tagline.textContent = 'pspspspspsppspsp meow meow';
 			}
 		}
@@ -59,12 +58,10 @@
 					const data: Response = await response.json();
 
 					if (statString) {
-						console.log(statString.innerHTML);
 						statString.innerHTML = `Ready? Join <span class="font-bold">${data.user_count.toLocaleString()}</span> users and <span class="font-bold">${data.server_count.toLocaleString()}</span> servers and`;
 					}
 				} else {
 					if (statString) {
-						console.log(statString.innerHTML);
 						statString.innerHTML = `Ready? Join <span class="font-bold">hundreds of other users</span> and`;
 					}
 				}
