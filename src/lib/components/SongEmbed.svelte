@@ -12,7 +12,6 @@
 	};
 
 	let { artist, artistArtURL, album, albumArtURL, song, releaseYear }: Props = $props();
-	let art: HTMLImageElement;
 
 	onMount(() => {
 		const pictureElements = document.querySelectorAll('picture');
@@ -38,6 +37,6 @@
 			</div>
 		</div>
 
-		<enhanced:img src={albumArtURL} alt="Album Art" class="h-20 w-20 rounded-xl hidden xxs:block" bind:this={art} />
+		<enhanced:img src={albumArtURL} alt="Album Art" class="h-20 w-20 rounded-xl hidden xxs:block" />
 	</div>
 </div>

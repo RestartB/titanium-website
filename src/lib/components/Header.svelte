@@ -26,7 +26,7 @@
 	}
 
 	$effect(() => {
-		if (width < 454) {
+		if (width < 525) {
 			compact = true;
 		} else {
 			compact = false;
@@ -36,18 +36,6 @@
 	$effect(() => {
 		if (!compact && menuActive) {
 			menuActive = false;
-		}
-	});
-
-	$effect(() => {
-		if (headerElement) {
-			if (compact) {
-				headerElement.classList.replace('w-fit', 'w-full');
-				headerElement.classList.replace('justify-center', 'justify-between');
-			} else {
-				headerElement.classList.replace('w-full', 'w-fit');
-				headerElement.classList.replace('justify-between', 'justify-center');
-			}
 		}
 	});
 
@@ -82,10 +70,10 @@
 <div class="fixed right-0 left-0 z-50 m-2.5 flex items-center justify-center">
 	<header
 		style="view-transition-name: header;"
-		class="border-titanium-border z-50 box-border flex h-12 w-fit items-center justify-center gap-2.5 rounded-lg border-1 bg-zinc-200/70 pr-2.5 pl-2.5 backdrop-blur-lg dark:bg-zinc-800/70"
+		class="border-titanium-border z-50 box-border flex h-12 w-full items-center justify-between gap-2.5 rounded-lg border-1 bg-zinc-200/70 pr-2.5 pl-2.5 backdrop-blur-lg dark:bg-zinc-800/70 max-w-5xl"
 		bind:this={headerElement}
 	>
-		<div class="flex h-full items-center justify-center gap-2.5">
+		<div class="flex h-full w-[120px] items-center justify-center gap-2.5">
 			<img src={logo} alt="Titanium Logo" height="30" width="30" />
 			<h1 class="font-bold">Titanium</h1>
 		</div>
@@ -111,19 +99,21 @@
 					<li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
 						<a
 							href="/status"
-							class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
+							class="flex h-full w-full cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
 							><p>Status</p></a
-						>
-					</li>
-					<li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
-						<a
-							href="/invite"
-							class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
-							><p>Add Bot</p></a
 						>
 					</li>
 				</ul>
 			</nav>
+
+			<div class="flex h-full w-[120px] items-center justify-end gap-2.5">
+				<a
+					href="/invite"
+					class="border-titanium-border flex h-fit w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 px-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+					><MaterialSymbolsAdd2Rounded />
+					<p>Add Bot</p></a
+				>
+			</div>
 		{:else}
 			<button
 				class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
@@ -146,6 +136,7 @@
 				<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 				<nav
 					class=" absolute top-14.5 left-0 z-40 flex w-full flex-col items-end gap-2"
+					style="view-transition-name: menu;"
 					transition:fly={{ y: -10, duration: 300 }}
 					onclick={toggleMenu}
 				>

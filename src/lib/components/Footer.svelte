@@ -41,7 +41,7 @@
 			>
 		</div>
 
-		<nav class="flex h-full flex-wrap items-center justify-center gap-5">
+		<nav class="flex h-full flex-wrap  justify-center gap-5">
 			<ul class="flex h-full flex-col text-base">
 				<li>
 					<h1 class="font-bold">Navigation</h1>
@@ -59,9 +59,9 @@
 						<p>About</p></a
 					>
 				</li>
-				<li aria-current={page.url.pathname === '/terms' ? 'page' : undefined}>
+				<li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
 					<a
-						href="/terms"
+						href="/status"
 						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
 					>
 						<p>Status</p></a
@@ -80,6 +80,13 @@
 			<ul class="flex h-full flex-col text-base">
 				<li>
 					<h1 class="font-bold">Policies & More</h1>
+				</li>
+				<li>
+					<a
+						href="/server"
+						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
+						><p>Support Server</p></a
+					>
 				</li>
 				<li aria-current={page.url.pathname === '/terms' ? 'page' : undefined}>
 					<a

@@ -1,3 +1,7 @@
+<script>
+	import { text } from "@sveltejs/kit";
+
+</script>
 <svelte:head>
 	<title>Titanium - Terms and Conditions</title>
 	<meta name="description" content="About this app" />
@@ -5,7 +9,7 @@
 
 <style>
 	a {
-		color: default;
+		text-decoration: underline;
 	}
 </style>
 

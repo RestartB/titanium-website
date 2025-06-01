@@ -3,6 +3,12 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
+<style>
+	a {
+		text-decoration: underline;
+	}
+</style>
+
 <div class="p-5 pt-19.5 flex flex-col gap-5 max-w-5xl">
 	<div>
 		<h1 class="text-4xl font-bold">Website Privacy Policy</h1>

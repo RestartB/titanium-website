@@ -9,18 +9,20 @@
 	<meta content="Your multipurpose, open source Discord bot." property="og:description" />
 </svelte:head>
 
-<div in:fly={{ y: 20, duration: 500 }} class="flex max-w-4xl w-full flex-col gap-5 p-5 pt-19.5 items-center">
+<div
+	in:fly={{ y: 20, duration: 500 }}
+	class="flex w-full max-w-4xl flex-col items-center gap-5 p-5 pt-19.5"
+>
 	<h1
 		class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-center text-6xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
 	>
 		About
 	</h1>
 
-	<div class="flex flex-col gap-3 border-l-4 pl-3 max-w-[600px] mb-10">
+	<div class="mb-10 flex max-w-[600px] flex-col gap-3 border-l-4 pl-3">
 		<p class="max-w-2xl">
 			Hi there! I'm Restart, the creator of Titanium. This page goes over some more information
-			about Titanium. If you have any more questions, feel free to join our support Discord server!
-			😊
+			about Titanium. Have another question? Make sure to join our support Discord server! 😊
 		</p>
 		<div class="flex items-center gap-2">
 			<enhanced:img src="$lib/images/restart.png" alt="Restart" class="w-8 rounded-full" />
@@ -28,7 +30,7 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-3 w-full">
+	<div class="flex w-full flex-col gap-3">
 		<Summary
 			title="What is Titanium?"
 			content="Titanium is a multipurpose, open source Discord bot designed to enhance your Discord experience. It can be added to your server to provide features like a starboard and message stats, or it can be added to your account so you can use Titanium's features anywhere on Discord!"
@@ -56,12 +58,12 @@
 
 		<Summary
 			title="How can I submit bug reports or feature requests?"
-			content="The best way to submit bug reports or feature requests is to create a post in the <a href='/server'>Discord server</a>. You can also create an issue in the <a href='https://github.com/RestartB/Titanium/issues'>GitHub repository</a>."
+			content="The best way to submit bug reports or feature requests is to create a post in the <a class='underline' href='/server'>Discord server</a>. You can also create an issue in the <a class='underline' href='https://github.com/RestartB/Titanium/issues'>GitHub repository</a>."
 		/>
 
 		<Summary
 			title="How can I contribute to Titanium?"
-			content="To contribute to Titanium, you can check out the <a href='https://github.com/RestartB/Titanium'>GitHub repository</a>. There, you can find the instructions on how to contribute. Contributions are always welcome!"
+			content="To contribute to Titanium, you can check out the <a class='underline' href='https://github.com/RestartB/Titanium'>GitHub repository</a>. There, you can find the instructions on how to contribute. Contributions are always welcome!"
 		/>
 
 		<Summary
