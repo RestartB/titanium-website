@@ -1,6 +1,7 @@
 <svelte:head>
 	<title>Titanium - Website Privacy Policy</title>
-	<meta name="description" content="About this app" />
+	<meta content="Titanium - Website Privacy Policy" property="og:title" />
+	<meta content="View the website privacy policy for Titanium, your multipurpose, open source Discord bot." property="og:description" />
 </svelte:head>
 
 <style>
@@ -12,7 +13,7 @@
 <div class="p-5 pt-19.5 flex flex-col gap-5 max-w-5xl">
 	<div>
 		<h1 class="text-4xl font-bold">Website Privacy Policy</h1>
-		<h2 class="text-xl font-semibold">Updated: 23/05/2025</h2>
+		<h2 class="text-xl font-semibold">Updated: 01/06/2025</h2>
 	</div>
 
 	<p>This document explains how Titanium's website treats your data. <span class="font-bold">Please note that this Privacy Policy only applies to the Titanium bot website (https://titaniumbot.me/).</span></p>

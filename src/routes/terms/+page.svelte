@@ -1,10 +1,7 @@
-<script>
-	import { text } from "@sveltejs/kit";
-
-</script>
 <svelte:head>
-	<title>Titanium - Terms and Conditions</title>
-	<meta name="description" content="About this app" />
+	<title>Titanium - Terms of Use</title>
+	<meta content="Titanium - Terms of Use" property="og:title" />
+	<meta content="View the terms of use for Titanium, your multipurpose, open source Discord bot." property="og:description" />
 </svelte:head>
 
 <style>
@@ -16,7 +13,7 @@
 <div class="p-5 pt-19.5 flex flex-col gap-5 max-w-5xl">
 	<div>
 		<h1 class="text-4xl font-bold">Terms of Use</h1>
-		<h2 class="text-xl font-semibold">Updated: 23/05/2025</h2>
+		<h2 class="text-xl font-semibold">Updated: 01/06/2025</h2>
 	</div>
 
 	<p>This document contains the terms of service that you agree to when using Titanium's services. <span class="font-bold">Please note that this Terms of Use policy only applies to the official main Titanium bot instance. When using other Titanium instances, please refer to their own policies.</span></p>
