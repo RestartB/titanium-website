@@ -11,6 +11,7 @@
 	import MaterialSymbolsHomeRounded from 'virtual:icons/material-symbols/home-rounded';
 	import MaterialSymbolsInfoOutlineRounded from 'virtual:icons/material-symbols/info-outline-rounded';
 	import MaterialSymbolsCheckCircleOutlineRounded from 'virtual:icons/material-symbols/check-circle-outline-rounded';
+	import MaterialSymbolsAdd2Rounded from 'virtual:icons/material-symbols/add-2-rounded';
 
 	let width = $state(1024);
 
@@ -25,7 +26,7 @@
 	}
 
 	$effect(() => {
-		if (width < 380) {
+		if (width < 454) {
 			compact = true;
 		} else {
 			compact = false;
@@ -114,6 +115,13 @@
 							><p>Status</p></a
 						>
 					</li>
+					<li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
+						<a
+							href="/invite"
+							class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
+							><p>Add Bot</p></a
+						>
+					</li>
 				</ul>
 			</nav>
 		{:else}
@@ -166,6 +174,14 @@
 								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 								><MaterialSymbolsCheckCircleOutlineRounded />
 								<p>Status</p></a
+							>
+						</li>
+						<li>
+							<a
+								href="/invite"
+								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+								><MaterialSymbolsAdd2Rounded />
+								<p>Add Bot</p></a
 							>
 						</li>
 					</ul>
