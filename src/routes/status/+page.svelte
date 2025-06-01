@@ -2,6 +2,8 @@
 	import { fly } from 'svelte/transition';
 	import { onMount, onDestroy } from 'svelte';
 
+	let { data } = $props();
+
 	import CharmTick from 'virtual:icons/charm/tick';
 	import CharmCross from 'virtual:icons/charm/cross';
 
@@ -48,7 +50,7 @@
 	}
 
 	let secondsInterval: ReturnType<typeof setInterval>;
-    let fetchTimeout: ReturnType<typeof setTimeout>;
+	let fetchTimeout: ReturnType<typeof setTimeout>;
 
 	async function scheduleNextFetch() {
 		await fetchStatus();
@@ -159,7 +161,21 @@
 		>
 			<div class="xs:flex-row flex flex-col items-center gap-3">
 				<div class="flex items-center gap-3">
-					<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
+					{#if data.mainPFP !== ''}
+						<img
+							src={data.mainPFP}
+							alt="Titanium Logo"
+							height="64"
+							width="64"
+							class="h-16 w-16 rounded-xl"
+						/>
+					{:else}
+						<enhanced:img
+							src="$lib/images/titanium-logo.svg"
+							alt="Titanium Logo"
+							class="h-16 w-16 rounded-xl"
+						/>
+					{/if}
 					<div>
 						<h2 class="font-bold">Titanium</h2>
 						<p>The main Titanium instance.</p>
@@ -213,7 +229,21 @@
 
 			<div class="xs:flex-row flex flex-col items-center gap-3">
 				<div class="flex items-center gap-3">
-					<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-16 w-16" />
+					{#if data.privatePFP !== ''}
+						<img
+							src={data.privatePFP}
+							alt="Titanium Private Logo"
+							height="64"
+							width="64"
+							class="h-16 w-16 rounded-xl"
+						/>
+					{:else}
+						<enhanced:img
+							src="$lib/images/titanium-logo.svg"
+							alt="Titanium Logo"
+							class="h-16 w-16 rounded-xl"
+						/>
+					{/if}
 					<div>
 						<h2 class="font-bold">Titanium Private</h2>
 						<p>Private version of Titanium.</p>
@@ -268,7 +298,49 @@
 		<div
 			class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
 		>
-			<p class="text-center font-light">No previous incidents.</p>
+			{#if !data.success}
+				<p class="text-center font-light">Failed to load incidents.</p>
+			{:else if data.incidents.length === 0}
+				<p class="text-center font-light">No incidents reported.</p>
+			{:else}
+				{#each data.incidents as incident, i (incident.id)}
+					<div class="flex flex-col gap-2">
+						<div class="flex items-center gap-3">
+							<h3 class="font-bold">{incident.title}</h3>
+
+							<div class="flex items-center gap-2">
+								{#if incident.resolved}
+									<span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
+									<p>Resolved</p>
+								{:else}
+									<span class="relative flex size-3">
+										<span
+											class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
+										></span>
+										<span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
+									</span>
+									<p>Ongoing</p>
+								{/if}
+							</div>
+						</div>
+
+						<p class="text-sm text-zinc-600 dark:text-zinc-400">
+							{#if incident.resolved}
+								{incident.createdAt.toLocaleTimeString()} - {incident.createdAt.toLocaleDateString()},
+								resolved at {incident.resolvedAt.toLocaleTimeString()} - {incident.resolvedAt.toLocaleDateString()}
+							{:else}
+								{incident.createdAt.toLocaleTimeString()} - {incident.createdAt.toLocaleDateString()}
+							{/if}
+						</p>
+
+						<p>{incident.description}</p>
+					</div>
+
+					{#if i < data.incidents.length - 1}
+						<hr class="border-zinc-600" />
+					{/if}
+				{/each}
+			{/if}
 		</div>
 	</div>
 </div>

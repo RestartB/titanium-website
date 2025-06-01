@@ -268,6 +268,52 @@
 			<h2
 				class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-5xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
 			>
+				Stat Counters
+			</h2>
+			<p>Create stat counters that sit in the server list and update every 10 minutes with Titanium.</p>
+			<ul class="list-inside list-disc">
+				<li>track member counts, channel counts and more</li>
+				<li>create up to 20 counters</li>
+				<li>set custom channel names</li>
+				<li>channels update every 10 minutes</li>
+			</ul>
+		</div>
+
+		<div class="flex flex-col gap-3 select-none">
+			<div
+				class="flex h-fit items-center gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-2 px-4 select-none sm:min-w-[310px] dark:bg-zinc-700"
+			>
+				<h1 class="text-2xl font-bold">#</h1>
+				<h3>Server members: 53</h3>
+			</div>
+
+			<div
+				class="flex h-fit items-center gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-2 px-4 select-none sm:min-w-[310px] dark:bg-zinc-700"
+			>
+				<h1 class="text-2xl font-bold">#</h1>
+				<h3>3 robots</h3>
+			</div>
+
+			<div
+				class="flex h-fit items-center gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-2 px-4 select-none sm:min-w-[310px] dark:bg-zinc-700"
+			>
+				<h1 class="text-2xl font-bold">#</h1>
+				<h3>Text channels, there are 5</h3>
+			</div>
+		</div>
+	</section>
+
+	<hr class="w-full text-zinc-600" />
+
+	<section class="flex w-full flex-col items-center justify-center gap-10 p-10 md:flex-row">
+		<div class="flex h-fit flex-col gap-3 select-none sm:min-w-[310px]">
+			<img src={quote} alt="Quote" width="400" class="rounded-xl border-2 border-zinc-600" />
+		</div>
+		
+		<div class="flex max-w-[750px] flex-col justify-center gap-2">
+			<h2
+				class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-5xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
+			>
 				Quotes
 			</h2>
 			<p>Use Titanium to generate quote images, so you can share and remember messages.</p>
@@ -279,9 +325,46 @@
 				<li>directly quote messages or create a custom quote</li>
 			</ul>
 		</div>
+	</section>
 
-		<div class="flex h-fit flex-col gap-3 select-none sm:min-w-[310px]">
-			<img src={quote} alt="Quote" width="400" class="rounded-xl border-2 border-zinc-600" />
+	<hr class="w-full text-zinc-600" />
+
+	<section class="flex w-full flex-col items-center justify-center gap-10 p-10 md:flex-row">
+		<div class="flex max-w-[750px] flex-col justify-center gap-2">
+			<h2
+				class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-5xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
+			>
+				Tags
+			</h2>
+			<p>
+				Use tags to create quick replies to common questions, store quick responses, and more. You can have server wide tags, or per user tags that work in any server.
+			</p>
+			<ul class="list-inside list-disc">
+				<li>server wide tags that work for anyone with command access</li>
+				<li>per user tags that work in any server</li>
+				<li>store up to 200 tags</li>
+				<li>create attachment tags easily</li>
+			</ul>
+		</div>
+
+		<div class="flex flex-col gap-3 select-none">
+			<div
+				class="h-fit overflow-hidden rounded-xl border-2 border-zinc-600 bg-zinc-200 sm:min-w-[310px] dark:bg-zinc-700"
+			>
+				<div class="flex h-fit w-full items-center gap-2 border-l-8 border-[#8C8C8C] p-4">
+					<div class="mr-auto flex flex-col justify-center gap-1">
+						<div class="flex items-center gap-2">
+							<p>User Tag</p>
+						</div>
+
+						<div>
+							<h3 class="text-2xl font-bold">Hello</h3>
+
+							<p>Hi there, I am a tag!</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -355,9 +438,9 @@
 				you and the current server.
 			</p>
 			<ul class="list-inside list-disc">
-				<li>Search Wikipedia</li>
-				<li>Search Urban Dictionary</li>
-				<li>Get reviews for any user or the current server with ReviewDB</li>
+				<li>search Wikipedia</li>
+				<li>search Urban Dictionary</li>
+				<li>get reviews for any user or the current server with ReviewDB</li>
 			</ul>
 		</div>
 
@@ -409,11 +492,6 @@
 				info, and other smaller commands like a random number generator and magic 8 ball. New
 				commands are also getting added all of the time!
 			</p>
-			<ul class="list-inside list-disc">
-				<li>Search Wikipedia</li>
-				<li>Search Urban Dictionary</li>
-				<li>Get reviews for any user or the current server with ReviewDB</li>
-			</ul>
 		</div>
 	</section>
 
