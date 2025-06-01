@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
 
 export const load = async () => {
-    throw redirect(302, 'https://discord.com/oauth2/authorize?client_id=1222612840146407484');
+	throw redirect(302, 'https://discord.com/oauth2/authorize?client_id=1222612840146407484');
 };

@@ -37,13 +37,13 @@ export async function load() {
 	}
 
 	// Set size of PFPs
-    if (mainPFP) {
-        mainPFP = mainPFP.replace(/\?size=\d+/, '') + '?size=128';
-    }
-    
-    if (privatePFP) {
-        privatePFP = privatePFP.replace(/\?size=\d+/, '') + '?size=128';
-    }
+	if (mainPFP) {
+		mainPFP = mainPFP.replace(/\?size=\d+/, '') + '?size=128';
+	}
+
+	if (privatePFP) {
+		privatePFP = privatePFP.replace(/\?size=\d+/, '') + '?size=128';
+	}
 
 	try {
 		const incidentsData = await getIncidents();

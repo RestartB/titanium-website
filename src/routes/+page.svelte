@@ -270,7 +270,9 @@
 			>
 				Stat Counters
 			</h2>
-			<p>Create stat counters that sit in the server list and update every 10 minutes with Titanium.</p>
+			<p>
+				Create stat counters that sit in the server list and update every 10 minutes with Titanium.
+			</p>
 			<ul class="list-inside list-disc">
 				<li>track member counts, channel counts and more</li>
 				<li>create up to 20 counters</li>
@@ -309,7 +311,7 @@
 		<div class="flex h-fit flex-col gap-3 select-none sm:min-w-[310px]">
 			<img src={quote} alt="Quote" width="400" class="rounded-xl border-2 border-zinc-600" />
 		</div>
-		
+
 		<div class="flex max-w-[750px] flex-col justify-center gap-2">
 			<h2
 				class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-5xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
@@ -337,7 +339,8 @@
 				Tags
 			</h2>
 			<p>
-				Use tags to create quick replies to common questions, store quick responses, and more. You can have server wide tags, or per user tags that work in any server.
+				Use tags to create quick replies to common questions, store quick responses, and more. You
+				can have server wide tags, or per user tags that work in any server.
 			</p>
 			<ul class="list-inside list-disc">
 				<li>server wide tags that work for anyone with command access</li>

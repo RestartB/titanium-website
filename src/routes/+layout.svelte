@@ -4,7 +4,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
-	import "@fontsource-variable/atkinson-hyperlegible-next";
+	import '@fontsource-variable/atkinson-hyperlegible-next';
 	import '../app.css';
 
 	let { children } = $props();
@@ -24,10 +24,10 @@
 <div
 	class="app font-display bg-linear-to-bl from-zinc-100 to-zinc-400 text-lg text-black dark:from-zinc-700 dark:to-zinc-900 dark:text-white"
 >
-	<Header />	
+	<Header />
 
 	<main
-		class="flex flex-col items-center min-h-screen"
+		class="flex min-h-screen flex-col items-center"
 		style="view-transition-name: page-content"
 		id="page-content"
 	>
