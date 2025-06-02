@@ -4,7 +4,6 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
-	import '@fontsource-variable/atkinson-hyperlegible-next';
 	import '../app.css';
 
 	let { children } = $props();

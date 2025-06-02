@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
 @import 'tailwindcss';
 
 @theme {
 	--color-titanium-border: #767676;
 	--color-titanium-sidebar-active: #4e4e4e;
 	--color-titanium-transparent-header: rgba(228, 228, 231, 0.7);
-	--font-display: 'Atkinson Hyperlegible Next Variable', 'sans-serif';
+	--font-display: 'Atkinson Hyperlegible Next', 'sans-serif';
 	--breakpoint-xs: 426px;
 	--breakpoint-xxs: 365px;
 }

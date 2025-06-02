@@ -48,6 +48,16 @@
 			>
 		</p>
 	</section>
+
+	<section class="flex flex-col gap-2.5" id="data">
+		<h2 class="text-xl font-semibold">Font Notice</h2>
+		<p>
+			Please note that the website uses the <a
+				href="https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next"
+				>Atkinson Hyperlegible Next</a
+			> font, which is hosted by Google Fonts.
+		</p>
+	</section>
 </div>
 
 <style>
