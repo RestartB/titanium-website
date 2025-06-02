@@ -10,7 +10,7 @@
 <div class="flex max-w-5xl flex-col gap-5 p-5 pt-19.5">
 	<div>
 		<h1 class="text-4xl font-bold">Terms of Use</h1>
-		<h2 class="text-xl font-semibold">Updated: 01/06/2025</h2>
+		<h2 class="text-xl font-semibold">Updated: 02/06/2025</h2>
 	</div>
 
 	<p>
@@ -67,11 +67,6 @@
 				>
 			</li>
 			<li>
-				you must not use Titanium to <span class="font-bold"
-					>violate any laws in the United Kingdom (hosting country) or the country of usage.</span
-				>
-			</li>
-			<li>
 				you must not <span class="font-bold"
 					>attempt to bypass any limits put in place by us (e.g. cooldowns, tag limits).</span
 				>
@@ -116,7 +111,7 @@
 	<div class="flex flex-col gap-2.5" id="features">
 		<h3 class="font-semibold">Features</h3>
 		<p>
-			e are developing Titanium to add new features and remove bugs all the time. Because of this,
+			We are developing Titanium to add new features and remove bugs all the time. Because of this,
 			new features may be added and some features may be removed. By using Titanium, you acknowledge
 			this fact and that we are not responsible for any lost data or features.
 		</p>
@@ -127,7 +122,7 @@
 		<p>
 			Titanium may experience temporary outages in service, whether this is due to maintenance,
 			feature rollouts or other issues. By using Titanium, you acknowledge this fact and that we are
-			not responsible for any lost time or data due to an outage.
+			not responsible for any outages.
 		</p>
 	</div>
 
