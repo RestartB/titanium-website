@@ -20,7 +20,7 @@
 		<MaterialSymbolsArrowForwardIosRounded
 			class="min-h-8 min-w-8 transition-transform {showContent ? 'rotate-90' : ''}"
 		/>
-		<h2 class="text-2xl font-bold">{title}</h2>
+		<h2 class="text-2xl font-bold">{@html title}</h2>
 	</div>
 
 	{#if showContent}
