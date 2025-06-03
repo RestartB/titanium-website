@@ -16,9 +16,9 @@
 		<div class="flex w-[270px] items-center justify-center gap-2.5">
 			<img src={logo} alt="Titanium Logo" height="60" width="60" />
 			<div>
-				<h1 class="font-bold">Titanium</h1>
+				<h1 class="font-bold" translate="no">Titanium</h1>
 				<h3 class="text-base">More features than protons.</h3>
-				<p class="mt-1 text-sm font-light">2025, Restart</p>
+				<p class="mt-1 text-sm font-light">2025, <span translate="no">Restart</span></p>
 			</div>
 		</div>
 
@@ -41,7 +41,7 @@
 			>
 		</div>
 
-		<nav class="flex h-full flex-wrap  justify-center gap-5">
+		<nav class="flex h-full flex-wrap justify-center gap-5">
 			<ul class="flex h-full flex-col text-base">
 				<li>
 					<h1 class="font-bold">Navigation</h1>
@@ -72,7 +72,7 @@
 						href="/invite"
 						class="text-gray-600 transition-colors hover:text-inherit dark:text-gray-400"
 					>
-						<p>Add Titanium</p></a
+						<p>Add <span translate="no">Titanium</span></p></a
 					>
 				</li>
 			</ul>

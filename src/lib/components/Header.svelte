@@ -71,12 +71,12 @@
 <div class="fixed right-0 left-0 z-50 m-2.5 flex items-center justify-center">
 	<header
 		style="view-transition-name: header;"
-		class="border-titanium-border z-50 box-border flex h-12 w-full items-center justify-between gap-2.5 rounded-lg border-1 bg-zinc-200/70 pr-2.5 pl-2.5 backdrop-blur-lg dark:bg-zinc-800/70 max-w-5xl"
+		class="border-titanium-border z-50 box-border flex h-12 w-full max-w-5xl items-center justify-between gap-2.5 rounded-lg border-1 bg-zinc-200/70 pr-2.5 pl-2.5 backdrop-blur-lg dark:bg-zinc-800/70"
 		bind:this={headerElement}
 	>
 		<div class="flex h-full w-[120px] items-center justify-center gap-2.5">
 			<img src={logo} alt="Titanium Logo" height="30" width="30" />
-			<h1 class="font-bold">Titanium</h1>
+			<h1 class="font-bold" translate="no">Titanium</h1>
 		</div>
 
 		{#if !compact || !mounted}
@@ -107,7 +107,7 @@
 				</ul>
 			</nav>
 
-			<div class="flex h-full w-[120px] items-center justify-end gap-2.5">
+			<div class="flex h-full min-w-[120px] items-center justify-end gap-2.5">
 				<a
 					href="/invite"
 					class="border-titanium-border flex h-fit w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 px-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"

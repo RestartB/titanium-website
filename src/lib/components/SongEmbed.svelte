@@ -28,15 +28,17 @@
 		<div class="mr-auto flex flex-col justify-center gap-1">
 			<div class="flex items-center gap-2">
 				<enhanced:img src={artistArtURL} alt="Artist" class="h-7.5 w-7.5 rounded-full" />
-				<p>{artist}</p>
+				<p translate="no">{artist}</p>
 			</div>
 
 			<div>
-				<h3 class="text-2xl font-bold">{song}</h3>
-				<p><span class="font-semibold">on {album}</span> - {releaseYear}</p>
+				<h3 class="text-2xl font-bold" translate="no">{song}</h3>
+				<p>
+					<span class="font-semibold">on <span translate="no">{album}</span></span> - {releaseYear}
+				</p>
 			</div>
 		</div>
 
-		<enhanced:img src={albumArtURL} alt="Album Art" class="h-20 w-20 rounded-xl hidden xxs:block" />
+		<enhanced:img src={albumArtURL} alt="Album Art" class="xxs:block hidden h-20 w-20 rounded-xl" />
 	</div>
 </div>

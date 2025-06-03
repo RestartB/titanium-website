@@ -29,7 +29,7 @@
 			document.title = document.title.replaceAll('Titanium', 'Meowium');
 
 			// Get safe text elements
-			const text = document.querySelectorAll('h1, h2, h3, p');
+			const text = document.querySelectorAll('h1, h2, h3, p, span');
 			text.forEach((text) => {
 				if (text.textContent) {
 					text.textContent = text.textContent.replaceAll('Titanium', 'Meowium');
@@ -93,7 +93,7 @@
 					class="rounded-full border-6 border-zinc-300 h-30 w-30"
 				/>
 				<h1
-					class="bg-linear-to-bl from-zinc-100 to-zinc-400 bg-clip-text text-7xl font-bold text-transparent"
+					class="bg-linear-to-bl from-zinc-100 to-zinc-400 bg-clip-text text-7xl font-bold text-transparent" translate="no"
 				>
 					Titanium
 				</h1>
@@ -113,7 +113,7 @@
 			class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 		>
 			<MaterialSymbolsAdd2Rounded class="h-7.5 w-7.5" />
-			Add Titanium
+			Add <span translate="no">Titanium</span>
 		</a>
 	</section>
 
@@ -127,7 +127,7 @@
 				/>
 
 				<div class="flex flex-col justify-center">
-					<h3 class="font-semibold">Restart & Titanium</h3>
+					<h3 class="font-semibold" translate="no">Restart & Titanium</h3>
 					<p><code>/spotify search song</code></p>
 				</div>
 			</div>
@@ -140,7 +140,7 @@
 				/>
 
 				<div class="flex flex-col justify-center">
-					<h3 class="font-semibold">Jiga Tech's Discord</h3>
+					<h3 class="font-semibold" translate="no">Jiga Tech's Discord</h3>
 					<p><code>/quote</code></p>
 				</div>
 			</div>
@@ -153,7 +153,7 @@
 				/>
 
 				<div class="flex flex-col justify-center">
-					<h3 class="font-semibold">irl friends</h3>
+					<h3 class="font-semibold" translate="no">irl friends</h3>
 					<p><code>/image speechbubble</code></p>
 				</div>
 			</div>
@@ -166,14 +166,14 @@
 				Usable everywhere
 			</h2>
 			<p>
-				Titanium is designed to be used as a server bot or a user app. This means you can use
-				Titanium in any server, without it being invited!
+				<span translate="no">Titanium</span> is designed to be used as a server bot or a user app. This means you can use
+				<span translate="no">Titanium</span> in any server, without it being invited!
 			</p>
 
 			<ul class="list-inside list-disc">
-				<li>use Titanium's commands anywhere, including DMs - just use <strong>/</strong></li>
-				<li>your info stays private - Titanium can't see any messages except ones you pick</li>
-				<li>invite Titanium to your server for more features</li>
+				<li>use <span translate="no">Titanium</span>'s commands anywhere, including DMs - just use <strong>/</strong></li>
+				<li>your info stays private - <span translate="no">Titanium</span> can't see any messages except ones you pick</li>
+				<li>invite <span translate="no">Titanium</span> to your server for more features</li>
 			</ul>
 		</div>
 	</section>
@@ -189,7 +189,7 @@
 			</h2>
 			<p>
 				From resizing images, to changing image formats, to allowing images to be bookmarked in
-				Discord, Titanium has you covered.
+				Discord, <span translate="no">Titanium</span> has you covered.
 			</p>
 			<ul class="list-inside list-disc">
 				<li>resize images</li>
@@ -207,7 +207,7 @@
 				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium" class="h-15 w-15 rounded-xl" />
 
 				<div class="flex flex-col justify-center">
-					<h3 class="font-semibold">Titanium</h3>
+					<h3 class="font-semibold" translate="no">Titanium</h3>
 					<p>Image deepfried!</p>
 				</div>
 			</div>
@@ -225,7 +225,7 @@
 				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium" class="h-15 w-15 rounded-xl" />
 
 				<div class="flex flex-col justify-center">
-					<h3 class="font-semibold">Titanium</h3>
+					<h3 class="font-semibold" translate="no">Titanium</h3>
 					<p>Server leaderboard</p>
 				</div>
 			</div>
@@ -244,7 +244,7 @@
 			>
 				Server stats and starboard
 			</h2>
-			<p>Titanium offers message stats and a starboard to keep server members engaged.</p>
+			<p><span translate="no">Titanium</span> offers message stats and a starboard to keep server members engaged.</p>
 			<ul class="list-inside list-disc">
 				<li>track message amounts, words and attachments</li>
 				<li>get leaderboards for each category</li>
@@ -265,7 +265,7 @@
 				Stat Counters
 			</h2>
 			<p>
-				Create stat counters that sit in the server list and update every 10 minutes with Titanium.
+				Create stat counters that sit in the server list and update every 10 minutes with <span translate="no">Titanium</span>.
 			</p>
 			<ul class="list-inside list-disc">
 				<li>track member counts, channel counts and more</li>
@@ -312,7 +312,7 @@
 			>
 				Quotes
 			</h2>
-			<p>Use Titanium to generate quote images, so you can share and remember messages.</p>
+			<p>Use <span translate="no">Titanium</span> to generate quote images, so you can share and remember messages.</p>
 			<ul class="list-inside list-disc">
 				<li>light and dark modes</li>
 				<li>colour or black and white options</li>
@@ -402,7 +402,7 @@
 			</h2>
 			<p>
 				Search Spotify to find songs, artists and albums with informative embeds - all from within
-				Discord, powered by Titanium. You can also display Spotify playlists and info from any
+				Discord, powered by <span translate="no">Titanium</span>. You can also display Spotify playlists and info from any
 				streaming service when you enter a link, and get song lyrics.
 			</p>
 			<ul class="list-inside list-disc">
@@ -453,7 +453,7 @@
 						</div>
 
 						<div>
-							<h3 class="text-2xl font-bold">Titanium</h3>
+							<h3 class="text-2xl font-bold" translate="no">Titanium</h3>
 							<p>by <span class="font-semibold">@RestartB</span></p>
 
 							<p>Quite possibly the best bot on the planet.</p>
@@ -485,7 +485,7 @@
 				...and more!
 			</h2>
 			<p>
-				Titanium contains over 48 features, including utility commands like user info and server
+				<span translate="no">Titanium</span> contains over 48 features, including utility commands like user info and server
 				info, and other smaller commands like a random number generator and magic 8 ball. New
 				commands are also getting added all of the time!
 			</p>
@@ -523,7 +523,7 @@
 			class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 		>
 			<MaterialSymbolsAdd2Rounded class="h-7.5 w-7.5" />
-			Add Titanium Now
+			Add <span translate="no">Titanium</span> Now
 		</a>
 	</section>
 </div>

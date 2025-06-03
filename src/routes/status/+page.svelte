@@ -190,8 +190,8 @@
 						/>
 					{/if}
 					<div>
-						<h2 class="font-bold">Titanium</h2>
-						<p>The main Titanium instance.</p>
+						<h2 class="font-bold" translate="no">Titanium</h2>
+						<p>The main <span translate="no">Titanium</span> instance.</p>
 					</div>
 				</div>
 
@@ -260,8 +260,8 @@
 						/>
 					{/if}
 					<div>
-						<h2 class="font-bold">Titanium Private</h2>
-						<p>Private version of Titanium.</p>
+						<h2 class="font-bold" translate="no">Titanium Private</h2>
+						<p>Private version of <span translate="no">Titanium.</span></p>
 					</div>
 				</div>
 
