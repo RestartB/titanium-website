@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
 	import { fade, fly } from 'svelte/transition';
+	import { prefersReducedMotion } from 'svelte/motion';
 
 	import logo from '$lib/images/titanium-logo.svg';
 
@@ -62,7 +63,7 @@
 		style="view-transition-name: header-container;"
 		class="fixed top-0 left-0 z-20 h-screen w-full bg-zinc-100/70 backdrop-blur-lg dark:bg-zinc-900/70"
 		aria-hidden="true"
-		transition:fade={{ duration: 100 }}
+		transition:fade={{ duration: prefersReducedMotion.current ? 0 : 100 }}
 		onclick={toggleMenu}
 	></div>
 {/if}
@@ -79,7 +80,7 @@
 		</div>
 
 		{#if !compact || !mounted}
-			<nav class="fullnav h-full" in:fade={{ duration: 100 }}>
+			<nav class="fullnav h-full" in:fade={{ duration: prefersReducedMotion.current ? 0 : 100 }}>
 				<ul class="flex h-full">
 					<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
 						<a
@@ -118,7 +119,7 @@
 			<button
 				class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
 				onclick={toggleMenu}
-				in:fade={{ duration: 100 }}
+				in:fade={{ duration: prefersReducedMotion.current ? 0 : 100 }}
 			>
 				{#if menuActive}
 					<div in:fade={{ duration: 100 }}>
@@ -137,7 +138,7 @@
 				<nav
 					class=" absolute top-14.5 left-0 z-40 flex w-full flex-col items-end gap-2"
 					style="view-transition-name: menu;"
-					transition:fly={{ y: -10, duration: 300 }}
+					transition:fly={{ y: prefersReducedMotion.current ? 0 : -10, duration: 300 }}
 					onclick={toggleMenu}
 				>
 					<ul class="flex flex-col gap-2.5">

@@ -1,17 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fly, scale } from 'svelte/transition';
+	import { prefersReducedMotion } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 
 	// Components
 	import SongEmbed from '$lib/components/SongEmbed.svelte';
 
 	// Images
-	import logo from '$lib/images/titanium-logo.svg';
-
-	import deepfried from '$lib/images/deepfried.png';
-	import quote from '$lib/images/quote.png';
-
 	import xcx from '$lib/images/embeds/xcx.jpeg?enhanced';
 	import brat from '$lib/images/embeds/brat.png?enhanced';
 
@@ -80,7 +76,7 @@
 	<meta content="Your multipurpose, open source Discord bot." property="og:description" />
 </svelte:head>
 
-<div in:fly={{ y: 20, duration: 500 }} class="w-full">
+<div in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }} class="w-full">
 	<section
 		class="border-titanium-border flex h-screen w-full flex-col items-center overflow-hidden border-b-4 p-4 pt-0"
 	>
@@ -91,12 +87,10 @@
 
 		<div class="z-10 mt-auto mb-auto flex flex-col gap-4 p-4">
 			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-				<img
-					src={logo}
-					height="120"
-					width="120"
+				<enhanced:img
+					src="$lib/images/titanium-logo.svg"
 					alt="Titanium Logo"
-					class="rounded-full border-6 border-zinc-300"
+					class="rounded-full border-6 border-zinc-300 h-30 w-30"
 				/>
 				<h1
 					class="bg-linear-to-bl from-zinc-100 to-zinc-400 bg-clip-text text-7xl font-bold text-transparent"
@@ -105,7 +99,7 @@
 				</h1>
 			</div>
 			<p
-				in:fly={{ y: 20, duration: 500 }}
+				in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
 				class="text-center text-3xl font-semibold text-white"
 				bind:this={tagline}
 			>
@@ -114,7 +108,7 @@
 		</div>
 
 		<a
-			in:scale={{ easing: cubicOut, duration: 500 }}
+			in:scale={{ easing: cubicOut, duration: prefersReducedMotion.current ? 0 : 500 }}
 			href="/invite"
 			class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 		>
@@ -210,14 +204,14 @@
 			class="flex h-fit flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 select-none sm:min-w-[310px] dark:bg-zinc-700"
 		>
 			<div class="flex gap-2">
-				<img src={logo} alt="Titanium" class="h-15 w-15 rounded-xl" width="60" height="60" />
+				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium" class="h-15 w-15 rounded-xl" />
 
 				<div class="flex flex-col justify-center">
 					<h3 class="font-semibold">Titanium</h3>
 					<p>Image deepfried!</p>
 				</div>
 			</div>
-			<img src={deepfried} alt="Deepfried" width="250" class="rounded-xl" />
+			<enhanced:img src="$lib/images/deepfried.png" alt="Deepfried" class="rounded-xl w-[250px]" />
 		</div>
 	</section>
 
@@ -228,7 +222,7 @@
 			class="flex h-fit flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 select-none sm:min-w-[310px] dark:bg-zinc-700"
 		>
 			<div class="flex gap-2">
-				<img src={logo} alt="Titanium" class="h-15 w-15 rounded-xl" width="60" height="60" />
+				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium" class="h-15 w-15 rounded-xl" />
 
 				<div class="flex flex-col justify-center">
 					<h3 class="font-semibold">Titanium</h3>
@@ -309,7 +303,7 @@
 
 	<section class="flex w-full flex-col items-center justify-center gap-10 p-10 md:flex-row">
 		<div class="flex h-fit flex-col gap-3 select-none sm:min-w-[310px]">
-			<img src={quote} alt="Quote" width="400" class="rounded-xl border-2 border-zinc-600" />
+			<enhanced:img src="$lib/images/quote.png" alt="Quote" class="rounded-xl border-2 border-zinc-600 w-[400px]" />
 		</div>
 
 		<div class="flex max-w-[750px] flex-col justify-center gap-2">
@@ -466,7 +460,7 @@
 						</div>
 					</div>
 
-					<img src={logo} alt="Logo" class="h-20 w-20 rounded-xl" />
+					<enhanced:img src="$lib/images/titanium-logo.svg" alt="Logo" class="h-20 w-20 rounded-xl" />
 				</div>
 			</div>
 		</div>

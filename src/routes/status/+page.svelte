@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
+	import { prefersReducedMotion } from 'svelte/motion';
 	import { onMount, onDestroy } from 'svelte';
 
 	let { data } = $props();
@@ -8,6 +9,7 @@
 	import CharmCross from 'virtual:icons/charm/cross';
 
 	let loading = $state();
+	let failed = $state(false);
 
 	let mainConnected = $state();
 	let mainLatency = $state(0);
@@ -27,6 +29,7 @@
 	async function fetchStatus() {
 		try {
 			loading = true;
+			failed = false;
 
 			const response = await fetch('/api/status');
 			if (!response.ok) throw new Error('Network response was not ok');
@@ -46,6 +49,7 @@
 			mainConnected = false;
 			privateConnected = false;
 			loading = false;
+			failed = true;
 		}
 	}
 
@@ -78,7 +82,7 @@
 </svelte:head>
 
 <div
-	in:fly={{ y: 20, duration: 500 }}
+	in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
 	class="flex w-full max-w-4xl flex-col items-center gap-5 p-5 pt-19.5"
 >
 	<h1
@@ -119,7 +123,7 @@
 			</div>
 
 			<p class="w-full">
-				Last updated {secondsAgo}s ago
+				Last successful update {secondsAgo}s ago
 			</p>
 		</div>
 
@@ -139,6 +143,15 @@
 					></path></svg
 				>
 				<p>Loading status...</p>
+			</div>
+		{:else if failed}
+			<div
+				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
+			>
+				<CharmCross class="shrink-0" />
+				<p>
+					Couldn't connect to the server. Please check your internet connection and try again later.
+				</p>
 			</div>
 		{:else if mainConnected && privateConnected}
 			<div
@@ -194,6 +207,8 @@
 								<span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
 							</span>
 							<h3 class="font-light">Loading</h3>
+						{:else if failed}
+							<h3 class="font-light">Error</h3>
 						{:else if mainConnected}
 							<span class="relative flex size-3">
 								<span
@@ -262,6 +277,8 @@
 								<span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
 							</span>
 							<h3 class="font-light">Loading</h3>
+						{:else if failed}
+							<h3 class="font-light">Error</h3>
 						{:else if privateConnected}
 							<span class="relative flex size-3">
 								<span

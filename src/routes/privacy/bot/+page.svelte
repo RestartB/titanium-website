@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+	import { prefersReducedMotion } from 'svelte/motion';
+
 	import Alert from '$lib/components/Alert.svelte';
 </script>
 
@@ -11,7 +14,10 @@
 	/>
 </svelte:head>
 
-<div class="flex max-w-5xl flex-col gap-5 p-5 pt-19.5">
+<div
+	in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
+	class="flex max-w-5xl flex-col gap-5 p-5 pt-19.5"
+>
 	<div>
 		<h1 class="text-4xl font-bold">Privacy Policy</h1>
 		<h2 class="text-xl font-semibold">Updated: 01/06/2025</h2>
@@ -123,10 +129,10 @@
 			You can optionally opt out of leaderboard data collection. To do this, use the <code
 				>/leaderboard opt-out</code
 			>
-			command. When you opt out, your user ID will be stored in an SQL table. If your user ID is in
-			that table, no information will be processed or stored for the leaderboard. in any servers
-			that have the Titanium leaderboard enabled. If you have opted out previously and want to opt
-			back in, use the <code>/leaderboard opt-in</code> command.
+			command. When you opt out, your user ID will be stored in an SQL table. If your user ID is in that
+			table, no information will be processed or stored for the leaderboard. in any servers that have
+			the Titanium leaderboard enabled. If you have opted out previously and want to opt back in, use
+			the <code>/leaderboard opt-in</code> command.
 		</p>
 	</section>
 

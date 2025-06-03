@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
+	import { prefersReducedMotion } from 'svelte/motion';
 	import Summary from '$lib/components/Summary.svelte';
 </script>
 
@@ -10,7 +11,7 @@
 </svelte:head>
 
 <div
-	in:fly={{ y: 20, duration: 500 }}
+	in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
 	class="flex w-full max-w-4xl flex-col items-center gap-5 p-5 pt-19.5"
 >
 	<h1
