@@ -164,7 +164,7 @@
 			By using Titanium, you agree that we have the right to terminate your service at any time,
 			with or without notice, for any reason. When this happens, you will not be allowed to run any
 			commands with Titanium, use Titanium context menu items, or interact with Titanium in any
-			other way. We will do this one of two ways:
+			other way. We will do this in one of two ways:
 		</p>
 		<ul class="list-inside list-disc">
 			<li>
@@ -178,19 +178,13 @@
 				back.
 			</li>
 		</ul>
-
-		<p>
-			This info will not be shared with anyone not in the dev team. We are currently working on a
-			way to opt out of this error collection and will have more information to share about this at
-			a later time.
-		</p>
 	</div>
 
 	<div class="flex flex-col gap-2.5" id="policy-updates">
 		<h2 class="text-xl font-semibold">Policy Updates</h2>
 		<p>
 			We may make changes to this policy over time. If a major change is made to the Terms of
-			Service policy, we will make an announcement over public channels.
+			Use policy, we will make an announcement over public channels.
 		</p>
 	</div>
 
