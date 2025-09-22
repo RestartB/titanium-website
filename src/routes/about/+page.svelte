@@ -23,7 +23,7 @@
 	<div class="mb-10 flex max-w-[600px] flex-col gap-3 border-l-4 pl-3">
 		<p class="max-w-2xl">
 			Hi there! I'm <span translate='no'>Restart</span>, the creator of <span translate="no">Titanium</span>. This page goes over some more information
-			about <span translate="no">Titanium</span>. Have another question? Make sure to join our support Discord server! 😊
+			about <span translate="no">Titanium</span>. Have another question? Make sure to join the Discord server - link is in the footer!
 		</p>
 		<div class="flex items-center gap-2">
 			<enhanced:img src="$lib/images/restart.png" alt="Restart" class="w-8 rounded-full" />
