@@ -17,7 +17,7 @@
 		"db:studio": "drizzle-kit studio"
 	},
 	"devDependencies": {
-		"@eslint/compat": "^1.2.5",
+		"@eslint/compat": "^1.4.0",
 		"@eslint/js": "^9.38.0",
 		"@iconify-json/arcticons": "^1.2.38",
 		"@iconify-json/charm": "^1.2.3",
