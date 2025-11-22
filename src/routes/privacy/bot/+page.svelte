@@ -20,7 +20,7 @@
 >
 	<div>
 		<h1 class="text-4xl font-bold">Privacy Policy</h1>
-		<h2 class="text-xl font-semibold">Updated: 01/06/2025</h2>
+		<h2 class="text-xl font-semibold">Updated: 22/11/2025</h2>
 	</div>
 
 	<p>
@@ -243,9 +243,9 @@
 	<section class="flex flex-col gap-2.5" id="location">
 		<h2 class="text-xl font-semibold">Processing Location</h2>
 		<p>
-			Titanium is hosted in the United Kingdom. By using Titanium, you agree to your data being
-			processed according to this privacy policy, and local laws / regulations in the United
-			Kingdom.
+			Titanium is hosted using Contabo servers in their EU data centers. By using Titanium, you
+			agree to your data being processed according to this privacy policy, and local laws /
+			regulations in the European Union, as well as the United Kingdom.
 		</p>
 	</section>
 
@@ -265,10 +265,15 @@
 		<ul class="list-inside list-disc">
 			<li>Discord</li>
 			<li>Spotify</li>
+			<li>LRCLib</li>
 			<li>Urban Dictionary</li>
 			<li>Wikipedia</li>
 			<li>Odesli / song.link</li>
 			<li>The Cat API</li>
+			<li>dog.ceo</li>
+			<li>sandcat.link</li>
+			<li>ReviewDB / vendicated.dev</li>
+			<li>Steam</li>
 		</ul>
 	</section>
 

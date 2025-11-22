@@ -18,7 +18,7 @@
 >
 	<div>
 		<h1 class="text-4xl font-bold">Terms of Use</h1>
-		<h2 class="text-xl font-semibold">Updated: 02/06/2025</h2>
+		<h2 class="text-xl font-semibold">Updated: 22/11/2025</h2>
 	</div>
 
 	<p>
@@ -71,7 +71,8 @@
 			</li>
 			<li>
 				you must not use Titanium to <span class="font-bold"
-					>violate any laws in the United Kingdom (hosting country) or the country of usage.</span
+					>violate any laws in the European Union (hosting country), United Kingdom, or the country
+					of usage.</span
 				>
 			</li>
 			<li>
@@ -138,8 +139,9 @@
 		<h2 class="text-xl font-semibold">Third Party Services</h2>
 		<p>
 			Titanium relies on several third party services. By using features that rely on these
-			services, you agree to their policies. Below is a list of these services, provided for your
-			convenience, accurate as of the release date of this policy:
+			services, you agree to their policies. Below is a list of these services with their terms of
+			service if available, provided for your convenience, accurate as of the release date of this
+			policy:
 		</p>
 
 		<ul class="list-inside list-disc">
@@ -155,6 +157,10 @@
 			</li>
 			<li><a href="https://odesli.co/terms" target="_blank">Odesli / song.link</a></li>
 			<li><a href="https://thecatapi.com/terms" target="_blank">The Cat API</a></li>
+			<li>dog.ceo</li>
+			<li>sandcat.link</li>
+			<li>ReviewDB / vendicated.dev</li>
+			<li>Steam</li>
 		</ul>
 	</div>
 
@@ -183,8 +189,8 @@
 	<div class="flex flex-col gap-2.5" id="policy-updates">
 		<h2 class="text-xl font-semibold">Policy Updates</h2>
 		<p>
-			We may make changes to this policy over time. If a major change is made to the Terms of
-			Use policy, we will make an announcement over public channels.
+			We may make changes to this policy over time. If a major change is made to the Terms of Use
+			policy, we will make an announcement over public channels.
 		</p>
 	</div>
 
