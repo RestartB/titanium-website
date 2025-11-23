@@ -19,7 +19,6 @@
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.38.0",
-		"@iconify-json/arcticons": "^1.2.38",
 		"@sveltejs/adapter-auto": "^6.0.0",
 		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/enhanced-img": "^0.6.1",
@@ -45,7 +44,6 @@
 	"dependencies": {
 		"@libsql/client": "^0.15.8",
 		"@lucide/svelte": "^0.554.0",
-		"drizzle-orm": "^0.44.6",
-		"unplugin-icons": "^22.5.0"
+		"drizzle-orm": "^0.44.6"
 	}
 }
