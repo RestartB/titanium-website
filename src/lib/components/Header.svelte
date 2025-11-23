@@ -5,14 +5,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { prefersReducedMotion } from 'svelte/motion';
 
-	import logo from '$lib/images/titanium-logo.svg';
-
-	import MaterialSymbolsMenuRounded from 'virtual:icons/material-symbols/menu-rounded';
-	import MaterialSymbolsCloseRounded from 'virtual:icons/material-symbols/close-rounded';
-	import MaterialSymbolsHomeRounded from 'virtual:icons/material-symbols/home-rounded';
-	import MaterialSymbolsInfoOutlineRounded from 'virtual:icons/material-symbols/info-outline-rounded';
-	import MaterialSymbolsCheckCircleOutlineRounded from 'virtual:icons/material-symbols/check-circle-outline-rounded';
-	import MaterialSymbolsAdd2Rounded from 'virtual:icons/material-symbols/add-2-rounded';
+	import { Menu, X, House, Info, Check, Plus } from '@lucide/svelte';
 
 	let width = $state(1024);
 
@@ -71,11 +64,11 @@
 <div class="fixed right-0 left-0 z-50 m-2.5 flex items-center justify-center">
 	<header
 		style="view-transition-name: header;"
-		class="border-titanium-border z-50 box-border flex h-12 w-full max-w-5xl items-center justify-between gap-2.5 rounded-lg border-1 bg-zinc-200/70 pr-2.5 pl-2.5 backdrop-blur-lg dark:bg-zinc-800/70"
+		class="border-titanium-border z-50 box-border flex h-12 w-full max-w-5xl items-center justify-between gap-2.5 rounded-lg border bg-zinc-200/70 pr-2.5 pl-2.5 backdrop-blur-lg dark:bg-zinc-800/70"
 		bind:this={headerElement}
 	>
 		<div class="flex h-full w-[120px] items-center justify-center gap-2.5">
-			<img src={logo} alt="Titanium Logo" height="30" width="30" />
+			<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-7.5 w-7.5" />
 			<h1 class="font-bold" translate="no">Titanium</h1>
 		</div>
 
@@ -110,8 +103,8 @@
 			<div class="flex h-full min-w-[120px] items-center justify-end gap-2.5">
 				<a
 					href="/invite"
-					class="border-titanium-border flex h-fit w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 px-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-					><MaterialSymbolsAdd2Rounded />
+					class="border-titanium-border flex h-fit w-fit items-center gap-1 rounded-lg border bg-zinc-200 px-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+					><Plus />
 					<p>Add Bot</p></a
 				>
 			</div>
@@ -123,11 +116,11 @@
 			>
 				{#if menuActive}
 					<div in:fade={{ duration: 100 }}>
-						<MaterialSymbolsCloseRounded />
+						<X />
 					</div>
 				{:else}
 					<div in:fade={{ duration: 100 }}>
-						<MaterialSymbolsMenuRounded />
+						<Menu />
 					</div>
 				{/if}
 			</button>
@@ -145,34 +138,34 @@
 						<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
 							<a
 								href="/"
-								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 							>
-								<MaterialSymbolsHomeRounded />
+								<House size={20} />
 								<p>Home</p>
 							</a>
 						</li>
 						<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
 							<a
 								href="/about"
-								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 							>
-								<MaterialSymbolsInfoOutlineRounded />
+								<Info size={20} />
 								<p>About</p></a
 							>
 						</li>
 						<li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
 							<a
 								href="/status"
-								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-								><MaterialSymbolsCheckCircleOutlineRounded />
+								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+								><Check size={20} />
 								<p>Status</p></a
 							>
 						</li>
 						<li>
 							<a
 								href="/invite"
-								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border-1 bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-								><MaterialSymbolsAdd2Rounded />
+								class="border-titanium-border ml-auto flex w-fit items-center gap-1 rounded-lg border bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+								><Plus size={20} />
 								<p>Add Bot</p></a
 							>
 						</li>

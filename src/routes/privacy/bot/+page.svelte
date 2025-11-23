@@ -78,10 +78,10 @@
 			<li>Number of selected reactions on the message</li>
 		</ul>
 
-		<Alert
-			type="Info"
-			content="This data is deleted if the message drops below the reaction requirement or if a guild admin disables the feature. Message content will <strong>not</strong> be stored by this feature."
-		/>
+		<Alert type="Info">
+			This data is deleted if the message drops below the reaction requirement or if a guild admin
+			disables the feature. Message content will <strong>not</strong> be stored by this feature.
+		</Alert>
 
 		<p>Titanium will also store the following user-defined settings:</p>
 		<ul class="list-inside list-disc">
@@ -92,10 +92,9 @@
 			<li>Corresponding guild ID</li>
 		</ul>
 
-		<Alert
-			type="Info"
-			content="This data is deleted if the bot leaves the guild or if a guild admin disables the feature."
-		/>
+		<Alert type="Info">
+			This data is deleted if the bot leaves the guild or if a guild admin disables the feature.
+		</Alert>
 	</section>
 
 	<section class="flex flex-col gap-2.5" id="leaderboard">
@@ -119,10 +118,9 @@
 			seen while it is being processed.
 		</p>
 
-		<Alert
-			type="Info"
-			content="This data is deleted if the bot leaves the guild or if a guild admin disables the feature."
-		/>
+		<Alert type="Info">
+			This data is deleted if the bot leaves the guild or if a guild admin disables the feature.
+		</Alert>
 
 		<h4>Opting Out</h4>
 		<p>
@@ -145,7 +143,7 @@
 			<li>Creator's User ID</li>
 		</ul>
 
-		<Alert type="Info" content="This data is deleted if you delete the tag." />
+		<Alert type="Info">This data is deleted if you delete the tag.</Alert>
 	</section>
 
 	<section class="flex flex-col gap-2.5" id="music">
@@ -161,7 +159,7 @@
 			<li>Time created</li>
 		</ul>
 
-		<Alert type="Info" content="Each cache entry will expire after 30 days." />
+		<Alert type="Info">Each cache entry will expire after 30 days.</Alert>
 	</section>
 
 	<section class="flex flex-col gap-2.5" id="images">
@@ -291,7 +289,8 @@
 		<h2 class="text-xl font-semibold">Backups</h2>
 		<p>
 			We take daily backups of our server to ensure that we can restore data if a data loss event
-			occurs. We keep backups from the past 3 days using Proxmox container snapshots.
+			occurs. We keep backups using the Contabo auto snapshot feature, which stores snapshots for
+			the last 10 days.
 		</p>
 	</section>
 

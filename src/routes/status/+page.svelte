@@ -2,11 +2,9 @@
 	import { fly } from 'svelte/transition';
 	import { prefersReducedMotion } from 'svelte/motion';
 	import { onMount, onDestroy } from 'svelte';
+	import { Check, X, LoaderCircle } from '@lucide/svelte';
 
 	let { data } = $props();
-
-	import CharmTick from 'virtual:icons/charm/tick';
-	import CharmCross from 'virtual:icons/charm/cross';
 
 	let loading = $state();
 	let failed = $state(false);
@@ -131,24 +129,14 @@
 			<div
 				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-orange-200 p-4 dark:bg-orange-950"
 			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="21.59px"
-					height="21.59px"
-					viewBox="0 0 24 24"
-					class="shrink-0 animate-spin"
-					><path
-						fill="currentColor"
-						d="M10.72,19.9a8,8,0,0,1-6.5-9.79A7.77,7.77,0,0,1,10.4,4.16a8,8,0,0,1,9.49,6.52A1.54,1.54,0,0,0,21.38,12h.13a1.37,1.37,0,0,0,1.38-1.54,11,11,0,1,0-12.7,12.39A1.54,1.54,0,0,0,12,21.34h0A1.47,1.47,0,0,0,10.72,19.9Z"
-					></path></svg
-				>
+				<LoaderCircle class="shrink-0 animate-spin" />
 				<p>Loading status...</p>
 			</div>
 		{:else if failed}
 			<div
 				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
 			>
-				<CharmCross class="shrink-0" />
+				<X class="shrink-0" />
 				<p>
 					Couldn't connect to the server. Please check your internet connection and try again later.
 				</p>
@@ -157,14 +145,14 @@
 			<div
 				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-green-200 p-4 dark:bg-green-950"
 			>
-				<CharmTick class="shrink-0" />
+				<Check class="shrink-0" />
 				<p>All systems operational.</p>
 			</div>
 		{:else}
 			<div
 				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
 			>
-				<CharmCross class="shrink-0" />
+				<X class="shrink-0" />
 				<p>Some systems are currently offline.</p>
 			</div>
 		{/if}

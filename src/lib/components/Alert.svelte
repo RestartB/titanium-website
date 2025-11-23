@@ -1,10 +1,10 @@
 <script lang="ts">
 	type Props = {
 		type: string;
-		content: string;
+		children?: any;
 	};
 
-	let { type, content }: Props = $props();
+	let { type, children }: Props = $props();
 
 	// svelte-ignore non_reactive_update
 	let colour: string | undefined = undefined;
@@ -21,5 +21,5 @@
 
 <div class="h-fit w-full border-l-3 pl-2.5 {colour}">
 	<h3 class="font-bold">{type}</h3>
-	<p>{@html content}</p>
+	{@render children?.()}
 </div>

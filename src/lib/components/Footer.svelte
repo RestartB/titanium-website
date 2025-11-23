@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import logo from '$lib/images/titanium-logo.svg';
 
 	import titanium from '$lib/images/88x31/titanium.png';
 	import restart from '$lib/images/88x31/restart.png';
@@ -14,7 +13,11 @@
 		class="flex h-fit w-full max-w-5xl flex-wrap items-center justify-center gap-2.5 md:justify-between"
 	>
 		<div class="flex w-[270px] items-center justify-center gap-2.5">
-			<img src={logo} alt="Titanium Logo" height="60" width="60" />
+			<enhanced:img
+				src="$lib/images/titanium-logo.svg"
+				alt="Titanium Logo"
+				class="h-15 w-15"
+			/>
 			<div>
 				<h1 class="font-bold" translate="no">Titanium</h1>
 				<h3 class="text-base">More features than protons.</h3>

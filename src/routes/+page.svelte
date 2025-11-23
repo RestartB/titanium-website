@@ -15,7 +15,7 @@
 	import trinity from '$lib/images/embeds/trinity.jpeg?enhanced';
 
 	// Icons
-	import MaterialSymbolsAdd2Rounded from 'virtual:icons/material-symbols/add-2-rounded';
+	import { Plus } from '@lucide/svelte';
 	import ArcticonsUrbanDictionary from 'virtual:icons/arcticons/urban-dictionary';
 
 	// Bindings
@@ -90,10 +90,11 @@
 				<enhanced:img
 					src="$lib/images/titanium-logo.svg"
 					alt="Titanium Logo"
-					class="rounded-full border-6 border-zinc-300 h-30 w-30"
+					class="h-30 w-30 rounded-full border-6 border-zinc-300"
 				/>
 				<h1
-					class="bg-linear-to-bl from-zinc-100 to-zinc-400 bg-clip-text text-7xl font-bold text-transparent" translate="no"
+					class="bg-linear-to-bl from-zinc-100 to-zinc-400 bg-clip-text text-7xl font-bold text-transparent"
+					translate="no"
 				>
 					Titanium
 				</h1>
@@ -112,7 +113,7 @@
 			href="/invite"
 			class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 		>
-			<MaterialSymbolsAdd2Rounded class="h-7.5 w-7.5" />
+			<Plus size={30} />
 			Add <span translate="no">Titanium</span>
 		</a>
 	</section>
@@ -166,13 +167,20 @@
 				Usable everywhere
 			</h2>
 			<p>
-				<span translate="no">Titanium</span> is designed to be used as a server bot or a user app. This means you can use
+				<span translate="no">Titanium</span> is designed to be used as a server bot or a user app.
+				This means you can use
 				<span translate="no">Titanium</span> in any server, without it being invited!
 			</p>
 
 			<ul class="list-inside list-disc">
-				<li>use <span translate="no">Titanium</span>'s commands anywhere, including DMs - just use <strong>/</strong></li>
-				<li>your info stays private - <span translate="no">Titanium</span> can't see any messages except ones you pick</li>
+				<li>
+					use <span translate="no">Titanium</span>'s commands anywhere, including DMs - just use
+					<strong>/</strong>
+				</li>
+				<li>
+					your info stays private - <span translate="no">Titanium</span> can't see any messages except
+					ones you pick
+				</li>
 				<li>invite <span translate="no">Titanium</span> to your server for more features</li>
 			</ul>
 		</div>
@@ -204,14 +212,18 @@
 			class="flex h-fit flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 select-none sm:min-w-[310px] dark:bg-zinc-700"
 		>
 			<div class="flex gap-2">
-				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium" class="h-15 w-15 rounded-xl" />
+				<enhanced:img
+					src="$lib/images/titanium-logo.svg"
+					alt="Titanium"
+					class="h-15 w-15 rounded-xl"
+				/>
 
 				<div class="flex flex-col justify-center">
 					<h3 class="font-semibold" translate="no">Titanium</h3>
 					<p>Image deepfried!</p>
 				</div>
 			</div>
-			<enhanced:img src="$lib/images/deepfried.png" alt="Deepfried" class="rounded-xl w-[250px]" />
+			<enhanced:img src="$lib/images/deepfried.png" alt="Deepfried" class="w-[250px] rounded-xl" />
 		</div>
 	</section>
 
@@ -222,7 +234,11 @@
 			class="flex h-fit flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 select-none sm:min-w-[310px] dark:bg-zinc-700"
 		>
 			<div class="flex gap-2">
-				<enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium" class="h-15 w-15 rounded-xl" />
+				<enhanced:img
+					src="$lib/images/titanium-logo.svg"
+					alt="Titanium"
+					class="h-15 w-15 rounded-xl"
+				/>
 
 				<div class="flex flex-col justify-center">
 					<h3 class="font-semibold" translate="no">Titanium</h3>
@@ -244,7 +260,10 @@
 			>
 				Server stats and starboard
 			</h2>
-			<p><span translate="no">Titanium</span> offers message stats and a starboard to keep server members engaged.</p>
+			<p>
+				<span translate="no">Titanium</span> offers message stats and a starboard to keep server members
+				engaged.
+			</p>
 			<ul class="list-inside list-disc">
 				<li>track message amounts, words and attachments</li>
 				<li>get leaderboards for each category</li>
@@ -265,7 +284,9 @@
 				Stat Counters
 			</h2>
 			<p>
-				Create stat counters that sit in the server list and update every 10 minutes with <span translate="no">Titanium</span>.
+				Create stat counters that sit in the server list and update every 10 minutes with <span
+					translate="no">Titanium</span
+				>.
 			</p>
 			<ul class="list-inside list-disc">
 				<li>track member counts, channel counts and more</li>
@@ -303,7 +324,11 @@
 
 	<section class="flex w-full flex-col items-center justify-center gap-10 p-10 md:flex-row">
 		<div class="flex h-fit flex-col gap-3 select-none sm:min-w-[310px]">
-			<enhanced:img src="$lib/images/quote.png" alt="Quote" class="rounded-xl border-2 border-zinc-600 w-[400px]" />
+			<enhanced:img
+				src="$lib/images/quote.png"
+				alt="Quote"
+				class="w-[400px] rounded-xl border-2 border-zinc-600"
+			/>
 		</div>
 
 		<div class="flex max-w-[750px] flex-col justify-center gap-2">
@@ -312,7 +337,10 @@
 			>
 				Quotes
 			</h2>
-			<p>Use <span translate="no">Titanium</span> to generate quote images, so you can share and remember messages.</p>
+			<p>
+				Use <span translate="no">Titanium</span> to generate quote images, so you can share and remember
+				messages.
+			</p>
 			<ul class="list-inside list-disc">
 				<li>light and dark modes</li>
 				<li>colour or black and white options</li>
@@ -402,8 +430,8 @@
 			</h2>
 			<p>
 				Search Spotify to find songs, artists and albums with informative embeds - all from within
-				Discord, powered by <span translate="no">Titanium</span>. You can also display Spotify playlists and info from any
-				streaming service when you enter a link, and get song lyrics.
+				Discord, powered by <span translate="no">Titanium</span>. You can also display Spotify
+				playlists and info from any streaming service when you enter a link, and get song lyrics.
 			</p>
 			<ul class="list-inside list-disc">
 				<li>search Spotify</li>
@@ -460,7 +488,11 @@
 						</div>
 					</div>
 
-					<enhanced:img src="$lib/images/titanium-logo.svg" alt="Logo" class="h-20 w-20 rounded-xl" />
+					<enhanced:img
+						src="$lib/images/titanium-logo.svg"
+						alt="Logo"
+						class="h-20 w-20 rounded-xl"
+					/>
 				</div>
 			</div>
 		</div>
@@ -485,9 +517,9 @@
 				...and more!
 			</h2>
 			<p>
-				<span translate="no">Titanium</span> contains over 48 features, including utility commands like user info and server
-				info, and other smaller commands like a random number generator and magic 8 ball. New
-				commands are also getting added all of the time!
+				<span translate="no">Titanium</span> contains over 48 features, including utility commands like
+				user info and server info, and other smaller commands like a random number generator and magic
+				8 ball. New commands are also getting added all of the time!
 			</p>
 		</div>
 	</section>
@@ -522,7 +554,7 @@
 			href="/invite"
 			class="border-titanium-border z-10 flex items-center justify-center gap-1 rounded-full border-2 bg-zinc-300 px-6 pt-2 pb-2 text-xl transition-colors hover:bg-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700"
 		>
-			<MaterialSymbolsAdd2Rounded class="h-7.5 w-7.5" />
+			<Plus size={30} />
 			Add <span translate="no">Titanium</span> Now
 		</a>
 	</section>
