@@ -105,7 +105,9 @@
 		</ul>
 
 		<Alert type="Info">
-			No message content or attachments are stored by Titanium's automod feature.
+			No message content or attachments are stored by Titanium's automod feature. Malicious /
+			phishing link checking is processed locally, and your links are not stored or sent to a third
+			party.
 		</Alert>
 	</section>
 
