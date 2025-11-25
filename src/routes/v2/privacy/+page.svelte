@@ -49,6 +49,15 @@
 		</ul>
 	</section>
 
+	<section class="flex flex-col gap-2.5" id="ai">
+		<h2 class="text-xl font-semibold">No AI Training</h2>
+		<p>
+			In a world where more and more of your data is being used to train AI models without you being
+			aware, I want to make it clear - Titanium does not train AI models on your messages or
+			attachments, and doesn't send your messages to other AI providers.
+		</p>
+	</section>
+
 	<section class="flex flex-col gap-2.5" id="data">
 		<h2 class="text-xl font-semibold">Data I collect</h2>
 		<p>
@@ -195,7 +204,7 @@
 		</p>
 	</section>
 
-	<section class="flex flex-col gap-2.5" id="usage">
+	<section class="flex flex-col gap-2.5" id="telemetry">
 		<h2 class="text-xl font-semibold">Telemetry</h2>
 		<p>
 			When you run a Titanium slash command, use a Titanium context menu item, load results from
@@ -292,7 +301,7 @@
 			will remove data such as tags and leaderboard data for your account. To remove all data about your
 			Discord server from Titanium's systems, please follow these steps:
 		</p>
-		<ul class="list-inside list-disc">
+		<ul class="list-inside list-decimal">
 			<li>Log into the web dashboard, and select your server.</li>
 			<li>In the general settings tab, turn off the "Keep server data for 3 days" option.</li>
 			<li>
