@@ -37,7 +37,7 @@
 			<li>
 				<span class="italic">"Titanium", "Titanium Bot", "the bot"</span> - the Titanium Discord bot.
 			</li>
-			<li><span class="italic">"we"</span> - Restart Software.</li>
+			<li><span class="italic">"we"</span> - Restart.</li>
 			<li>
 				<span class="italic">"guild"</span> - a Discord server. Not to be confused with the bot
 				hosting server (labelled <i>"the server"</i>).

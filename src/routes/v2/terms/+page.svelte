@@ -42,7 +42,7 @@
 			<li>
 				<span class="italic">"Titanium", "Titanium Bot", "the bot"</span> - the Titanium Discord bot.
 			</li>
-			<li><span class="italic">"we", "Restart"</span> - Restart Software.</li>
+			<li><span class="italic">"we", "Restart"</span> - Restart.</li>
 		</ul>
 	</div>
 

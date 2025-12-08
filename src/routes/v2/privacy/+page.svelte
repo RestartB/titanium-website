@@ -25,7 +25,8 @@
 
 	<div>
 		<h1 class="text-4xl font-bold">Privacy Policy - v2</h1>
-		<h2 class="text-xl font-semibold">Updated: 22/11/2025</h2>
+		<h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
+		<h2 class="text-xl font-semibold">Updated: 08/12/2025 (dd/mm/yyyy)</h2>
 	</div>
 
 	<p>
@@ -42,7 +43,7 @@
 			<li>
 				<span class="italic">"Titanium", "Titanium Bot", "the bot"</span> - the Titanium Discord bot.
 			</li>
-			<li><span class="italic">"we", "I"</span> - Restart Software.</li>
+			<li><span class="italic">"we", "I", "me"</span> - Restart.</li>
 			<li>
 				<span class="italic">"guild"</span> - a Discord server.
 			</li>
@@ -133,7 +134,8 @@
 		<p>
 			Titanium provides a logging feature that allows server moderators to log events that happen in
 			the server. The server admins should ensure that any data logged by this feature is kept
-			secure, by utilising Discord channel permissions.
+			secure, by utilising Discord channel permissions. I am not responsible for any data leaks that
+			may occur as a result of misconfigured channel permissions.
 		</p>
 	</section>
 
@@ -141,8 +143,8 @@
 		<h3 class="font-semibold">Fireboard</h3>
 		<p>
 			Titanium provides a fireboard feature that allows server members to remember messages they
-			love. This feature stores message IDs that meet the critieria as set by server moderators, but
-			does not store message content, attachments or who reacted.
+			love. This feature stores message IDs and corresponding channel IDs that meet the critieria as
+			set by server moderators, but does not store message content, attachments or who reacted.
 		</p>
 	</section>
 
@@ -160,7 +162,8 @@
 		<p>
 			Titanium provides server counters that allow server members to see various statistics about
 			the server. These counters appear as voice channels in the channel list. Titanium will store
-			the created channel ID and the counter type when a counter channel is created.
+			the created channel ID and the counter type when a counter channel is created. For channels
+			that track user statuses, eg. online members, no user presence data is stored.
 		</p>
 	</section>
 
@@ -191,7 +194,7 @@
 		<p>
 			When using Titanium's image processing features, the original image and processed image will
 			be temporarily stored in memory to complete the request. Once the request is complete, both
-			images will be deleted from memory and not stored at rest.
+			images will be deleted from memory and not stored at rest at any point in the process.
 		</p>
 	</section>
 
@@ -255,7 +258,7 @@
 	</section>
 
 	<section class="flex flex-col gap-2.5" id="data-sharing">
-		<h2 class="text-xl font-semibold">Third Party Data Sharing</h2>
+		<h2 class="text-xl font-semibold">Data Sharing</h2>
 		<p>
 			We do not share any data with third parties, apart from where it is required for core
 			functionality of the bot or when required by law. Discord may collect some data during regular
@@ -294,12 +297,24 @@
 
 	<section class="flex flex-col gap-2.5" id="opt-out">
 		<h2 class="text-xl font-semibold">Opting Out / Data Removal</h2>
+		<p>As a user of Titanium, you have the right to opt out of your data being stored.</p>
+
+		<h3 class="font-semibold">Telemetry Logs</h3>
 		<p>
-			As a user of Titanium, you have the right to opt out of your data being stored. If you would
-			like us to remove you from all telemetry logs, please join the support Discord server and
-			create a ticket. To remove all user related data, use the <code>/remove-data</code> command - this
-			will remove data such as tags and leaderboard data for your account. To remove all data about your
-			Discord server from Titanium's systems, please follow these steps:
+			If you would like us to remove you from all telemetry logs, please join the support Discord
+			server and create a ticket.
+		</p>
+
+		<h3 class="font-semibold">User Data</h3>
+		<p>
+			To remove all user related data, use the <code class="text-base">/settings remove-data</code> command - this will
+			remove data such as tags and leaderboard data for your account.
+		</p>
+
+		<h3 class="font-semibold">Server Data</h3>
+		<p>
+			To remove all data about your Discord server from Titanium's systems, please follow these
+			steps:
 		</p>
 		<ul class="list-inside list-decimal">
 			<li>Log into the web dashboard, and select your server.</li>
@@ -324,8 +339,8 @@
 		<p>
 			None of Titanium's servers are publicly accessible. Access to the servers is restricted to
 			Restart exclusively, and all dashboard endpoints are restricted using Discord authentication.
-			However, no transmission or storage medium is 100% secure, and I am not liable for data loss
-			or breaches.
+			However, no transmission, storage medium or software is 100% secure, and I am not liable for
+			data loss or breaches.
 		</p>
 	</section>
 
@@ -334,7 +349,7 @@
 		<p>
 			I ensure that I do not collect any information that may impact you if a data breach occurs.
 			However, if I believe a data breach has occurred and data may have been accessed, I will do
-			the following:
+			the following as a good faith effort to notify affected users:
 		</p>
 		<ul class="list-inside list-disc">
 			<li>A public announcement informing users that the breach has occurred</li>
