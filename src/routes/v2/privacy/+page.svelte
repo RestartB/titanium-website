@@ -167,6 +167,17 @@
 		</p>
 	</section>
 
+	<section class="flex flex-col gap-2.5" id="confessions">
+		<h3 class="font-semibold">Confessions</h3>
+		<p>
+			Titanium provides a confessions feature that allows server members to anonymously share their
+			confessions. This feature allows server admins to send confession messages to a private log
+			channel that contains the author of the confession, this is intended for moderation and
+			compliance purposes. You should not assume that confession messages are anonymous to the
+			server admins.
+		</p>
+	</section>
+
 	<section class="flex flex-col gap-2.5" id="tags">
 		<h3 class="font-semibold">Tags</h3>
 		<p>
@@ -307,8 +318,8 @@
 
 		<h3 class="font-semibold">User Data</h3>
 		<p>
-			To remove all user related data, use the <code class="text-base">/settings remove-data</code> command - this will
-			remove data such as tags and leaderboard data for your account.
+			To remove all user related data, use the <code class="text-base">/settings remove-data</code> command
+			- this will remove data such as tags and leaderboard data for your account.
 		</p>
 
 		<h3 class="font-semibold">Server Data</h3>
