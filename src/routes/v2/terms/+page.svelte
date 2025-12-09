@@ -165,7 +165,7 @@
 			<li><a href="https://thecatapi.com/terms" target="_blank">The Cat API</a></li>
 			<li>dog.ceo</li>
 			<li>sandcat.link</li>
-			<li>ReviewDB / vendicated.dev</li>
+			<li>ReviewDB (mantikafasi.dev)</li>
 			<li>Steam</li>
 		</ul>
 	</div>

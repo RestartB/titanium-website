@@ -270,7 +270,7 @@
 			<li>The Cat API</li>
 			<li>dog.ceo</li>
 			<li>sandcat.link</li>
-			<li>ReviewDB / vendicated.dev</li>
+			<li>ReviewDB (mantikafasi.dev)</li>
 			<li>Steam</li>
 		</ul>
 	</section>
