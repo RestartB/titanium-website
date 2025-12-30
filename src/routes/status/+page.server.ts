@@ -8,7 +8,7 @@ async function getIncidents() {
 export async function load() {
 	let success = true;
 	let mainPFP = '';
-	let privatePFP = '';
+	let stagingPFP = '';
 
 	// Get main bot PFP
 	try {
@@ -23,17 +23,17 @@ export async function load() {
 		console.error('Error fetching main PFP:', err);
 	}
 
-	// Get private bot PFP
+	// Get staging bot PFP
 	try {
-		const response = await fetch('http://localhost:5001/pfp');
+		const response = await fetch('http://localhost:5100/info');
 
 		if (response.ok) {
-			privatePFP = (await response.json()).url;
+			stagingPFP = (await response.json()).pfp;
 		} else {
-			console.error('Error fetching private PFP:', response.status);
+			console.error('Error fetching staging PFP:', response.status);
 		}
 	} catch (err) {
-		console.error('Error fetching private PFP:', err);
+		console.error('Error fetching staging PFP:', err);
 	}
 
 	// Set size of PFPs
@@ -41,13 +41,13 @@ export async function load() {
 		mainPFP = mainPFP.replace(/\?size=\d+/, '') + '?size=128';
 	}
 
-	if (privatePFP) {
-		privatePFP = privatePFP.replace(/\?size=\d+/, '') + '?size=128';
+	if (stagingPFP) {
+		stagingPFP = stagingPFP.replace(/\?size=\d+/, '') + '?size=128';
 	}
 
 	try {
 		const incidentsData = await getIncidents();
-		return { incidents: incidentsData, success, mainPFP, privatePFP };
+		return { incidents: incidentsData, success, mainPFP, stagingPFP };
 	} catch (error) {
 		success = false;
 		console.error('Error fetching incidents:', error);

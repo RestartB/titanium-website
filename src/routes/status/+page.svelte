@@ -12,8 +12,8 @@
 	let mainConnected = $state();
 	let mainLatency = $state(0);
 
-	let privateConnected = $state();
-	let privateLatency = $state(0);
+	let stagingConnected = $state();
+	let stagingLatency = $state(0);
 
 	let sinceLastUpdate = $state(Date.now());
 	let secondsAgo = $state(0);
@@ -36,8 +36,8 @@
 			mainConnected = data.main.connected;
 			mainLatency = data.main.latency || 0;
 
-			privateConnected = data.private.connected;
-			privateLatency = data.private.latency || 0;
+			stagingConnected = data.staging.connected;
+			stagingLatency = data.staging.latency || 0;
 
 			loading = false;
 			sinceLastUpdate = Date.now();
@@ -45,7 +45,7 @@
 			console.error('Failed to fetch status:', error);
 
 			mainConnected = false;
-			privateConnected = false;
+			stagingConnected = false;
 			loading = false;
 			failed = true;
 		}
@@ -141,7 +141,7 @@
 					Couldn't connect to the server. Please check your internet connection and try again later.
 				</p>
 			</div>
-		{:else if mainConnected && privateConnected}
+		{:else if mainConnected && stagingConnected}
 			<div
 				class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-green-200 p-4 dark:bg-green-950"
 			>
@@ -232,10 +232,10 @@
 
 			<div class="xs:flex-row flex flex-col items-center gap-3">
 				<div class="flex items-center gap-3">
-					{#if data.privatePFP !== ''}
+					{#if data.stagingPFP !== ''}
 						<img
-							src={data.privatePFP}
-							alt="Titanium Private Logo"
+							src={data.stagingPFP}
+							alt="Titanium Staging Logo"
 							height="64"
 							width="64"
 							class="h-16 w-16 rounded-xl"
@@ -248,8 +248,8 @@
 						/>
 					{/if}
 					<div>
-						<h2 class="font-bold" translate="no">Titanium Private</h2>
-						<p>Private version of <span translate="no">Titanium.</span></p>
+						<h2 class="font-bold" translate="no">Titanium Staging</h2>
+						<p>Private v2 staging version of <span translate="no">Titanium.</span></p>
 					</div>
 				</div>
 
@@ -267,7 +267,7 @@
 							<h3 class="font-light">Loading</h3>
 						{:else if failed}
 							<h3 class="font-light">Error</h3>
-						{:else if privateConnected}
+						{:else if stagingConnected}
 							<span class="relative flex size-3">
 								<span
 									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
@@ -289,8 +289,8 @@
 					<div
 						class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
 					>
-						{#if privateConnected}
-							<p>Ping: <code>{privateLatency}ms</code></p>
+						{#if stagingConnected}
+							<p>Ping: <code>{stagingLatency}ms</code></p>
 						{:else}
 							<p>Ping: <code>---ms</code></p>
 						{/if}

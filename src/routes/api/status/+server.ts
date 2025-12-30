@@ -3,7 +3,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
 	let mainData;
-	let privateData;
+	let stagingData;
 
 	// Main bot status
 	try {
@@ -22,25 +22,25 @@ export const GET: RequestHandler = async () => {
 		};
 	}
 
-	// Private bot status
+	// Staging bot status
 	try {
-		const response = await fetch('http://localhost:5001/status');
+		const response = await fetch('http://localhost:5100/status');
 
 		if (response.ok) {
-			privateData = await response.json();
+			stagingData = await response.json();
 		} else {
 			throw new Error(
 				`Titanium server has returned an error - ${response.status}, ${response.text()}`
 			);
 		}
 	} catch {
-		privateData = {
+		stagingData = {
 			ready: false
 		};
 	}
 
 	return json({
 		main: mainData,
-		private: privateData
+		staging: stagingData
 	});
 };
