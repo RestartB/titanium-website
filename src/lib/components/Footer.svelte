@@ -21,7 +21,7 @@
 			<div>
 				<h1 class="font-bold" translate="no">Titanium</h1>
 				<h3 class="text-base">More features than protons.</h3>
-				<p class="mt-1 text-sm font-light">2025, <span translate="no">Restart</span></p>
+				<p class="mt-1 text-sm font-light">2026, <span translate="no">Restart</span></p>
 			</div>
 		</div>
 
