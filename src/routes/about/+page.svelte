@@ -48,8 +48,8 @@
 
 		<Summary title="How long has <span translate='no'>Titanium</span> been in development?">
 			<span translate="no">Titanium</span> has been in ongoing development since February 2024. The
-			version of <span translate="no">Titanium</span> that you can use today has been in development
-			since then!
+			version of <span translate="no">Titanium</span> that you can use today has been in development since
+			then!
 		</Summary>
 
 		<Summary title="Why was <span translate='no'>Titanium</span> created?">
