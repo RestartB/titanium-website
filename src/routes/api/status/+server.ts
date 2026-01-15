@@ -1,4 +1,5 @@
 import { json } from '@sveltejs/kit';
+import { MAIN_PATH, STAGING_PATH } from '$env/static/private';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
@@ -7,7 +8,7 @@ export const GET: RequestHandler = async () => {
 
 	// Main bot status
 	try {
-		const response = await fetch('http://localhost:5000/status');
+		const response = await fetch(MAIN_PATH + '/status');
 
 		if (response.ok) {
 			mainData = await response.json();
@@ -24,7 +25,7 @@ export const GET: RequestHandler = async () => {
 
 	// Staging bot status
 	try {
-		const response = await fetch('http://localhost:5100/status');
+		const response = await fetch(STAGING_PATH + '/status');
 
 		if (response.ok) {
 			stagingData = await response.json();

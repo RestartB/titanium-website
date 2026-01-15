@@ -1,5 +1,6 @@
 import { db } from '$lib/server/db/index';
 import { incidents } from '$lib/server/db/schema';
+import { MAIN_PATH, STAGING_PATH } from '$env/static/private';
 
 async function getIncidents() {
 	return await db.select().from(incidents);
@@ -12,7 +13,7 @@ export async function load() {
 
 	// Get main bot PFP
 	try {
-		const response = await fetch('http://localhost:5000/pfp');
+		const response = await fetch(MAIN_PATH + '/pfp');
 
 		if (response.ok) {
 			mainPFP = (await response.json()).url;
@@ -25,7 +26,7 @@ export async function load() {
 
 	// Get staging bot PFP
 	try {
-		const response = await fetch('http://localhost:5100/info');
+		const response = await fetch(STAGING_PATH + '/info');
 
 		if (response.ok) {
 			stagingPFP = (await response.json()).pfp;

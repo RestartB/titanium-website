@@ -1,9 +1,10 @@
 import { error, json } from '@sveltejs/kit';
+import { MAIN_PATH } from '$env/static/private';
 import type { RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async () => {
 	try {
-		const response = await fetch('http://localhost:5000/stats');
+		const response = await fetch(MAIN_PATH + '/stats');
 
 		if (response.ok) {
 			const data = await response.json();
