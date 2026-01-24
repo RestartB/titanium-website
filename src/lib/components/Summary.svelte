@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import { ChevronRight } from '@lucide/svelte';
 
 	type Props = {
@@ -15,23 +15,26 @@
 	}
 </script>
 
-<button type="button" {onclick} class="flex cursor-pointer flex-col gap-2 text-left">
+<button type="button" {onclick} class="cursor-pointer text-left">
 	<div class="flex items-center gap-2">
-		<ChevronRight size={32} class="transition-transform {showContent ? 'rotate-90' : ''}" />
+		<ChevronRight
+			size={32}
+			class="transition-transform duration-400 {showContent ? 'rotate-90' : ''}"
+		/>
 		<h2 class="text-2xl font-bold">{@html title}</h2>
 	</div>
 
 	{#if showContent}
-		<div class="pl-10" in:fly={{ y: -10, duration: 200 }} out:fly={{ y: -10, duration: 150 }}>
+		<div class="mt-2 pl-10" transition:slide>
 			{@render children?.()}
 		</div>
 	{/if}
 
 	<noscript>
-		<div in:fly={{ y: -10, duration: 200 }} out:fly={{ y: -10, duration: 150 }}>
+		<div class="mt-2">
 			{@render children?.()}
 		</div>
 	</noscript>
 
-	<hr class="w-full text-zinc-600" />
+	<hr class="mt-2 w-full text-zinc-600" />
 </button>
