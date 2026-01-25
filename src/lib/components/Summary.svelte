@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+
 	import { ChevronRight } from '@lucide/svelte';
 
 	type Props = {
@@ -25,7 +27,7 @@
 	</div>
 
 	{#if showContent}
-		<div class="mt-2 pl-10" transition:slide>
+		<div class="mt-2 pl-10" transition:slide={{ easing: cubicInOut }}>
 			{@render children?.()}
 		</div>
 	{/if}
