@@ -24,9 +24,7 @@
 	});
 </script>
 
-<div
-	class="app font-display bg-linear-to-bl from-zinc-100 to-zinc-400 text-lg text-black dark:from-zinc-700 dark:to-zinc-900 dark:text-white"
->
+<div class="app">
 	<Header />
 
 	<main
