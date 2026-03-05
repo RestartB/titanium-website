@@ -44,7 +44,7 @@
 	},
 	"dependencies": {
 		"@libsql/client": "^0.17.0",
-		"@lucide/svelte": "^0.562.0",
+		"@lucide/svelte": "^0.577.0",
 		"drizzle-orm": "^0.45.1"
 	}
 }
