@@ -73,6 +73,78 @@
   });
 </script>
 
+{#snippet statusRow(
+  name: string,
+  description: string,
+  pfp: string | undefined,
+  status: 'online' | 'offline' | 'loading',
+  latency: number
+)}
+  <div class="flex flex-col items-center gap-3 xs:flex-row">
+    <div class="flex items-center gap-3">
+      {#if pfp}
+        <img src={pfp} alt="{name} Logo" height="64" width="64" class="h-16 w-16 rounded-xl" />
+      {:else}
+        <enhanced:img
+          src="$lib/images/titanium-logo.svg"
+          alt="{name} Logo"
+          class="h-16 w-16 rounded-xl"
+        />
+      {/if}
+
+      <div>
+        <h2 class="font-bold" translate="no">{name}</h2>
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+        <p>{@html description}</p>
+      </div>
+    </div>
+
+    <div
+      class="flex shrink-0 flex-row flex-nowrap items-center justify-center gap-3 xs:ml-auto xs:flex-col xs:items-end xs:gap-1"
+    >
+      <div class="flex items-center gap-2">
+        {#if status === 'loading'}
+          <span class="relative flex size-3">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
+            ></span>
+            <span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
+          </span>
+          <h3 class="font-light">Loading</h3>
+        {:else if failed}
+          <h3 class="font-light">Error</h3>
+        {:else if status === 'online'}
+          <span class="relative flex size-3">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
+            ></span>
+            <span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
+          </span>
+          <h3 class="font-light">Online</h3>
+        {:else}
+          <span class="relative flex size-3">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
+            ></span>
+            <span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
+          </span>
+          <h3 class="font-light">Offline</h3>
+        {/if}
+      </div>
+
+      <div
+        class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
+      >
+        {#if status === 'online'}
+          <p>Ping: <code>{latency}ms</code></p>
+        {:else}
+          <p>Ping: <code>---ms</code></p>
+        {/if}
+      </div>
+    </div>
+  </div>
+{/snippet}
+
 <svelte:head>
   <title>Titanium - Status</title>
   <meta content="Titanium - Status" property="og:title" />
@@ -160,146 +232,26 @@
     <div
       class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
     >
-      <div class="flex flex-col items-center gap-3 xs:flex-row">
-        <div class="flex items-center gap-3">
-          {#if data.mainPFP !== ''}
-            <img
-              src={data.mainPFP}
-              alt="Titanium Logo"
-              height="64"
-              width="64"
-              class="h-16 w-16 rounded-xl"
-            />
-          {:else}
-            <enhanced:img
-              src="$lib/images/titanium-logo.svg"
-              alt="Titanium Logo"
-              class="h-16 w-16 rounded-xl"
-            />
-          {/if}
-          <div>
-            <h2 class="font-bold" translate="no">Titanium</h2>
-            <p>The main <span translate="no">Titanium</span> instance.</p>
-          </div>
-        </div>
-
-        <div
-          class="flex shrink-0 flex-row flex-nowrap items-center justify-center gap-3 xs:ml-auto xs:flex-col xs:items-end xs:gap-1"
-        >
-          <div class="flex items-center gap-2">
-            {#if loading}
-              <span class="relative flex size-3">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
-                ></span>
-                <span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
-              </span>
-              <h3 class="font-light">Loading</h3>
-            {:else if failed}
-              <h3 class="font-light">Error</h3>
-            {:else if mainConnected}
-              <span class="relative flex size-3">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
-                ></span>
-                <span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
-              </span>
-              <h3 class="font-light">Online</h3>
-            {:else}
-              <span class="relative flex size-3">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
-                ></span>
-                <span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
-              </span>
-              <h3 class="font-light">Offline</h3>
-            {/if}
-          </div>
-
-          <div
-            class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
-          >
-            {#if mainConnected}
-              <p>Ping: <code>{mainLatency}ms</code></p>
-            {:else}
-              <p>Ping: <code>---ms</code></p>
-            {/if}
-          </div>
-        </div>
-      </div>
+      {@render statusRow(
+        'Titanium',
+        'The main <span translate="no">Titanium</span> instance.',
+        data.mainPFP,
+        loading ? 'loading' : mainConnected ? 'online' : 'offline',
+        mainLatency
+      )}
 
       <hr class="border-zinc-600" />
 
-      <div class="flex flex-col items-center gap-3 xs:flex-row">
-        <div class="flex items-center gap-3">
-          {#if data.stagingPFP !== ''}
-            <img
-              src={data.stagingPFP}
-              alt="Titanium Staging Logo"
-              height="64"
-              width="64"
-              class="h-16 w-16 rounded-xl"
-            />
-          {:else}
-            <enhanced:img
-              src="$lib/images/titanium-logo.svg"
-              alt="Titanium Logo"
-              class="h-16 w-16 rounded-xl"
-            />
-          {/if}
-          <div>
-            <h2 class="font-bold" translate="no">Titanium Staging</h2>
-            <p>Private v2 staging version of <span translate="no">Titanium.</span></p>
-          </div>
-        </div>
-
-        <div
-          class="flex shrink-0 flex-row flex-nowrap items-center justify-center gap-3 xs:ml-auto xs:flex-col xs:items-end xs:gap-1"
-        >
-          <div class="flex items-center gap-2">
-            {#if loading}
-              <span class="relative flex size-3">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
-                ></span>
-                <span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
-              </span>
-              <h3 class="font-light">Loading</h3>
-            {:else if failed}
-              <h3 class="font-light">Error</h3>
-            {:else if stagingConnected}
-              <span class="relative flex size-3">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
-                ></span>
-                <span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
-              </span>
-              <h3 class="font-light">Online</h3>
-            {:else}
-              <span class="relative flex size-3">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
-                ></span>
-                <span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
-              </span>
-              <h3 class="font-light">Offline</h3>
-            {/if}
-          </div>
-
-          <div
-            class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
-          >
-            {#if stagingConnected}
-              <p>Ping: <code>{stagingLatency}ms</code></p>
-            {:else}
-              <p>Ping: <code>---ms</code></p>
-            {/if}
-          </div>
-        </div>
-      </div>
+      {@render statusRow(
+        'Titanium Staging',
+        'Private v2 staging version of <span translate="no">Titanium.',
+        data.stagingPFP,
+        loading ? 'loading' : stagingConnected ? 'online' : 'offline',
+        stagingLatency
+      )}
     </div>
 
-    <h2 class="w-full text-2xl font-bold">Previous Incidents</h2>
+    <h2 class="w-full text-2xl font-bold">Incidents</h2>
     <div
       class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
     >
@@ -330,11 +282,10 @@
             </div>
 
             <p class="text-sm text-zinc-600 dark:text-zinc-400">
-              {#if incident.resolved}
-                {incident.createdAt.toLocaleTimeString()} - {incident.createdAt.toLocaleDateString()},
-                resolved at {incident.resolvedAt.toLocaleTimeString()} - {incident.resolvedAt.toLocaleDateString()}
+              {#if incident.resolved && incident.resolvedAt}
+                {incident.createdAt.toLocaleString()}, resolved at {incident.resolvedAt.toLocaleString()}
               {:else}
-                {incident.createdAt.toLocaleTimeString()} - {incident.createdAt.toLocaleDateString()}
+                {incident.createdAt.toLocaleString()}
               {/if}
             </p>
 
