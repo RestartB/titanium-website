@@ -24,7 +24,7 @@
 
   <div>
     <h1 class="text-4xl font-bold">Terms of Use - v2</h1>
-    <h2 class="text-xl font-semibold">Updated: 22/11/2025</h2>
+    <h2 class="text-xl font-semibold">Updated: 13/04/2026</h2>
   </div>
 
   <p>
@@ -138,6 +138,14 @@
       Titanium may experience temporary outages in service, whether this is due to maintenance,
       feature rollouts or other issues. By using Titanium, you acknowledge this fact and that we are
       not responsible for any outages.
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-2.5" id="branding">
+    <h2 class="text-xl font-semibold">Server Branding</h2>
+    <p>
+      By using Titanium, you grant us the right to use your server's branding (including its title,
+      icon, and banner) for marketing, promotional and operational purposes.
     </p>
   </div>
 
