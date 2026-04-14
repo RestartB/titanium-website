@@ -24,7 +24,7 @@
 
   <div>
     <h1 class="text-4xl font-bold">Terms of Use - v2</h1>
-    <h2 class="text-xl font-semibold">Updated: 13/04/2026</h2>
+    <h2 class="text-xl font-semibold">Updated: 14/04/2026</h2>
   </div>
 
   <p>
@@ -142,10 +142,11 @@
   </div>
 
   <div class="flex flex-col gap-2.5" id="branding">
-    <h2 class="text-xl font-semibold">Server Branding</h2>
+    <h2 class="text-xl font-semibold">Server Branding and Metrics</h2>
     <p>
-      By using Titanium, you grant us the right to use your server's branding (including its title,
-      icon, and banner) for marketing, promotional and operational purposes.
+      By using Titanium, you grant us the right to use your server's branding and public metrics
+      (including, but not limited to, its title, icon, banner, and member count) for marketing,
+      promotional, and operational purposes.
     </p>
   </div>
 
