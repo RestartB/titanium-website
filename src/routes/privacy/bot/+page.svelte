@@ -201,6 +201,7 @@
       <li>Command used</li>
       <li>Time the command was ran at</li>
       <li>User that ran the command</li>
+      <li>Whether the command was ran in user app mode or server mode</li>
     </ul>
 
     <p>

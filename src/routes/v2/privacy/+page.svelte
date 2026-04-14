@@ -50,15 +50,6 @@
     </ul>
   </section>
 
-  <section class="flex flex-col gap-2.5" id="ai">
-    <h2 class="text-xl font-semibold">No AI Training</h2>
-    <p>
-      In a world where more and more of your data is being used to train AI models without you being
-      aware, I want to make it clear - Titanium does not train AI models on your messages or
-      attachments, and doesn't send your messages to other AI providers.
-    </p>
-  </section>
-
   <section class="flex flex-col gap-2.5" id="data">
     <h2 class="text-xl font-semibold">Data I collect</h2>
     <p>
@@ -229,6 +220,7 @@
       <li>Command used</li>
       <li>Time the command was ran at</li>
       <li>User that ran the command</li>
+      <li>Whether the command was ran in user app mode or server mode</li>
     </ul>
 
     <Alert type="Info"
