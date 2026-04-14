@@ -20,7 +20,7 @@
 >
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy</h1>
-    <h2 class="text-xl font-semibold">Updated: 22/11/2025</h2>
+    <h2 class="text-xl font-semibold">Updated: 14/04/2026</h2>
   </div>
 
   <p>
