@@ -18,7 +18,7 @@
 >
   <div>
     <h1 class="text-4xl font-bold">Terms of Use</h1>
-    <h2 class="text-xl font-semibold">Updated: 22/11/2025</h2>
+    <h2 class="text-xl font-semibold">Updated: 14/04/2026</h2>
   </div>
 
   <p>
@@ -96,7 +96,7 @@
   </div>
 
   <div class="flex flex-col gap-2.5" id="licence">
-    <h3 class="font-semibold">Licence</h3>
+    <h2 class="text-xl font-semibold">Licence</h2>
     <p>By using Titanium, you also agree to the GNU Affero General Public License.</p>
 
     <p>
@@ -118,7 +118,7 @@
   </div>
 
   <div class="flex flex-col gap-2.5" id="features">
-    <h3 class="font-semibold">Features</h3>
+    <h2 class="text-xl font-semibold">Features</h2>
     <p>
       We are developing Titanium to add new features and remove bugs all the time. Because of this,
       new features may be added and some features may be removed. By using Titanium, you acknowledge
@@ -132,6 +132,15 @@
       Titanium may experience temporary outages in service, whether this is due to maintenance,
       feature rollouts or other issues. By using Titanium, you acknowledge this fact and that we are
       not responsible for any outages.
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-2.5" id="branding">
+    <h2 class="text-xl font-semibold">Server Branding and Metrics</h2>
+    <p>
+      By using Titanium, you grant us the right to use your server's branding and public metrics
+      (including, but not limited to, its title, icon, banner, and member count) for marketing,
+      promotional, and operational purposes.
     </p>
   </div>
 
