@@ -24,7 +24,8 @@
 
   <div>
     <h1 class="text-4xl font-bold">Terms of Use - v2</h1>
-    <h2 class="text-xl font-semibold">Updated: 14/04/2026</h2>
+    <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 14/04/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
