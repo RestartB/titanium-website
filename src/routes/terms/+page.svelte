@@ -18,7 +18,7 @@
 >
   <div>
     <h1 class="text-4xl font-bold">Terms of Use</h1>
-    <h2 class="text-xl font-semibold">Updated: 14/04/2026</h2>
+    <h2 class="text-xl font-semibold">Updated: 15/04/2026</h2>
   </div>
 
   <p>
@@ -140,7 +140,10 @@
     <p>
       By using Titanium, you grant us the right to use your server's branding and public metrics
       (including, but not limited to, its title, icon, banner, and member count) for marketing,
-      promotional, and operational purposes.
+      promotional, and operational purposes. In the case that we use your branding in our marketing
+      or promotional material, we will attempt to contact you beforehand to allow you to opt out if
+      you wish. You also have the right to opt out at any time if your branding is already in our
+      marketing or promotional materials.
     </p>
   </div>
 
