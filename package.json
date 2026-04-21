@@ -44,7 +44,7 @@
     "vite-plugin-devtools-json": "^1.0.0"
   },
   "dependencies": {
-    "@libsql/client": "^0.17.0",
+    "@libsql/client": "^0.17.2",
     "@lucide/svelte": "^1.7.0",
     "drizzle-orm": "^0.45.2"
   }
