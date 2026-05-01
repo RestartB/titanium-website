@@ -20,7 +20,7 @@
 >
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy</h1>
-    <h2 class="text-xl font-semibold">Updated: 14/04/2026</h2>
+    <h2 class="text-xl font-semibold">Updated: 01/05/2026</h2>
   </div>
 
   <p>
@@ -242,9 +242,9 @@
   <section class="flex flex-col gap-2.5" id="location">
     <h2 class="text-xl font-semibold">Processing Location</h2>
     <p>
-      Titanium is hosted using Contabo servers in their EU data centers. By using Titanium, you
-      agree to your data being processed according to this privacy policy, and local laws /
-      regulations in the European Union, as well as the United Kingdom.
+      Titanium is hosted on Hetzner servers in Helsinki, Finland. By using Titanium, you agree to
+      your data being processed according to this privacy policy, and local laws / regulations in
+      the European Union, as well as the United Kingdom.
     </p>
   </section>
 
@@ -289,10 +289,20 @@
   <section class="flex flex-col gap-2.5" id="backups">
     <h2 class="text-xl font-semibold">Backups</h2>
     <p>
-      We take daily backups of our server to ensure that we can restore data if a data loss event
-      occurs. We keep backups using the Contabo auto snapshot feature, which stores snapshots for
-      the last 10 days.
+      To ensure that data can be restored in the case of data loss, we make use of the Duplicati
+      backup tool. This creates encrypted backups using the AES-256 algorithm that are stored in a
+      private Backblaze B2 storage bucket.
     </p>
+    <p>
+      Since we implemented this backup policy on 30/04/2026, our backup history will build up over
+      time. Older backups are automatically deleted, but we will always retain at least one backup.
+      Once enough time has passed, our maximum retention schedule will be:
+    </p>
+    <ul class="list-inside list-disc">
+      <li>One backup for each of the last 7 days</li>
+      <li>One backup for each of the last 4 weeks</li>
+      <li>One backup for each of the last 12 months</li>
+    </ul>
   </section>
 
   <section class="flex flex-col gap-2.5" id="data-breach">

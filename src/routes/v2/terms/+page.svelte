@@ -25,7 +25,7 @@
   <div>
     <h1 class="text-4xl font-bold">Terms of Use - v2</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 15/04/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 01/05/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -91,6 +91,10 @@
         you must not <span class="font-bold"
           >attempt to harm or overload any Titanium services.</span
         >
+      </li>
+      <li>
+        You should not attempt to interact with Titanium API endpoints directly. Titanium API
+        endpoints are designed for usage with official Titanium services only.
       </li>
     </ul>
 
