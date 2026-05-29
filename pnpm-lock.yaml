@@ -69,6 +69,9 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: 0.8.0
         version: 0.8.0(prettier-plugin-svelte@4.0.1(prettier@3.8.3)(svelte@5.55.9(@typescript-eslint/types@8.60.0)))(prettier@3.8.3)
+      super-sitemap:
+        specifier: 1.0.12
+        version: 1.0.12(svelte@5.55.9(@typescript-eslint/types@8.60.0))
       svelte:
         specifier: 5.55.9
         version: 5.55.9(@typescript-eslint/types@8.60.0)
@@ -2119,6 +2122,11 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
+  super-sitemap@1.0.12:
+    resolution: {integrity: sha512-C3gfAS1RZxL5bbZGtgnIOitMhfqAt8RmhW8AWTia6c8n9RW3Zx7f/SxVeFWZD0I1nUAx2pkxuWazVtev0Nmb5w==}
+    peerDependencies:
+      svelte: '>=4.0.0 <6.0.0'
+
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
@@ -3871,6 +3879,10 @@ snapshots:
       source-map: 0.6.1
 
   source-map@0.6.1: {}
+
+  super-sitemap@1.0.12(svelte@5.55.9(@typescript-eslint/types@8.60.0)):
+    dependencies:
+      svelte: 5.55.9(@typescript-eslint/types@8.60.0)
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
