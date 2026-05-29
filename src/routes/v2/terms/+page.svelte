@@ -25,7 +25,7 @@
   <div>
     <h1 class="text-4xl font-bold">Terms of Use - v2</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 01/05/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 29/05/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -53,17 +53,12 @@
     <ul class="list-inside list-disc">
       <li>
         you must not use Titanium to <span class="font-bold"
-          >harass or harm other users / yourself.</span
+          >harass or harm other users.</span
         >
       </li>
       <li>
         you must not use Titanium to <span class="font-bold"
           >send unsolicited advertisements or messages to other users.</span
-        >
-      </li>
-      <li>
-        you must not use Titanium to <span class="font-bold"
-          >cause major inconvenience to other users.</span
         >
       </li>
       <li>
@@ -78,7 +73,7 @@
       </li>
       <li>
         you must not use Titanium to <span class="font-bold"
-          >violate any laws in the European Union (hosting country), United Kingdom, or the country
+          >violate any laws in the European Union (hosting area), United Kingdom, or the country
           of usage.</span
         >
       </li>
