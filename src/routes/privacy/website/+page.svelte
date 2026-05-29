@@ -24,7 +24,7 @@
   <p>
     This document explains how Titanium's website treats your data. <span class="font-bold"
       >Please note that this Privacy Policy only applies to the Titanium bot website
-      (https://titaniumbot.me/).</span
+      (https://titanium.fyi/).</span
     >
   </p>
 
