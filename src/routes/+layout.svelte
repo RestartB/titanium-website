@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onNavigate } from '$app/navigation';
+  import { page } from '$app/state';
 
   import Header from '$lib/components/Header.svelte';
   import Footer from '$lib/components/Footer.svelte';
@@ -23,6 +24,10 @@
     });
   });
 </script>
+
+<svelte:head>
+  <link rel="canonical" href={`https://titaniumbot.me${$page.url.pathname}`} />
+</svelte:head>
 
 <div class="app">
   <Header />
