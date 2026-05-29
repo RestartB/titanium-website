@@ -26,7 +26,7 @@
 </script>
 
 <svelte:head>
-  <link rel="canonical" href={`https://titaniumbot.me${$page.url.pathname}`} />
+  <link rel="canonical" href={`https://titaniumbot.me${page.url.pathname}`} />
 </svelte:head>
 
 <div class="app">
