@@ -26,7 +26,7 @@
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy - v2</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 01/05/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 29/05/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -76,7 +76,8 @@
       Titanium allows users to moderate their servers. When a user creates a case, the case is
       stored in Titanium's servers. Data stored on Titanium's servers will include the creator's
       Discord user ID and the target users's Discord ID, as well as the reason that the user
-      provides.
+      provides. Any provided comments will also be stored, including the creation date and
+      the creator's user ID.
     </p>
   </section>
 
@@ -110,14 +111,6 @@
       phishing link checking is processed locally, and your links are not stored or sent to a third
       party.
     </Alert>
-  </section>
-
-  <section class="flex flex-col gap-2.5" id="bouncer">
-    <h3 class="font-semibold">Bouncer</h3>
-    <p>
-      Titanium provides a bouncer features that monitors members as they join and update their
-      accounts. This feature does not store any user data.
-    </p>
   </section>
 
   <section class="flex flex-col gap-2.5" id="logging">
@@ -177,26 +170,13 @@
     </p>
   </section>
 
-  <section class="flex flex-col gap-2.5" id="song-url">
-    <h3 class="font-semibold">Song URL Feature</h3>
-    <p>
-      When you use Titanium's Song URL feature, Titanium uses song.link / Odesli to convert the
-      link. Once the link has been converted, Titanium will store it in a cache to speed up future
-      requests. The cache is fully anonymous, and only stores the user provided cleaned link, and
-      the response from song.link.
-    </p>
-
-    <Alert type="Info"
-      >Each cache entry will expire after 30 days, after which it will be removed.</Alert
-    >
-  </section>
-
   <section class="flex flex-col gap-2.5" id="images">
-    <h3 class="font-semibold">Image Features</h3>
+    <h3 class="font-semibold">Image and Video Features</h3>
     <p>
-      When using Titanium's image processing features, the original image and processed image will
-      be temporarily stored in memory to complete the request. Once the request is complete, both
-      images will be deleted from memory and not stored at rest at any point in the process.
+      When using Titanium's image and video processing features, the original file and output file
+      will be temporarily stored in memory to complete the request. Once the request is complete,
+      both files will be deleted from memory. No files are stored at rest at any point in the
+      process.
     </p>
   </section>
 
@@ -223,10 +203,10 @@
       <li>Whether the command was ran in user app mode or server mode</li>
     </ul>
 
-    <Alert type="Info"
-      >I do not collect any arguments that you provide (URLs, attachments, etc) as part of this
-      telemetry.</Alert
-    >
+    <Alert type="Info">
+      I do not collect any arguments that you provide (URLs, attachments, etc) as part of this
+      telemetry.
+    </Alert>
   </section>
 
   <section class="flex flex-col gap-2.5" id="errors">
@@ -249,6 +229,15 @@
       </li>
       <li>User that ran the command</li>
     </ul>
+  </section>
+
+  <section class="flex flex-col gap-2.5" id="feedback">
+    <h2 class="text-xl font-semibold">Feedback</h2>
+    <p>
+      When you run the feedback command to submit a bug report, feature request, etc, I am the only
+      one that can see the feedback. I will also receive your user ID and name so I can further
+      contact you about the request if required.
+    </p>
   </section>
 
   <section class="flex flex-col gap-2.5" id="location">
@@ -279,7 +268,6 @@
       <li>LRCLib</li>
       <li>Urban Dictionary</li>
       <li>Wikipedia</li>
-      <li>Odesli / song.link</li>
       <li>The Cat API</li>
       <li>dog.ceo</li>
       <li>sandcat.link</li>
