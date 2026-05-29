@@ -1,7 +1,6 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { prefersReducedMotion } from 'svelte/motion';
-  import Alert from '$lib/components/Alert.svelte';
 </script>
 
 <svelte:head>
@@ -17,15 +16,9 @@
   in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
   class="flex max-w-5xl flex-col gap-5 p-5 pt-19.5"
 >
-  <Alert type="Warning">
-    This Terms of Use policy only applies to Titanium v2, which is not publicly available yet. For
-    the current policy please refer to the <a href="/terms">v1 terms of use policy</a>.
-  </Alert>
-
   <div>
-    <h1 class="text-4xl font-bold">Terms of Use - v2</h1>
-    <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 29/05/2026 (dd/mm/yyyy)</h2>
+    <h1 class="text-4xl font-bold">Terms of Use</h1>
+    <h2 class="text-xl font-semibold">Updated: 01/05/2026</h2>
   </div>
 
   <p>
@@ -43,7 +36,7 @@
       <li>
         <span class="italic">"Titanium", "Titanium Bot", "the bot"</span> - the Titanium Discord bot.
       </li>
-      <li><span class="italic">"we", "Restart"</span> - Restart.</li>
+      <li><span class="italic">"we"</span> - Restart.</li>
     </ul>
   </div>
 
@@ -53,12 +46,17 @@
     <ul class="list-inside list-disc">
       <li>
         you must not use Titanium to <span class="font-bold"
-          >harass or harm other users.</span
+          >harass or harm other users / yourself.</span
         >
       </li>
       <li>
         you must not use Titanium to <span class="font-bold"
           >send unsolicited advertisements or messages to other users.</span
+        >
+      </li>
+      <li>
+        you must not use Titanium to <span class="font-bold"
+          >cause major inconvenience to other users.</span
         >
       </li>
       <li>
@@ -73,7 +71,7 @@
       </li>
       <li>
         you must not use Titanium to <span class="font-bold"
-          >violate any laws in the European Union (hosting area), United Kingdom, or the country
+          >violate any laws in the European Union (hosting country), United Kingdom, or the country
           of usage.</span
         >
       </li>
@@ -89,7 +87,7 @@
       </li>
       <li>
         You should not attempt to interact with Titanium API endpoints directly. Titanium API
-        endpoints are designed for usage with official Titanium services only.
+        endpoints are designed for official Titanium services only.
       </li>
     </ul>
 
@@ -102,7 +100,7 @@
   </div>
 
   <div class="flex flex-col gap-2.5" id="licence">
-    <h3 class="font-semibold">Licence</h3>
+    <h2 class="text-xl font-semibold">Licence</h2>
     <p>By using Titanium, you also agree to the GNU Affero General Public License.</p>
 
     <p>
@@ -124,7 +122,7 @@
   </div>
 
   <div class="flex flex-col gap-2.5" id="features">
-    <h3 class="font-semibold">Features</h3>
+    <h2 class="text-xl font-semibold">Features</h2>
     <p>
       We are developing Titanium to add new features and remove bugs all the time. Because of this,
       new features may be added and some features may be removed. By using Titanium, you acknowledge

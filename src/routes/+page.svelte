@@ -77,11 +77,11 @@
 
 <div in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }} class="w-full">
   <section
-    class="flex h-screen w-full flex-col items-center overflow-hidden border-b-4 border-titanium-border p-4 pt-0"
+    class="flex h-150 w-full flex-col items-center overflow-hidden border-b-4 border-titanium-border p-4 pt-0"
   >
     <!-- prettier-ignore -->
     <div
-			class="absolute left-0 right-0 w-full h-screen bg-[url('/images/background_blur.svg')] bg-cover bg-no-repeat bg-center brightness-50"
+			class="absolute left-0 right-0 w-full h-150 bg-[url('/images/background_blur.svg')] bg-cover bg-no-repeat bg-center brightness-50"
 		></div>
 
     <div class="z-10 mt-auto mb-auto flex flex-col gap-4 p-4">
