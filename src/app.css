@@ -1,10 +1,9 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-titanium-border: #767676;
-  --color-titanium-sidebar-active: #4e4e4e;
-  --color-titanium-transparent-header: rgba(228, 228, 231, 0.7);
-  --font-figtree: 'Figtree', 'sans-serif';
-  --breakpoint-xs: 426px;
-  --breakpoint-xxs: 365px;
+  --font-figtree: 'Figtree', sans-serif;
+  --breakpoint-sidebar: 840px;
+  --breakpoint-xs: 32rem;
+  --breakpoint-xxs: 22rem;
+  --color-blurple: #5865f2;
 }
