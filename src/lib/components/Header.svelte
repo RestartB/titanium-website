@@ -39,8 +39,8 @@
 
 {#snippet menuLink(title: string, href: string, active: boolean, Icon: Component)}
   <a
-    class="flex w-full items-center gap-2 p-2 {active
-      ? 'bg-zinc-300'
+    class="flex w-full items-center gap-2 p-2 px-8 {active
+      ? 'bg-zinc-200 dark:bg-zinc-700 font-bold'
       : ''} transition-all active:scale-98"
     {href}
   >
@@ -60,7 +60,7 @@
         <h1 class="text-lg font-bold" translate="no">Titanium</h1>
       </div>
 
-      <nav class="shrink-0 items-center flex">
+      <nav class="shrink-0 items-center flex h-full">
         {@render topRowLink('Home', '/')}
         {@render topRowLink('About', '/about')}
         {@render topRowLink('Status', '/status')}
@@ -100,18 +100,13 @@
 
 {#if menuOpen}
   <nav
-    class="absolute inset-0 mt-12 from-zinc-300/50 from-60% backdrop-blur-lg h-fit w-full z-90 pb-12 bg-linear-to-b"
+    class="absolute inset-0 mt-12 from-zinc-300 dark:from-zinc-800 pt-2 from-75% h-fit w-full z-90 pb-20 bg-linear-to-b"
     transition:fly={{ y: prefersReducedMotion.current ? 0 : -10, duration: 200 }}
   >
     {@render menuLink('Home', resolve('/'), page.url.pathname.endsWith('/'), House)}
     {@render menuLink('About', resolve('/about'), page.url.pathname.endsWith('/about'), Info)}
     {@render menuLink('Status', resolve('/status'), page.url.pathname.endsWith('/status'), Wifi)}
-    {@render menuLink(
-      'Dashboard',
-      'https://dash.titanium.fyi',
-      page.url.pathname.endsWith('/status'),
-      Wrench
-    )}
-    {@render menuLink('Add Bot', resolve('/invite'), page.url.pathname.endsWith('/status'), Plus)}
+    {@render menuLink('Dashboard', 'https://dash.titanium.fyi', false, Wrench)}
+    {@render menuLink('Add Bot', resolve('/invite'), false, Plus)}
   </nav>
 {/if}

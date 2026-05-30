@@ -14,7 +14,7 @@
 
 <div
   in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
-  class="flex max-w-5xl flex-col gap-5 p-5 pt-19.5"
+  class="flex max-w-7xl flex-col gap-4 p-4 mx-auto"
 >
   <div>
     <h1 class="text-4xl font-bold">Website Privacy Policy</h1>

@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import { fly } from 'svelte/transition';
   import { prefersReducedMotion } from 'svelte/motion';
-  import Alert from '$lib/components/Alert.svelte';
 </script>
 
 <svelte:head>
@@ -15,10 +15,10 @@
 
 <div
   in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
-  class="flex max-w-5xl flex-col gap-5 p-5 pt-19.5"
+  class="flex max-w-7xl flex-col gap-4 p-4 mx-auto"
 >
   <div>
-    <h1 class="text-4xl font-bold">Terms of Use - v2</h1>
+    <h1 class="text-4xl font-bold">Terms of Use</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
     <h2 class="text-xl font-semibold">Updated: 29/05/2026 (dd/mm/yyyy)</h2>
   </div>
@@ -47,9 +47,7 @@
     <p>You must abide by the following guidelines when using Titanium's services:</p>
     <ul class="list-inside list-disc">
       <li>
-        you must not use Titanium to <span class="font-bold"
-          >harass or harm other users.</span
-        >
+        you must not use Titanium to <span class="font-bold">harass or harm other users.</span>
       </li>
       <li>
         you must not use Titanium to <span class="font-bold"
@@ -68,8 +66,8 @@
       </li>
       <li>
         you must not use Titanium to <span class="font-bold"
-          >violate any laws in the European Union (hosting area), United Kingdom, or the country
-          of usage.</span
+          >violate any laws in the European Union (hosting area), United Kingdom, or the country of
+          usage.</span
         >
       </li>
       <li>
@@ -210,7 +208,7 @@
   <div class="flex flex-col gap-2.5" id="contact">
     <h2 class="text-xl font-semibold">Contact Us</h2>
     <p>
-      If you wish to contact us, please join the <a href="/server" target="_blank"
+      If you wish to contact us, please join the <a href={resolve('/server')} target="_blank"
         >support Discord server</a
       >, then create a ticket. We will attempt to get back to you ASAP regarding your concern.
     </p>

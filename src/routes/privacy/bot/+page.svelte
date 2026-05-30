@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
   import { fly } from 'svelte/transition';
   import { prefersReducedMotion } from 'svelte/motion';
 
@@ -16,10 +17,10 @@
 
 <div
   in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
-  class="flex max-w-5xl flex-col gap-5 p-5 pt-19.5"
+  class="flex max-w-7xl flex-col gap-4 p-4 mx-auto"
 >
   <div>
-    <h1 class="text-4xl font-bold">Privacy Policy - v2</h1>
+    <h1 class="text-4xl font-bold">Privacy Policy</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
     <h2 class="text-xl font-semibold">Updated: 29/05/2026 (dd/mm/yyyy)</h2>
   </div>
@@ -71,8 +72,8 @@
       Titanium allows users to moderate their servers. When a user creates a case, the case is
       stored in Titanium's servers. Data stored on Titanium's servers will include the creator's
       Discord user ID and the target users's Discord ID, as well as the reason that the user
-      provides. Any provided comments will also be stored, including the creation date and
-      the creator's user ID.
+      provides. Any provided comments will also be stored, including the creation date and the
+      creator's user ID.
     </p>
   </section>
 
@@ -369,8 +370,9 @@
     <h2 class="text-xl font-semibold">Contact Us</h2>
     <p>
       If you wish to contact us about a privacy related concern (policy enquiry, data access
-      request, etc.), please join the <a href="/server" target="_blank">support Discord server</a>,
-      then create a ticket. We will attempt to get back to you ASAP regarding your concern.
+      request, etc.), please join the <a href={resolve('/server')} target="_blank"
+        >support Discord server</a
+      >, then create a ticket. We will attempt to get back to you ASAP regarding your concern.
     </p>
   </section>
 </div>
