@@ -2,7 +2,7 @@
   import { resolve } from '$app/paths';
 </script>
 
-<div class="flex max-w-7xl flex-col gap-4 p-4 mx-auto">
+<div class="mx-auto flex max-w-7xl flex-col gap-4 p-4">
   <div>
     <h1 class="text-4xl font-bold">Terms of Use</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>

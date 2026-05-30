@@ -31,7 +31,7 @@
 {#snippet topRowLink(title: string, href: Pathname)}
   <a
     href={resolve(href)}
-    class="hidden h-full items-center border-y-transparent border-b-zinc-400 dark:border-b-zinc-500 px-2 transition-all hover:border-y-4 xs:flex"
+    class="hidden h-full items-center border-y-transparent border-b-zinc-400 px-2 transition-all hover:border-y-4 xs:flex dark:border-b-zinc-500"
   >
     {title}
   </a>
@@ -40,7 +40,7 @@
 {#snippet menuLink(title: string, href: string, active: boolean, Icon: Component)}
   <a
     class="flex w-full items-center gap-2 p-2 px-8 {active
-      ? 'bg-zinc-200 dark:bg-zinc-700 font-bold'
+      ? 'bg-zinc-200 font-bold dark:bg-zinc-700'
       : ''} transition-all active:scale-98"
     {href}
   >
@@ -50,7 +50,7 @@
 {/snippet}
 
 <header
-  class="fixed z-100 h-12 w-full border-b-2 border-b-zinc-300 dark:border-b-zinc-700 bg-zinc-200 dark:bg-zinc-800 text-base"
+  class="fixed z-100 h-12 w-full border-b-2 border-b-zinc-300 bg-zinc-200 text-base dark:border-b-zinc-700 dark:bg-zinc-800"
   style="view-transition-name: header"
 >
   <div class="mx-auto flex h-full max-w-7xl items-center">
@@ -60,7 +60,7 @@
         <h1 class="text-lg font-bold" translate="no">Titanium</h1>
       </div>
 
-      <nav class="shrink-0 items-center flex h-full">
+      <nav class="flex h-full shrink-0 items-center">
         {@render topRowLink('Home', '/')}
         {@render topRowLink('About', '/about')}
         {@render topRowLink('Status', '/status')}
@@ -68,13 +68,13 @@
     </div>
 
     <a
-      class="bg-zinc-300 hover:bg-zinc-200 border-zinc-400 transition-colors border p-1 px-2 rounded-lg hidden xs:flex gap-1 items-center justify-center"
+      class="hidden items-center justify-center gap-1 rounded-lg border border-zinc-400 bg-zinc-300 p-1 px-2 transition-colors hover:bg-zinc-200 xs:flex dark:border-zinc-600 dark:bg-zinc-700 hover:dark:bg-zinc-800"
       href={resolve('/invite')}
     >
       Add Bot
     </a>
     <a
-      class="ml-2 bg-zinc-300 hover:bg-zinc-200 border-zinc-400 transition-colors border p-1 px-2 rounded-lg mr-4 hidden xs:flex gap-1 items-center justify-center"
+      class="mr-4 ml-2 hidden items-center justify-center gap-1 rounded-lg border border-zinc-400 bg-zinc-300 p-1 px-2 transition-colors hover:bg-zinc-200 xs:flex dark:border-zinc-600 dark:bg-zinc-700 hover:dark:bg-zinc-800"
       href="https://dash.titanium.fyi"
     >
       Dashboard
@@ -100,7 +100,7 @@
 
 {#if menuOpen}
   <nav
-    class="absolute inset-0 mt-12 from-zinc-300 dark:from-zinc-800 pt-2 from-75% h-fit w-full z-90 pb-20 bg-linear-to-b"
+    class="fixed inset-0 z-90 mt-12 h-fit w-full bg-linear-to-b from-zinc-300 from-75% pt-2 pb-20 dark:from-zinc-800"
     transition:fly={{ y: prefersReducedMotion.current ? 0 : -10, duration: 200 }}
   >
     {@render menuLink('Home', resolve('/'), page.url.pathname.endsWith('/'), House)}

@@ -24,13 +24,13 @@
 </script>
 
 <div
-  class="w-fit bg-zinc-200 p-2 px-4 rounded-lg dark:bg-zinc-800 border-2 border-zinc-300 dark:border-zinc-700 {colour
-    ? 'border-l-6 border-l-(--colour)'
+  class="w-fit rounded-lg border-2 border-zinc-300 bg-zinc-200 p-2 px-4 dark:border-zinc-700 dark:bg-zinc-800 {colour
+    ? 'border-l-6 border-l-(--colour)!'
     : ''} {className}"
   style:--colour={colour}
 >
   {#if author || authorImg}
-    <span class="flex items-center gap-1 text-base mb-1">
+    <span class="mb-1 flex items-center gap-1 text-base">
       {#if authorImg}
         <enhanced:img src={authorImg} class="h-6 w-6 rounded-full" />
       {/if}
@@ -39,7 +39,7 @@
   {/if}
 
   {#if title}
-    <p class="text-xl font-bold mb-1">{title}</p>
+    <p class="mb-1 text-xl font-bold">{title}</p>
   {/if}
 
   <div class="text-base">
@@ -47,7 +47,7 @@
   </div>
 
   {#if footer || footerImg}
-    <span class="flex items-center gap-1 text-base mt-1">
+    <span class="mt-1 flex items-center gap-1 text-base">
       {#if footerImg}
         <enhanced:img src={footerImg} class="h-6 w-6 rounded-full" />
       {/if}

@@ -3,7 +3,7 @@
   import Collapsible from '$lib/components/Collapsible.svelte';
 </script>
 
-<div class="flex w-full max-w-7xl flex-col gap-4 p-8 mx-auto">
+<div class="mx-auto flex w-full max-w-7xl flex-col gap-4 p-8">
   <h1
     class="bg-linear-to-bl from-zinc-500 to-zinc-800 bg-clip-text text-6xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
   >

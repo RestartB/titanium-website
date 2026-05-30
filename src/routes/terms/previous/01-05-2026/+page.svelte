@@ -6,7 +6,7 @@
 
 <div
   in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
-  class="flex max-w-7xl flex-col gap-4 p-4 mx-auto"
+  class="mx-auto flex max-w-7xl flex-col gap-4 p-4"
 >
   <div>
     <h1 class="text-4xl font-bold">Terms of Use</h1>
