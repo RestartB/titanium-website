@@ -1,7 +1,7 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
 
-  import Link from '$lib/components/Link.svelte';
+  import LinkButton from '$lib/components/LinkButton.svelte';
   import Embed from '$lib/components/embeds/Embed.svelte';
   import EmbedField from '$lib/components/embeds/EmbedField.svelte';
   import {
@@ -38,20 +38,29 @@
     </div>
   </div>
   <div class="flex gap-2 items-center justify-center mt-4">
-    <Link href={resolve('/invite')} class="rounded-full!" title="Add Bot">
+    <LinkButton href={resolve('/invite')} class="rounded-full!" title="Add Bot">
       <Plus />
       Add Bot
-    </Link>
-    <Link href="https://dash.titanium.fyi" class="rounded-full!" title="Dashboard">
+    </LinkButton>
+    <LinkButton href="https://dash.titanium.fyi" class="rounded-full!" title="Dashboard">
       <LayoutDashboard />
       Dashboard
-    </Link>
+    </LinkButton>
   </div>
 </section>
 
-<div class="max-w-7xl mx-auto p-8 pt-0 space-y-8">
+<div class="max-w-7xl mx-auto p-8 space-y-8">
   <section class="flex gap-8 items-center">
-    <div>
+    <div class="w-80 shrink-0">
+      <p
+        class="bg-linear-to-bl text-center from-zinc-400 to-zinc-900 bg-clip-text text-8xl font-black text-transparent dark:from-zinc-200 dark:to-zinc-600 dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
+      >
+        80+
+      </p>
+      <p class="text-4xl text-center font-semibold">commands</p>
+    </div>
+
+    <div class="flex-1">
       <span class="flex items-center gap-2 text-3xl font-bold">
         <CodeXmlIcon /> User and Server Support
       </span>
@@ -86,7 +95,7 @@
   </section>
 
   <section class="flex gap-8 items-center">
-    <div>
+    <div class="w-80 shrink-0">
       <div class="flex gap-2 items-center mb-2">
         <enhanced:img
           src="$lib/assets/logo.svg"
@@ -210,7 +219,7 @@
   ></span>
 
   <h3 class="z-10 text-center text-2xl">
-    Ready? Join <b>413</b> users and <b>175</b> servers and
+    Ready? Join <b>{data.userCount}</b> users and <b>{data.serverCount}</b> servers and
   </h3>
   <h1
     class="z-10 bg-linear-to-bl from-zinc-500 to-zinc-800 dark:from-zinc-100 dark:to-zinc-400 bg-clip-text text-center text-6xl font-bold text-transparent dark:drop-shadow-[0_0_15px_rgba(168,162,158,0.4)] drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
@@ -219,13 +228,13 @@
   </h1>
 
   <div class="flex gap-2 items-center justify-center mt-2">
-    <Link href={resolve('/invite')} class="rounded-full!" title="Add Bot">
+    <LinkButton href={resolve('/invite')} class="rounded-full!" title="Add Bot">
       <Plus />
       Add Bot
-    </Link>
-    <Link href="https://dash.titanium.fyi" class="rounded-full!" title="Dashboard">
+    </LinkButton>
+    <LinkButton href="https://dash.titanium.fyi" class="rounded-full!" title="Dashboard">
       <LayoutDashboard />
       Dashboard
-    </Link>
+    </LinkButton>
   </div>
 </section>

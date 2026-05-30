@@ -2,13 +2,18 @@
   import '../app.css';
 
   import Header from '$lib/components/Header.svelte';
+  import Footer from '$lib/components/Footer.svelte';
   import type { LayoutProps } from './$types';
 
-  let { data, children }: LayoutProps = $props();
+  let { children }: LayoutProps = $props();
 </script>
 
-<Header />
+<div class="flex flex-col min-h-screen">
+  <Header />
 
-<div class="pt-12">
-  {@render children()}
+  <main class="pt-12 flex-1">
+    {@render children()}
+  </main>
+
+  <Footer />
 </div>

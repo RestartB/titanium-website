@@ -1,6 +1,5 @@
 <script lang="ts">
   /* eslint-disable svelte/no-navigation-without-resolve */
-
   import { page } from '$app/state';
   import { resolve } from '$app/paths';
   import { afterNavigate } from '$app/navigation';
@@ -11,6 +10,7 @@
   import logo from '$lib/assets/logo.svg';
 
   import type { Component } from 'svelte';
+  import type { Pathname } from '$app/types';
 
   let menuOpen = $state(false);
   let width = $state(0);
@@ -28,7 +28,7 @@
 
 <svelte:window bind:innerWidth={width} />
 
-{#snippet topRowLink(title: string, href: string)}
+{#snippet topRowLink(title: string, href: Pathname)}
   <a
     href={resolve(href)}
     class="hidden h-full items-center border-y-transparent border-b-zinc-400 dark:border-b-zinc-500 px-2 transition-all hover:border-y-4 xs:flex"
