@@ -1,22 +1,8 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
-  import { fly } from 'svelte/transition';
-  import { prefersReducedMotion } from 'svelte/motion';
 </script>
 
-<svelte:head>
-  <title>Titanium - Terms of Use</title>
-  <meta content="Titanium - Terms of Use" property="og:title" />
-  <meta
-    content="View the terms of use for Titanium, your multipurpose, open source Discord bot."
-    property="og:description"
-  />
-</svelte:head>
-
-<div
-  in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
-  class="flex max-w-7xl flex-col gap-4 p-4 mx-auto"
->
+<div class="flex max-w-7xl flex-col gap-4 p-4 mx-auto">
   <div>
     <h1 class="text-4xl font-bold">Terms of Use</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>

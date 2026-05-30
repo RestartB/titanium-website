@@ -3,15 +3,6 @@
   import { prefersReducedMotion } from 'svelte/motion';
 </script>
 
-<svelte:head>
-  <title>Titanium - Website Privacy Policy</title>
-  <meta content="Titanium - Website Privacy Policy" property="og:title" />
-  <meta
-    content="View the website privacy policy for Titanium, your multipurpose, open source Discord bot."
-    property="og:description"
-  />
-</svelte:head>
-
 <div
   in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
   class="flex max-w-7xl flex-col gap-4 p-4 mx-auto"

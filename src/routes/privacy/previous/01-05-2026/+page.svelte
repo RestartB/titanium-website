@@ -6,15 +6,6 @@
   import Alert from '$lib/components/Alert.svelte';
 </script>
 
-<svelte:head>
-  <title>Titanium - Bot Privacy Policy</title>
-  <meta content="Titanium - Bot Privacy Policy" property="og:title" />
-  <meta
-    content="View the bot privacy policy for Titanium, your multipurpose, open source Discord bot."
-    property="og:description"
-  />
-</svelte:head>
-
 <div
   in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
   class="flex max-w-7xl flex-col gap-4 p-4"

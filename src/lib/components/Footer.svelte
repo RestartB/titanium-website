@@ -6,7 +6,7 @@
   <nav class="w-full flex items-center justify-center gap-2 px-4 p-2 max-w-7xl mx-auto">
     <p class="mr-auto font-bold">© 2026, Restart</p>
     <a href={resolve('/server')} class="hover:font-bold transition-all">Support Server</a>
-    <a href={resolve('/server')} class="hover:font-bold transition-all">Terms of Use</a>
-    <a href={resolve('/server')} class="hover:font-bold transition-all">Privacy Policy</a>
+    <a href={resolve('/terms')} class="hover:font-bold transition-all">Terms of Use</a>
+    <a href={resolve('/privacy')} class="hover:font-bold transition-all">Privacy Policy</a>
   </nav>
 </footer>

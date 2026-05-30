@@ -1,28 +1,13 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
-  import { fly } from 'svelte/transition';
-  import { prefersReducedMotion } from 'svelte/motion';
-
   import Alert from '$lib/components/Alert.svelte';
 </script>
 
-<svelte:head>
-  <title>Titanium - Bot Privacy Policy</title>
-  <meta content="Titanium - Bot Privacy Policy" property="og:title" />
-  <meta
-    content="View the bot privacy policy for Titanium, your multipurpose, open source Discord bot."
-    property="og:description"
-  />
-</svelte:head>
-
-<div
-  in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
-  class="flex max-w-7xl flex-col gap-4 p-4 mx-auto"
->
+<div class="flex max-w-7xl flex-col gap-4 p-4 mx-auto">
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 29/05/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 30/05/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -39,7 +24,7 @@
       <li>
         <span class="italic">"Titanium", "Titanium Bot", "the bot"</span> - the Titanium Discord bot.
       </li>
-      <li><span class="italic">"we", "I", "me"</span> - Restart.</li>
+      <li><span class="italic">"we", "us"</span> - Restart.</li>
       <li>
         <span class="italic">"guild"</span> - a Discord server.
       </li>
@@ -47,7 +32,7 @@
   </section>
 
   <section class="flex flex-col gap-2.5" id="data">
-    <h2 class="text-xl font-semibold">Data I collect</h2>
+    <h2 class="text-xl font-semibold">Data Collected</h2>
     <p>
       When using certain Titanium features, the bot may need to collect and process some data.
       Titanium accesses this data using the Discord API; all data accessed is publicly accessible.
@@ -114,8 +99,8 @@
     <p>
       Titanium provides a logging feature that allows server moderators to log events that happen in
       the server. The server admins should ensure that any data logged by this feature is kept
-      secure, by utilising Discord channel permissions. I am not responsible for any data leaks that
-      may occur as a result of misconfigured channel permissions.
+      secure, by utilising Discord channel permissions. We are not responsible for any data leaks
+      that may occur as a result of misconfigured channel permissions.
     </p>
   </section>
 
@@ -200,7 +185,7 @@
     </ul>
 
     <Alert type="Info">
-      I do not collect any arguments that you provide (URLs, attachments, etc) as part of this
+      We do not collect any arguments that you provide (URLs, attachments, etc) as part of this
       telemetry.
     </Alert>
   </section>
@@ -208,7 +193,7 @@
   <section class="flex flex-col gap-2.5" id="errors">
     <h2 class="text-xl font-semibold">Error Data Collection</h2>
     <p>
-      If an error occurs while you are using Titanium, I collect the following information to fix
+      If an error occurs while you are using Titanium, we collect the following information to fix
       issues and improve the bot experience:
     </p>
     <ul class="list-inside list-disc">
@@ -230,9 +215,9 @@
   <section class="flex flex-col gap-2.5" id="feedback">
     <h2 class="text-xl font-semibold">Feedback</h2>
     <p>
-      When you run the feedback command to submit a bug report, feature request, etc, I am the only
-      one that can see the feedback. I will also receive your user ID and name so I can further
-      contact you about the request if required.
+      When you run the feedback command to submit a bug report, feature request, etc, we are the
+      only ones that can see the feedback. We will also receive your username and user ID so we can
+      further contact you about the request if required.
     </p>
   </section>
 
@@ -294,8 +279,9 @@
 
     <h3 class="font-semibold">User Data</h3>
     <p>
-      To remove all user related data, use the <code class="text-base">/settings remove-data</code> command
-      - this will remove data such as tags and leaderboard data for your account.
+      To remove all user related data, use the <code class="text-base">/opt-out</code> command - this
+      will remove data such as tags and leaderboard data for your account, and block further data collection
+      of this type.
     </p>
 
     <h3 class="font-semibold">Server Data</h3>
@@ -307,8 +293,8 @@
       <li>Log into the web dashboard, and select your server.</li>
       <li>In the general settings tab, turn off the "Keep server data for 3 days" option.</li>
       <li>
-        Kick Titanium from your server. Data will be removed automatically. If Titanium is down when
-        you kick it, data will be removed when the bot next comes online.
+        Kick Titanium from your server. Data will be removed automatically. If Titanium is down /
+        offline when you kick it, data will be removed when the bot next comes online.
       </li>
     </ul>
   </section>
@@ -335,25 +321,47 @@
   <section class="flex flex-col gap-2.5" id="security">
     <h2 class="text-xl font-semibold">Data Security</h2>
     <p>
-      None of Titanium's servers are publicly accessible. Access to the servers is restricted to
-      Restart exclusively, and all dashboard endpoints are restricted using Discord authentication.
-      However, no transmission, storage medium or software is 100% secure, and I am not liable for
-      data loss or breaches.
+      None of Titanium's backend services are publicly accessible. Access to the servers is
+      restricted to Restart exclusively, and all dashboard endpoints are restricted using Discord
+      authentication. However, no transmission, storage medium or software is 100% secure, and we
+      are not liable for data loss or breaches.
+    </p>
+  </section>
+
+  <section class="flex flex-col gap-2.5" id="website">
+    <h2 class="text-xl font-semibold">Web Services</h2>
+    <p>
+      When you access Titanium's website or the Titanium Dashboard, Cloudflare Web Analytics is used
+      to gain insights into our traffic and site performance. This service does not store any
+      cookies or client-side data on your device, and IP addresses are not logged or stored. IP
+      addresses are processed strictly at the network edge to securely route traffic and determine
+      general, country-level geography. Cloudflare Fonts is also used to serve fonts, replacing
+      Google Fonts, to increase performance and privacy.
+    </p>
+  </section>
+
+  <section class="flex flex-col gap-2.5" id="dashboard">
+    <h2 class="text-xl font-semibold">Dashboard Security</h2>
+    <p>
+      When you log into the Titanium Dashboard, Titanium requests a token from Discord to get
+      information about your account, including your Discord ID, username and profile picture. This
+      token and your Discord ID are then stored in the dashboard's database. The token is encrypted
+      at rest to avoid unauthorised access, and the tokens are only valid for 7 days before Discord
+      automatically revokes them.
     </p>
   </section>
 
   <section class="flex flex-col gap-2.5" id="data-breach">
     <h2 class="text-xl font-semibold">Data Breach Procedures</h2>
     <p>
-      I ensure that I do not collect any information that may impact you if a data breach occurs.
-      However, if I believe a data breach has occurred and data may have been accessed, I will do
-      the following as a good faith effort to notify affected users:
+      If we believe a data breach has occurred and data may have been accessed, we will do the
+      following as a good faith effort to notify affected users:
     </p>
     <ul class="list-inside list-disc">
       <li>A public announcement informing users that the breach has occurred</li>
       <li>
         Attempt to contact affected users individually with more info about the data that was
-        accessed
+        accessed if applicable
       </li>
     </ul>
   </section>
