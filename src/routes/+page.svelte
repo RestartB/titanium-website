@@ -48,15 +48,15 @@
   </div>
 </section>
 
-<div class="mx-auto max-w-7xl space-y-10 md:space-y-20 p-8 py-20">
-  <section class="flex flex-col md:items-center gap-8 md:flex-row">
+<div class="mx-auto max-w-7xl space-y-10 p-8 py-20 md:space-y-20">
+  <section class="flex flex-col gap-8 md:flex-row md:items-center">
     <div class="w-80 shrink-0">
       <p
-        class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text md:text-center text-8xl font-black text-transparent dark:from-zinc-200 dark:to-zinc-600 dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
+        class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-8xl font-black text-transparent md:text-center dark:from-zinc-200 dark:to-zinc-600 dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
       >
         80+
       </p>
-      <p class="md:text-center text-4xl font-semibold">commands</p>
+      <p class="text-4xl font-semibold md:text-center">commands</p>
     </div>
 
     <div class="flex-1">
@@ -79,7 +79,7 @@
 
   <hr class="text-zinc-600 md:hidden" />
 
-  <section class="flex flex-col md:items-center gap-8 md:flex-row-reverse">
+  <section class="flex flex-col gap-8 md:flex-row-reverse md:items-center">
     <div class="w-80 shrink-0">
       <div class="mb-2 flex items-center gap-2">
         <enhanced:img
@@ -137,7 +137,7 @@
 
   <hr class="text-zinc-600 md:hidden" />
 
-  <section class="flex flex-col md:items-center gap-8 md:flex-row">
+  <section class="flex flex-col gap-8 md:flex-row md:items-center">
     <div class="w-80 shrink-0">
       <div class="mb-2 flex items-center gap-2">
         <enhanced:img
@@ -180,7 +180,7 @@
 
   <hr class="text-zinc-600 md:hidden" />
 
-  <section class="flex flex-col md:items-center gap-8 md:flex-row-reverse">
+  <section class="flex flex-col gap-8 md:flex-row-reverse md:items-center">
     <Embed
       title="Message Deleted"
       author="@restartb"
@@ -215,7 +215,7 @@
 
   <hr class="text-zinc-600 md:hidden" />
 
-  <section class="flex flex-col md:items-center gap-8 md:flex-row">
+  <section class="flex flex-col gap-8 md:flex-row md:items-center">
     <div class="w-80 shrink-0">
       <div class="mb-2 flex items-center gap-2">
         <enhanced:img src={restart} class="h-12 w-12 rounded-full" alt="Default Discord PFP" />
@@ -261,7 +261,7 @@
 
   <hr class="text-zinc-600 md:hidden" />
 
-  <section class="flex flex-col md:items-center gap-8 md:flex-row-reverse">
+  <section class="flex flex-col gap-8 md:flex-row-reverse md:items-center">
     <div class="w-80 shrink-0">
       <enhanced:img
         src="$lib/assets/dashboard.png"
