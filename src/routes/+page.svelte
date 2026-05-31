@@ -23,7 +23,11 @@
 
 <section class="flex h-100 w-full flex-col items-center justify-center p-8">
   <div class="flex flex-col justify-center gap-4 sm:flex-row sm:items-center sm:gap-8">
-    <enhanced:img src="$lib/assets/logo.svg" class="h-30 w-fit" alt="Titanium Logo" />
+    <enhanced:img
+      src="$lib/assets/logo.svg"
+      class="h-30 w-fit rounded-xl shadow-xl"
+      alt="Titanium Logo"
+    />
     <div>
       <h1
         class="bg-linear-to-r from-zinc-500 to-zinc-800 bg-clip-text text-7xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
@@ -292,7 +296,8 @@
   ></span>
 
   <h3 class="z-10 text-center text-2xl">
-    Ready? Join <b>{(await getStats()).user_count}</b> users and <b>{(await getStats()).server_count}</b> servers and
+    Ready? Join <b>{(await getStats()).user_count}</b> users and
+    <b>{(await getStats()).server_count}</b> servers and
   </h3>
   <h1
     class="z-10 bg-linear-to-bl from-zinc-500 to-zinc-800 bg-clip-text text-center text-6xl/tight font-bold text-transparent drop-shadow-[0_0_15px_rgba(244,244,245,0.4)] dark:from-zinc-100 dark:to-zinc-400 dark:drop-shadow-[0_0_15px_rgba(168,162,158,0.4)]"
