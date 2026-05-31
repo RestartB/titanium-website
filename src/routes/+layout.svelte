@@ -29,9 +29,14 @@
 
 <svelte:head>
   <title>Titanium</title>
+
   <meta content="Titanium" property="og:title" />
+  <meta content="Your multipurpose, open source Discord bot." property="description" />
+  <meta content="Your multipurpose, open source Discord bot." property="og:description" />
   <meta content="https://titanium.fyi/" property="og:url" />
   <meta content="https://titanium.fyi/assets/logo.png" property="og:image" />
+  <meta content="#979C9F" data-react-helmet="true" name="theme-color" />
+
   <link rel="canonical" href={`https://titanium.fyi${page.url.pathname}`} />
 </svelte:head>
 
