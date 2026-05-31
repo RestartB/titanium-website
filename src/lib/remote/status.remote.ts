@@ -10,12 +10,12 @@ export const getStatus = query(async () => {
   try {
     const statsRequeset = await fetch(`${env.TITANIUM_URL}/status`);
     if (!statsRequeset.ok) {
-      return { connected: false };
+      return { connected: false } as botStatus;
     }
 
     return (await statsRequeset.json()) as botStatus;
   } catch {
-    return { connected: false };
+    return { connected: false } as botStatus;
   }
 });
 
