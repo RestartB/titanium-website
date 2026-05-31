@@ -6,7 +6,7 @@
   import { fade, fly } from 'svelte/transition';
   import { prefersReducedMotion } from 'svelte/motion';
 
-  import { X, Menu, House, Info, Wifi, Wrench, Plus } from '@lucide/svelte';
+  import { X, Menu, House, Info, Wifi, LayoutDashboard, Plus } from '@lucide/svelte';
   import logo from '$lib/assets/logo.svg';
 
   import type { Component } from 'svelte';
@@ -69,15 +69,17 @@
 
     <a
       class="hidden items-center justify-center gap-1 rounded-lg border border-zinc-400 bg-zinc-300 p-1 px-2 transition-colors hover:bg-zinc-200 xs:flex dark:border-zinc-600 dark:bg-zinc-700 hover:dark:bg-zinc-800"
-      href={resolve('/invite')}
+      href="https://dash.titanium.fyi"
     >
-      Add Bot
+      <LayoutDashboard size={20} />
+      Dashboard
     </a>
     <a
       class="mr-4 ml-2 hidden items-center justify-center gap-1 rounded-lg border border-zinc-400 bg-zinc-300 p-1 px-2 transition-colors hover:bg-zinc-200 xs:flex dark:border-zinc-600 dark:bg-zinc-700 hover:dark:bg-zinc-800"
-      href="https://dash.titanium.fyi"
+      href={resolve('/invite')}
     >
-      Dashboard
+      <Plus size={20} />
+      Add Bot
     </a>
 
     <button
@@ -106,7 +108,7 @@
     {@render menuLink('Home', resolve('/'), page.url.pathname.endsWith('/'), House)}
     {@render menuLink('About', resolve('/about'), page.url.pathname.endsWith('/about'), Info)}
     {@render menuLink('Status', resolve('/status'), page.url.pathname.endsWith('/status'), Wifi)}
-    {@render menuLink('Dashboard', 'https://dash.titanium.fyi', false, Wrench)}
+    {@render menuLink('Dashboard', 'https://dash.titanium.fyi', false, LayoutDashboard)}
     {@render menuLink('Add Bot', resolve('/invite'), false, Plus)}
   </nav>
 {/if}
