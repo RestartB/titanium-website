@@ -37,7 +37,7 @@
       <p class="text-3xl">Your multipurpose Discord bot.</p>
     </div>
   </div>
-  <div class="mt-4 flex items-center justify-center gap-2">
+  <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
     <LinkButton href={resolve('/invite')} class="rounded-full!" title="Add Bot">
       <Plus />
       Add Bot
@@ -51,7 +51,7 @@
 
 <div class="mx-auto max-w-7xl space-y-10 p-8 py-20 md:space-y-20">
   <section class="flex flex-col gap-8 md:flex-row md:items-center">
-    <div class="w-80 shrink-0">
+    <div class="w-full max-w-80 shrink-0">
       <p
         class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-8xl font-black text-transparent md:text-center dark:from-zinc-200 dark:to-zinc-600 dark:drop-shadow-[0_0_15px_rgba(244,244,245,0.4)]"
       >
@@ -81,7 +81,7 @@
   <hr class="text-zinc-600 md:hidden" />
 
   <section class="flex flex-col gap-8 md:flex-row-reverse md:items-center">
-    <div class="w-80 shrink-0">
+    <div class="w-full max-w-80 shrink-0">
       <div class="mb-2 flex items-center gap-2">
         <enhanced:img
           src="$lib/assets/default.png"
@@ -139,7 +139,7 @@
   <hr class="text-zinc-600 md:hidden" />
 
   <section class="flex flex-col gap-8 md:flex-row md:items-center">
-    <div class="w-80 shrink-0">
+    <div class="w-full max-w-80 shrink-0">
       <div class="mb-2 flex items-center gap-2">
         <enhanced:img
           src="$lib/assets/logo.svg"
@@ -156,7 +156,7 @@
         authorImg={restart}
         footer="30/05/2026 20:06"
         colour="#979C9F"
-        class="w-80! shrink-0"
+        class="w-full! max-w-80! shrink-0"
       >
         <p>this is a truly amazing message that everyone will enjoy</p>
       </Embed>
@@ -187,7 +187,7 @@
       author="@restartb"
       authorImg={restart}
       colour="#E74E3D"
-      class="w-80! shrink-0"
+      class="w-full! max-w-80! shrink-0"
     >
       <p>
         ID: <code>12345678987654321</code><br />
@@ -217,7 +217,7 @@
   <hr class="text-zinc-600 md:hidden" />
 
   <section class="flex flex-col gap-8 md:flex-row md:items-center">
-    <div class="w-80 shrink-0">
+    <div class="w-full max-w-80 shrink-0">
       <div class="mb-2 flex items-center gap-2">
         <enhanced:img src={restart} class="h-12 w-12 rounded-full" alt="Default Discord PFP" />
         <div>
@@ -263,7 +263,7 @@
   <hr class="text-zinc-600 md:hidden" />
 
   <section class="flex flex-col gap-8 md:flex-row-reverse md:items-center">
-    <div class="w-80 shrink-0">
+    <div class="w-full max-w-80 shrink-0">
       <enhanced:img
         src="$lib/assets/dashboard.png"
         class="rounded-lg border-2 border-zinc-300 dark:border-zinc-700"
@@ -295,7 +295,7 @@
     class="absolute right-0 left-0 -z-10 h-100 w-full bg-[url('/assets/background_blur.svg')] mask-[linear-gradient(to_top,black_40%,transparent)] bg-cover bg-center bg-no-repeat brightness-120 dark:brightness-50"
   ></span>
 
-  <h3 class="z-10 text-center text-2xl">
+  <h3 class="z-10 text-center text-xl xxs:text-2xl">
     {#if (await getStats()).success && (await getStats()).stats}
       Ready? Join <b>{(await getStats()).stats?.user_count}</b> users and
       <b>{(await getStats()).stats?.server_count}</b> servers and
@@ -304,12 +304,12 @@
     {/if}
   </h3>
   <h1
-    class="z-10 bg-linear-to-bl from-zinc-500 to-zinc-800 bg-clip-text text-center text-6xl/tight font-bold text-transparent drop-shadow-[0_0_15px_rgba(244,244,245,0.4)] dark:from-zinc-100 dark:to-zinc-400 dark:drop-shadow-[0_0_15px_rgba(168,162,158,0.4)]"
+    class="z-10 bg-linear-to-bl from-zinc-500 to-zinc-800 bg-clip-text text-center text-3xl/tight font-bold text-transparent drop-shadow-[0_0_15px_rgba(244,244,245,0.4)] xxs:text-5xl/tight xs:text-6xl/tight dark:from-zinc-100 dark:to-zinc-400 dark:drop-shadow-[0_0_15px_rgba(168,162,158,0.4)]"
   >
     Enhance your Discord experience
   </h1>
 
-  <div class="mt-2 flex items-center justify-center gap-2">
+  <div class="mt-2 flex flex-wrap items-center justify-center gap-2">
     <LinkButton href={resolve('/invite')} class="rounded-full!" title="Add Bot">
       <Plus />
       Add Bot
