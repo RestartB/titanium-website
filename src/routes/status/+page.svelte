@@ -1,69 +1,50 @@
 <script lang="ts">
-  import { fly } from 'svelte/transition';
-  import { prefersReducedMotion } from 'svelte/motion';
-  import { onMount, onDestroy } from 'svelte';
-  import { Check, X, LoaderCircle } from '@lucide/svelte';
+  import { getHistoricPing, getStatus } from '$lib/remote/status.remote';
 
-  let { data } = $props();
+  import { Plot, Line } from 'svelteplot';
+  import { Check, TriangleAlert, LoaderCircle, X } from '@lucide/svelte';
+  import { onDestroy, onMount } from 'svelte';
+  import type { botStatus } from '$lib/interfaces/status';
 
-  let loading = $state();
-  let failed = $state(false);
+  const statusQuery = getStatus();
+  const pingsQuery = getHistoricPing();
 
-  let mainConnected = $state();
-  let mainLatency = $state(0);
+  await Promise.allSettled([statusQuery, pingsQuery]);
 
-  let stagingConnected = $state();
-  let stagingLatency = $state(0);
+  const status = $derived((statusQuery.current || { connected: false }) as botStatus);
+  const pings = $derived(pingsQuery.current || []);
+
+  const loading = $derived(statusQuery.loading);
+  const error = $derived(statusQuery.error);
+  const pingsLoading = $derived(pingsQuery.loading);
+  const pingsError = $derived(pingsQuery.error);
 
   let sinceLastUpdate = $state(Date.now());
   let secondsAgo = $state(0);
+  let secondsInterval: ReturnType<typeof setInterval>;
+  let fetchTimeout: ReturnType<typeof setTimeout>;
 
-  // Update seconds ago every second
   const updateSecondsAgo = () => {
     secondsAgo = Math.floor((Date.now() - sinceLastUpdate) / 1000);
   };
 
-  // Request status from API
-  async function fetchStatus() {
-    try {
-      loading = true;
-      failed = false;
+  function scheduleNextFetch() {
+    statusQuery
+      .refresh()
+      .then(() => (sinceLastUpdate = Date.now()))
+      .catch((e) => {
+        console.error('Network error:', e);
+      });
 
-      const response = await fetch('/api/status');
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
+    pingsQuery.refresh().catch((e) => {
+      console.error('Network error:', e);
+    });
 
-      mainConnected = data.main.connected;
-      mainLatency = data.main.latency || 0;
-
-      stagingConnected = data.staging.connected;
-      stagingLatency = data.staging.latency || 0;
-
-      loading = false;
-      sinceLastUpdate = Date.now();
-    } catch (error) {
-      console.error('Failed to fetch status:', error);
-
-      mainConnected = false;
-      stagingConnected = false;
-      loading = false;
-      failed = true;
-    }
-  }
-
-  let secondsInterval: ReturnType<typeof setInterval>;
-  let fetchTimeout: ReturnType<typeof setTimeout>;
-
-  async function scheduleNextFetch() {
-    await fetchStatus();
-    // Wait 5 seconds after the request completes
     fetchTimeout = setTimeout(scheduleNextFetch, 15000);
   }
 
   onMount(() => {
     scheduleNextFetch();
-
-    // Update seconds counter every second
     secondsInterval = setInterval(updateSecondsAgo, 1000);
   });
 
@@ -73,230 +54,142 @@
   });
 </script>
 
-{#snippet statusRow(
-  name: string,
-  description: string,
-  pfp: string | undefined,
-  status: 'online' | 'offline' | 'loading',
-  latency: number
-)}
-  <div class="flex flex-col items-center gap-3 xs:flex-row">
-    <div class="flex items-center gap-3">
-      {#if pfp}
-        <img src={pfp} alt="{name} Logo" height="64" width="64" class="h-16 w-16 rounded-xl" />
-      {:else}
-        <enhanced:img
-          src="$lib/images/titanium-logo.svg"
-          alt="{name} Logo"
-          class="h-16 w-16 rounded-xl"
-        />
-      {/if}
-
-      <div>
-        <h2 class="font-bold" translate="no">{name}</h2>
-        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-        <p>{@html description}</p>
-      </div>
-    </div>
-
-    <div
-      class="flex shrink-0 flex-row flex-nowrap items-center justify-center gap-3 xs:ml-auto xs:flex-col xs:items-end xs:gap-1"
-    >
-      <div class="flex items-center gap-2">
-        {#if status === 'loading'}
-          <span class="relative flex size-3">
-            <span
-              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
-            ></span>
-            <span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
-          </span>
-          <h3 class="font-light">Loading</h3>
-        {:else if failed}
-          <h3 class="font-light">Error</h3>
-        {:else if status === 'online'}
-          <span class="relative flex size-3">
-            <span
-              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"
-            ></span>
-            <span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
-          </span>
-          <h3 class="font-light">Online</h3>
-        {:else}
-          <span class="relative flex size-3">
-            <span
-              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
-            ></span>
-            <span class="relative inline-flex size-3 rounded-full bg-red-500"></span>
-          </span>
-          <h3 class="font-light">Offline</h3>
-        {/if}
-      </div>
-
-      <div
-        class="rounded-md border-2 border-zinc-600 bg-zinc-300 p-1 px-2 text-center text-sm dark:bg-zinc-800"
-      >
-        {#if status === 'online'}
-          <p>Ping: <code>{latency}ms</code></p>
-        {:else}
-          <p>Ping: <code>---ms</code></p>
-        {/if}
-      </div>
-    </div>
-  </div>
-{/snippet}
-
-<svelte:head>
-  <title>Titanium - Status</title>
-  <meta content="Titanium - Status" property="og:title" />
-  <meta content="Your multipurpose, open source Discord bot." property="og:description" />
-</svelte:head>
-
-<div
-  in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
-  class="flex w-full max-w-4xl flex-col items-center gap-5 p-5 pt-19.5"
->
+<div class="mx-auto flex w-full max-w-7xl flex-col gap-4 p-8">
   <h1
-    class="bg-linear-to-bl from-zinc-400 to-zinc-900 bg-clip-text text-center text-6xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
+    class="bg-linear-to-bl from-zinc-500 to-zinc-800 bg-clip-text text-6xl font-bold text-transparent dark:from-zinc-100 dark:to-zinc-400"
   >
     Status
   </h1>
+  <p>Get the current status of Titanium, including its ping and connection state.</p>
 
-  <noscript>
-    <style>
-      #status-content {
-        display: none;
-      }
-    </style>
+  <div class="flex items-center gap-2">
+    <span class="flex items-center justify-center gap-2">
+      <span class="relative">
+        {#if error}
+          <span class="absolute block h-4 w-4 animate-ping rounded-full bg-red-500"></span>
+          <span class="block h-4 w-4 rounded-full bg-red-500"></span>
+        {:else}
+          <span class="absolute block h-4 w-4 animate-ping rounded-full bg-green-500"></span>
+          <span class="block h-4 w-4 rounded-full bg-green-500"></span>
+        {/if}
+      </span>
+      <p class="font-bold">Live</p>
+    </span>
+    <p>Last refresh <b>{secondsAgo}s ago</b></p>
+  </div>
+
+  <div
+    class="flex w-full items-center gap-2 rounded-lg border-2 border-zinc-300 p-4 font-bold dark:border-zinc-700"
+    class:bg-zinc-200={loading || (status.connected && !status.ready)}
+    class:dark:bg-zinc-800={loading || (status.connected && !status.ready)}
+    class:bg-green-200={!loading && status.connected && status.ready && status.latency < 300}
+    class:dark:bg-green-950={!loading && status.connected && status.ready && status.latency < 300}
+    class:bg-orange-200={!loading && status.connected && status.ready && status.latency >= 300}
+    class:dark:bg-yellow-950={!loading && status.connected && status.ready && status.latency >= 300}
+    class:bg-red-200={(!loading && error) || !status.connected}
+    class:dark:bg-red-950={(!loading && error) || !status.connected}
+  >
+    {#if loading}
+      <LoaderCircle class="shrink-0 animate-spin" />
+      <p>Loading status...</p>
+    {:else if error}
+      <X class="shrink-0" />
+      <p>Failed to get status.</p>
+    {:else if status.connected && status.ready && status.latency < 300}
+      <Check class="shrink-0" />
+      <p>Everything looks good.</p>
+    {:else if status.connected && status.ready && status.latency >= 300}
+      <TriangleAlert class="shrink-0" />
+      <p>High ping detected, Titanium may be slow.</p>
+    {:else if status.connected && !status.ready}
+      <LoaderCircle class="shrink-0 animate-spin" />
+      <p>Titanium is getting ready.</p>
+    {:else if !status.connected}
+      <X class="shrink-0" />
+      <p>Titanium is unavailable.</p>
+    {/if}
+  </div>
+
+  <div
+    class="flex w-full flex-col items-center gap-4 rounded-lg border-2 border-zinc-300 bg-zinc-200 p-4 xxs:flex-row dark:border-zinc-700 dark:bg-zinc-800"
+  >
+    <div class="flex items-center gap-4">
+      <enhanced:img src="$lib/assets/logo.svg" alt="Titanium Logo" class="h-12 w-12 rounded-lg" />
+      <div>
+        <p class="text-xl font-bold">Titanium</p>
+        <p>The main, public version of Titanium.</p>
+      </div>
+    </div>
 
     <div
-      class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
+      class="flex flex-wrap items-center justify-center gap-2 xxs:ml-auto xxs:flex-col xxs:items-end"
     >
-      <p>Please enable JavaScript to use this page.</p>
+      <div class="flex items-center justify-center gap-2">
+        {#if loading || error}
+          <div class="relative">
+            <span class="absolute block h-4 w-4 animate-ping rounded-full bg-zinc-500"></span>
+            <span class="block h-4 w-4 rounded-full bg-zinc-500"></span>
+          </div>
+          <p>Loading...</p>
+        {:else if status.connected && status.ready}
+          <div class="relative">
+            <span class="absolute block h-4 w-4 animate-ping rounded-full bg-green-500"></span>
+            <span class="block h-4 w-4 rounded-full bg-green-500"></span>
+          </div>
+          <p>Online</p>
+        {:else if status.connected && !status.ready}
+          <div class="relative">
+            <span class="absolute block h-4 w-4 animate-ping rounded-full bg-orange-500"></span>
+            <span class="block h-4 w-4 rounded-full bg-orange-500"></span>
+          </div>
+          <p>Starting</p>
+        {:else}
+          <div class="relative">
+            <span class="absolute block h-4 w-4 animate-ping rounded-full bg-red-500"></span>
+            <span class="block h-4 w-4 rounded-full bg-red-500"></span>
+          </div>
+          <p>Offline</p>
+        {/if}
+      </div>
+
+      <div
+        class="shrink-0 rounded-lg border-2 border-zinc-300 bg-zinc-100 p-1 px-2 text-base text-nowrap dark:border-zinc-700 dark:bg-zinc-900"
+      >
+        Ping: <code>{status.latency || '---'}ms</code>
+      </div>
+    </div>
+  </div>
+
+  <hr class="text-zinc-600" />
+
+  <div class="mb-1">
+    <div class="flex flex-wrap items-center gap-2">
+      <h2 class="text-xl font-bold">Historic Ping</h2>
+      {#if pingsLoading}
+        <LoaderCircle class="animate-spin" />
+      {:else if pingsError}
+        <TriangleAlert />
+      {/if}
+    </div>
+    <p>View Titanium's ping over the last 3 days.</p>
+  </div>
+
+  <noscript>
+    <div
+      class="flex w-full items-center gap-2 rounded-lg border-2 border-zinc-300 bg-red-200 p-4 font-bold dark:border-zinc-700 dark:bg-red-950"
+    >
+      <X class="shrink-0" />
+      <p>JavaScript is disabled. Please enable JavaScript to render the chart.</p>
     </div>
   </noscript>
 
-  <div class="flex w-full flex-col items-center gap-5" id="status-content">
-    <div class="flex w-full items-center justify-between gap-3">
-      <div class="flex items-center gap-3">
-        <div class="ml-auto flex flex-col items-end justify-center gap-1">
-          <div class="flex items-center gap-2">
-            <span class="relative flex size-3">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-600 opacity-75 dark:bg-green-200"
-              ></span>
-              <span class="relative inline-flex size-3 rounded-full bg-green-700 dark:bg-green-300"
-              ></span>
-            </span>
-            <h3 class="font-bold">Live</h3>
-          </div>
-        </div>
-      </div>
-
-      <p class="w-full">
-        Last successful update {secondsAgo}s ago
-      </p>
-    </div>
-
-    {#if loading}
-      <div
-        class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-orange-200 p-4 dark:bg-orange-950"
-      >
-        <LoaderCircle class="shrink-0 animate-spin" />
-        <p>Loading status...</p>
-      </div>
-    {:else if failed}
-      <div
-        class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
-      >
-        <X class="shrink-0" />
-        <p>
-          Couldn't connect to the server. Please check your internet connection and try again later.
-        </p>
-      </div>
-    {:else if mainConnected && stagingConnected}
-      <div
-        class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-green-200 p-4 dark:bg-green-950"
-      >
-        <Check class="shrink-0" />
-        <p>All systems operational.</p>
-      </div>
-    {:else}
-      <div
-        class="flex w-full items-center gap-3 rounded-xl border-2 border-zinc-600 bg-red-200 p-4 dark:bg-red-950"
-      >
-        <X class="shrink-0" />
-        <p>Some systems are currently offline.</p>
-      </div>
-    {/if}
-
-    <div
-      class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
-    >
-      {@render statusRow(
-        'Titanium',
-        'The main <span translate="no">Titanium</span> instance.',
-        data.mainPFP,
-        loading ? 'loading' : mainConnected ? 'online' : 'offline',
-        mainLatency
-      )}
-
-      <hr class="border-zinc-600" />
-
-      {@render statusRow(
-        'Titanium Staging',
-        'Private v2 staging version of <span translate="no">Titanium.',
-        data.stagingPFP,
-        loading ? 'loading' : stagingConnected ? 'online' : 'offline',
-        stagingLatency
-      )}
-    </div>
-
-    <h2 class="w-full text-2xl font-bold">Incidents</h2>
-    <div
-      class="flex w-full flex-col gap-3 rounded-xl border-2 border-zinc-600 bg-zinc-200 p-4 dark:bg-zinc-700"
-    >
-      {#if !data.success}
-        <p class="text-center font-light">Failed to load incidents.</p>
-      {:else if data.incidents.length === 0}
-        <p class="text-center font-light">No incidents reported.</p>
-      {:else}
-        {#each data.incidents as incident, i (incident.id)}
-          <div class="flex flex-col gap-2">
-            <div class="flex items-center gap-3">
-              <h3 class="font-bold">{incident.title}</h3>
-
-              <div class="flex items-center gap-2">
-                {#if incident.resolved}
-                  <span class="relative inline-flex size-3 rounded-full bg-green-500"></span>
-                  <p>Resolved</p>
-                {:else}
-                  <span class="relative flex size-3">
-                    <span
-                      class="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75"
-                    ></span>
-                    <span class="relative inline-flex size-3 rounded-full bg-orange-500"></span>
-                  </span>
-                  <p>Ongoing</p>
-                {/if}
-              </div>
-            </div>
-
-            <p class="text-sm text-zinc-600 dark:text-zinc-400">
-              {#if incident.resolved && incident.resolvedAt}
-                {incident.createdAt.toLocaleString()}, resolved at {incident.resolvedAt.toLocaleString()}
-              {:else}
-                {incident.createdAt.toLocaleString()}
-              {/if}
-            </p>
-
-            <p>{incident.description}</p>
-          </div>
-
-          {#if i < data.incidents.length - 1}
-            <hr class="border-zinc-600" />
-          {/if}
-        {/each}
-      {/if}
-    </div>
-  </div>
+  {#if !pings || pings.length === 0}
+    <p class="font-bold">No historic data available.</p>
+  {:else if pingsError}
+    <p class="font-bold">An error occurred while fetching data. Please try again.</p>
+  {:else}
+    <Plot grid y={{ domain: [80, 300] }}>
+      <Line data={pings} x="time" y="ping" />
+    </Plot>
+  {/if}
 </div>

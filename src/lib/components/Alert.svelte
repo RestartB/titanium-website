@@ -1,7 +1,9 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte';
+
   type Props = {
     type: string;
-    children?: any;
+    children?: Snippet<[]>;
   };
 
   let { type, children }: Props = $props();
@@ -19,7 +21,7 @@
   });
 </script>
 
-<div class="h-fit w-full border-l-3 pl-2.5 {colour}">
+<div class="h-fit w-full border-l-4 pl-2.5 {colour}">
   <h3 class="font-bold">{type}</h3>
   {@render children?.()}
 </div>

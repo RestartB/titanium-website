@@ -1,20 +1,52 @@
 <script lang="ts">
+  import '../app.css';
+
   import { onNavigate } from '$app/navigation';
   import { page } from '$app/state';
 
   import Header from '$lib/components/Header.svelte';
   import Footer from '$lib/components/Footer.svelte';
 
-  import '../app.css';
+  import type { LayoutProps } from './$types';
 
-  let { children } = $props();
+  let { children }: LayoutProps = $props();
+
+  const pages = {
+    '/': 1,
+    '/about': 2,
+    '/status': 3
+  };
+  type PagePath = keyof typeof pages;
 
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
-
-    if (navigation.to?.url.pathname === navigation.from?.url.pathname) {
+    if (
+      !navigation.to ||
+      !navigation.from ||
+      navigation.to.url.pathname === navigation.from?.url.pathname
+    ) {
       return;
     }
+
+    const oldPage = pages[navigation.from.url.pathname as PagePath];
+    const newPage = pages[navigation.to.url.pathname as PagePath];
+
+    let oldAnim;
+    let newAnim;
+
+    if (!oldPage || !newPage) {
+      oldAnim = 'fade-out';
+      newAnim = 'fade-in';
+    } else if (oldPage < newPage) {
+      oldAnim = 'slide-to-left';
+      newAnim = 'slide-from-right';
+    } else {
+      oldAnim = 'slide-to-right';
+      newAnim = 'slide-from-left';
+    }
+
+    document.documentElement.style.setProperty('--old-animation', oldAnim);
+    document.documentElement.style.setProperty('--new-animation', newAnim);
 
     return new Promise((resolve) => {
       document.startViewTransition(async () => {
@@ -26,17 +58,22 @@
 </script>
 
 <svelte:head>
+  <title>Titanium</title>
+
+  <meta content="Titanium" property="og:title" />
+  <meta content="Your multipurpose, open source Discord bot." property="description" />
+  <meta content="Your multipurpose, open source Discord bot." property="og:description" />
+  <meta content="https://titanium.fyi/" property="og:url" />
+  <meta content="https://titanium.fyi/assets/logo.png" property="og:image" />
+  <meta content="#979C9F" data-react-helmet="true" name="theme-color" />
+
   <link rel="canonical" href={`https://titanium.fyi${page.url.pathname}`} />
 </svelte:head>
 
-<div class="app">
+<div class="flex min-h-screen flex-col">
   <Header />
 
-  <main
-    class="flex min-h-screen flex-col items-center"
-    style="view-transition-name: page-content"
-    id="page-content"
-  >
+  <main class="flex-1 pt-12">
     {@render children()}
   </main>
 
@@ -44,54 +81,11 @@
 </div>
 
 <style>
-  @keyframes fade-in {
-    from {
-      filter: blur(10px);
-      opacity: 0;
-    }
+  :root::view-transition-old(root) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both var(--old-animation);
   }
 
-  @keyframes fade-out {
-    to {
-      filter: blur(10px);
-      opacity: 0;
-    }
-  }
-
-  @keyframes slide-from-right {
-    from {
-      transform: translateX(30px);
-    }
-  }
-
-  @keyframes slide-to-left {
-    to {
-      transform: translateX(-30px);
-    }
-  }
-
-  ::view-transition-group(root) {
-    background: linear-gradient(to bottom left, rgb(63 63 70), rgb(24 24 27));
-    animation: none;
-  }
-
-  :root::view-transition-old(page-content) {
-    animation:
-      90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
-      300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
-  }
-
-  :root::view-transition-new(page-content) {
-    animation:
-      210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
-      300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
-  }
-
-  @media (prefers-reduced-motion) {
-    ::view-transition-group(*),
-    ::view-transition-old(*),
-    ::view-transition-new(*) {
-      animation: none !important;
-    }
+  :root::view-transition-new(root) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both var(--new-animation);
   }
 </style>

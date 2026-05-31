@@ -1,204 +1,115 @@
 <script lang="ts">
+  /* eslint-disable svelte/no-navigation-without-resolve */
   import { page } from '$app/state';
-  import { onMount } from 'svelte';
-  import { onNavigate } from '$app/navigation';
+  import { resolve } from '$app/paths';
+  import { afterNavigate } from '$app/navigation';
   import { fade, fly } from 'svelte/transition';
   import { prefersReducedMotion } from 'svelte/motion';
 
-  import { Menu, X, House, Info, Check, Plus } from '@lucide/svelte';
+  import { X, Menu, House, Info, Wifi, LayoutDashboard, Plus } from '@lucide/svelte';
+  import logo from '$lib/assets/logo.svg';
 
-  let width = $state(1024);
+  import type { Component } from 'svelte';
+  import type { Pathname } from '$app/types';
 
-  let mounted = $state(false);
-  let compact = $state(false);
-  let menuActive = $state(false);
+  let menuOpen = $state(false);
+  let width = $state(0);
 
-  let headerElement: HTMLElement | null = null;
-
-  function toggleMenu() {
-    menuActive = !menuActive;
-  }
-
-  $effect(() => {
-    if (width < 525) {
-      compact = true;
-    } else {
-      compact = false;
-    }
+  afterNavigate(() => {
+    menuOpen = false;
   });
 
   $effect(() => {
-    if (!compact && menuActive) {
-      menuActive = false;
+    if (menuOpen && width >= 568) {
+      menuOpen = false;
     }
-  });
-
-  onNavigate((navigation) => {
-    if (menuActive) {
-      menuActive = false;
-    }
-  });
-
-  onMount(() => {
-    mounted = true;
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && menuActive) {
-        menuActive = false;
-      }
-    });
   });
 </script>
 
 <svelte:window bind:innerWidth={width} />
 
-{#if menuActive}
-  <div
-    style="view-transition-name: header-container;"
-    class="fixed top-0 left-0 z-20 h-screen w-full bg-zinc-100/70 backdrop-blur-lg dark:bg-zinc-900/70"
-    aria-hidden="true"
-    transition:fade={{ duration: prefersReducedMotion.current ? 0 : 100 }}
-    onclick={toggleMenu}
-  ></div>
-{/if}
-
-<div class="fixed right-0 left-0 z-50 m-2.5 flex items-center justify-center">
-  <header
-    style="view-transition-name: header;"
-    class="z-50 box-border flex h-12 w-full max-w-5xl items-center justify-between gap-2.5 rounded-lg border border-titanium-border bg-zinc-200/70 pr-2.5 pl-2.5 backdrop-blur-lg dark:bg-zinc-800/70"
-    bind:this={headerElement}
+{#snippet topRowLink(title: string, href: Pathname)}
+  <a
+    href={resolve(href)}
+    class="hidden h-full items-center border-y-transparent border-b-zinc-400 px-2 transition-all hover:border-y-4 xs:flex dark:border-b-zinc-500"
   >
-    <div class="flex h-full w-[120px] items-center justify-center gap-2.5">
-      <enhanced:img src="$lib/images/titanium-logo.svg" alt="Titanium Logo" class="h-7.5 w-7.5" />
-      <h1 class="font-bold" translate="no">Titanium</h1>
+    {title}
+  </a>
+{/snippet}
+
+{#snippet menuLink(title: string, href: string, active: boolean, Icon: Component)}
+  <a
+    class="flex w-full items-center gap-2 p-2 px-8 {active
+      ? 'bg-zinc-200 font-bold dark:bg-zinc-700'
+      : ''} transition-all active:scale-98"
+    {href}
+  >
+    <Icon size={20} />
+    <p>{title}</p>
+  </a>
+{/snippet}
+
+<header
+  class="fixed z-100 h-12 w-full border-b-2 border-b-zinc-300 bg-zinc-200 text-base dark:border-b-zinc-700 dark:bg-zinc-800"
+  style="view-transition-name: header"
+>
+  <div class="mx-auto flex h-full max-w-7xl items-center">
+    <div class="mr-auto ml-4 flex h-full shrink-0 items-center">
+      <div class="mr-2 flex items-center gap-2">
+        <img src={logo} alt="Titanium" class="h-8 w-8 rounded-md" translate="no" />
+        <h1 class="text-lg font-bold" translate="no">Titanium</h1>
+      </div>
+
+      <nav class="flex h-full shrink-0 items-center">
+        {@render topRowLink('Home', '/')}
+        {@render topRowLink('About', '/about')}
+        {@render topRowLink('Status', '/status')}
+      </nav>
     </div>
 
-    {#if !compact || !mounted}
-      <nav class="fullnav h-full" in:fade={{ duration: prefersReducedMotion.current ? 0 : 100 }}>
-        <ul class="flex h-full">
-          <li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-            <a
-              href="/"
-              class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
-            >
-              <p>Home</p>
-            </a>
-          </li>
-          <li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
-            <a
-              href="/about"
-              class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
-              ><p>About</p></a
-            >
-          </li>
-          <li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
-            <a
-              href="/status"
-              class="flex h-full w-full cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
-              ><p>Status</p></a
-            >
-          </li>
-        </ul>
-      </nav>
+    <a
+      class="hidden items-center justify-center gap-1 rounded-lg border border-zinc-400 bg-zinc-300 p-1 px-2 transition-colors hover:bg-zinc-200 xs:flex dark:border-zinc-600 dark:bg-zinc-700 hover:dark:bg-zinc-800"
+      href="https://dash.titanium.fyi"
+    >
+      <LayoutDashboard size={20} />
+      Dashboard
+    </a>
+    <a
+      class="mr-4 ml-2 hidden items-center justify-center gap-1 rounded-lg border border-zinc-400 bg-zinc-300 p-1 px-2 transition-colors hover:bg-zinc-200 xs:flex dark:border-zinc-600 dark:bg-zinc-700 hover:dark:bg-zinc-800"
+      href={resolve('/invite')}
+    >
+      <Plus size={20} />
+      Add Bot
+    </a>
 
-      <div class="flex h-full min-w-[120px] items-center justify-end gap-2.5">
-        <a
-          href="/invite"
-          class="flex h-fit w-fit items-center gap-1 rounded-lg border border-titanium-border bg-zinc-200 px-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-          ><Plus />
-          <p>Add Bot</p></a
-        >
-      </div>
-    {:else}
-      <button
-        class="flex h-full w-fit cursor-pointer items-center justify-center px-2.5 transition-colors hover:bg-zinc-300 dark:hover:bg-zinc-700"
-        onclick={toggleMenu}
-        in:fade={{ duration: prefersReducedMotion.current ? 0 : 100 }}
-      >
-        {#if menuActive}
-          <div in:fade={{ duration: 100 }}>
-            <X />
-          </div>
-        {:else}
-          <div in:fade={{ duration: 100 }}>
-            <Menu />
-          </div>
-        {/if}
-      </button>
-
-      {#if menuActive}
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-        <nav
-          class=" absolute top-14.5 left-0 z-40 flex w-full flex-col items-end gap-2"
-          style="view-transition-name: menu;"
-          transition:fly={{ y: prefersReducedMotion.current ? 0 : -10, duration: 300 }}
-          onclick={toggleMenu}
-        >
-          <ul class="flex flex-col gap-2.5">
-            <li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-              <a
-                href="/"
-                class="ml-auto flex w-fit items-center gap-1 rounded-lg border border-titanium-border bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-              >
-                <House size={20} />
-                <p>Home</p>
-              </a>
-            </li>
-            <li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
-              <a
-                href="/about"
-                class="ml-auto flex w-fit items-center gap-1 rounded-lg border border-titanium-border bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-              >
-                <Info size={20} />
-                <p>About</p></a
-              >
-            </li>
-            <li aria-current={page.url.pathname === '/status' ? 'page' : undefined}>
-              <a
-                href="/status"
-                class="ml-auto flex w-fit items-center gap-1 rounded-lg border border-titanium-border bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-                ><Check size={20} />
-                <p>Status</p></a
-              >
-            </li>
-            <li>
-              <a
-                href="/invite"
-                class="ml-auto flex w-fit items-center gap-1 rounded-lg border border-titanium-border bg-zinc-200 p-2.5 text-center hover:bg-zinc-300 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-                ><Plus size={20} />
-                <p>Add Bot</p></a
-              >
-            </li>
-          </ul>
-        </nav>
+    <button
+      class="cursor-pointer p-4 xs:hidden"
+      onclick={() => (menuOpen = !menuOpen)}
+      aria-label="{menuOpen ? 'Close' : 'Open'} menu"
+    >
+      {#if menuOpen}
+        <span in:fade={{ duration: 100 }}>
+          <X class="h-6 w-6 shrink-0" />
+        </span>
+      {:else}
+        <span in:fade={{ duration: 100 }}>
+          <Menu class="h-6 w-6 shrink-0" />
+        </span>
       {/if}
-    {/if}
-  </header>
-</div>
+    </button>
+  </div>
+</header>
 
-<style>
-  .fullnav {
-    li {
-      position: relative;
-    }
-
-    li[aria-current='page']::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: black;
-      view-transition-name: active-bar;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .fullnav {
-      li[aria-current='page']::before {
-        background: white;
-      }
-    }
-  }
-</style>
+{#if menuOpen}
+  <nav
+    class="fixed inset-0 z-90 mt-12 h-fit w-full bg-linear-to-b from-zinc-300 from-75% pt-2 pb-20 dark:from-zinc-800"
+    
+    transition:fly={{ y: prefersReducedMotion.current ? 0 : -10, duration: 200 }}
+  >
+    {@render menuLink('Home', resolve('/'), page.url.pathname.endsWith('/'), House)}
+    {@render menuLink('About', resolve('/about'), page.url.pathname.endsWith('/about'), Info)}
+    {@render menuLink('Status', resolve('/status'), page.url.pathname.endsWith('/status'), Wifi)}
+    {@render menuLink('Dashboard', 'https://dash.titanium.fyi', false, LayoutDashboard)}
+    {@render menuLink('Add Bot', resolve('/invite'), false, Plus)}
+  </nav>
+{/if}
