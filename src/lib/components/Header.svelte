@@ -20,7 +20,7 @@
   });
 
   $effect(() => {
-    if (menuOpen && width > 480) {
+    if (menuOpen && width >= 568) {
       menuOpen = false;
     }
   });

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import type { Picture } from 'vite-imagetools';
+  import type { Picture } from '@sveltejs/enhanced-img';
 
   const {
     title,
@@ -32,7 +32,7 @@
   {#if author || authorImg}
     <span class="mb-1 flex items-center gap-1 text-base">
       {#if authorImg}
-        <enhanced:img src={authorImg} class="h-6 w-6 rounded-full" />
+        <enhanced:img src={authorImg} alt={author} class="h-6 w-6 rounded-full" />
       {/if}
       <p>{author}</p>
     </span>
@@ -49,7 +49,7 @@
   {#if footer || footerImg}
     <span class="mt-1 flex items-center gap-1 text-base">
       {#if footerImg}
-        <enhanced:img src={footerImg} class="h-6 w-6 rounded-full" />
+        <enhanced:img src={footerImg} alt={footer} class="h-6 w-6 rounded-full" />
       {/if}
       <p>{footer}</p>
     </span>

@@ -3,7 +3,6 @@
 @theme {
   --font-figtree: 'Figtree', sans-serif;
   --breakpoint-sidebar: 840px;
-  --breakpoint-xs: 32rem;
-  --breakpoint-xxs: 22rem;
+  --breakpoint-xs: 568px;
   --color-blurple: #5865f2;
 }

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
+  import { getStats } from '$lib/remote/stats.remote';
 
   import LinkButton from '$lib/components/LinkButton.svelte';
   import Embed from '$lib/components/embeds/Embed.svelte';
@@ -14,10 +15,6 @@
     Scroll,
     Tag
   } from '@lucide/svelte';
-
-  import type { PageProps } from './$types';
-
-  let { data }: PageProps = $props();
 </script>
 
 <span
@@ -295,7 +292,8 @@
   ></span>
 
   <h3 class="z-10 text-center text-2xl">
-    Ready? Join <b>{data.userCount}</b> users and <b>{data.serverCount}</b> servers and
+    Ready? Join <b>{(await getStats()).user_count}</b> users and
+    <b>{(await getStats()).server_count}</b> servers and
   </h3>
   <h1
     class="z-10 bg-linear-to-bl from-zinc-500 to-zinc-800 bg-clip-text text-center text-6xl/tight font-bold text-transparent drop-shadow-[0_0_15px_rgba(244,244,245,0.4)] dark:from-zinc-100 dark:to-zinc-400 dark:drop-shadow-[0_0_15px_rgba(168,162,158,0.4)]"

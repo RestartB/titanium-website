@@ -9,8 +9,8 @@
   >
     About
   </h1>
-
   <p>Find answers to various frequently asked questions about Titanium below.</p>
+
   <div class="flex w-full flex-col gap-3">
     <Collapsible title="What is Titanium?">
       Titanium is a multipurpose, open source Discord bot designed to enhance your Discord
