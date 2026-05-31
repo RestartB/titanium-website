@@ -1,4 +1,3 @@
-import { error } from '@sveltejs/kit';
 import { query } from '$app/server';
 import { env } from '$env/dynamic/private';
 
@@ -8,12 +7,16 @@ import { db } from '$lib/server/db';
 import type { botStatus } from '$lib/interfaces/status';
 
 export const getStatus = query(async () => {
-  const statsRequeset = await fetch(`${env.TITANIUM_URL}/status`);
-  if (!statsRequeset.ok) {
-    return error(500, 'Failed to get status');
-  }
+  try {
+    const statsRequeset = await fetch(`${env.TITANIUM_URL}/status`);
+    if (!statsRequeset.ok) {
+      return { connected: false };
+    }
 
-  return (await statsRequeset.json()) as botStatus;
+    return (await statsRequeset.json()) as botStatus;
+  } catch {
+    return { connected: false };
+  }
 });
 
 export const getHistoricPing = query(async () => {

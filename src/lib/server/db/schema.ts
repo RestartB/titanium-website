@@ -25,7 +25,7 @@ export const incidentUpdates = sqliteTable('incident_updates', {
 
 export const historicPing = sqliteTable('historic_ping', {
   id: integer().primaryKey({ autoIncrement: true }),
-  ping: integer().notNull(),
+  ping: integer(),
   time: integer({ mode: 'timestamp' })
     .notNull()
     .$defaultFn(() => new Date())

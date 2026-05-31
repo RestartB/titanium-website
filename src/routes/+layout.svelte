@@ -11,12 +11,42 @@
 
   let { children }: LayoutProps = $props();
 
+  const pages = {
+    '/': 1,
+    '/about': 2,
+    '/status': 3
+  };
+  type PagePath = keyof typeof pages;
+
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
-
-    if (navigation.to?.url.pathname === navigation.from?.url.pathname) {
+    if (
+      !navigation.to ||
+      !navigation.from ||
+      navigation.to.url.pathname === navigation.from?.url.pathname
+    ) {
       return;
     }
+
+    const oldPage = pages[navigation.from.url.pathname as PagePath];
+    const newPage = pages[navigation.to.url.pathname as PagePath];
+
+    let oldAnim;
+    let newAnim;
+
+    if (!oldPage || !newPage) {
+      oldAnim = 'fade-out';
+      newAnim = 'fade-in';
+    } else if (oldPage < newPage) {
+      oldAnim = 'slide-to-left';
+      newAnim = 'slide-from-right';
+    } else {
+      oldAnim = 'slide-to-right';
+      newAnim = 'slide-from-left';
+    }
+
+    document.documentElement.style.setProperty('--old-animation', oldAnim);
+    document.documentElement.style.setProperty('--new-animation', newAnim);
 
     return new Promise((resolve) => {
       document.startViewTransition(async () => {
@@ -49,3 +79,13 @@
 
   <Footer />
 </div>
+
+<style>
+  :root::view-transition-old(root) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both var(--old-animation);
+  }
+
+  :root::view-transition-new(root) {
+    animation: 300ms cubic-bezier(0.4, 0, 0.2, 1) both var(--new-animation);
+  }
+</style>
