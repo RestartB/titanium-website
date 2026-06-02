@@ -33,12 +33,12 @@
     "eslint-plugin-svelte": "3.17.1",
     "globals": "17.6.0",
     "prettier": "3.8.3",
-    "prettier-plugin-svelte": "^3.3.3",
+    "prettier-plugin-svelte": "3.5.2",
     "prettier-plugin-tailwindcss": "0.8.0",
     "super-sitemap": "1.0.12",
     "svelte": "5.55.10",
     "svelte-check": "4.4.8",
-    "svelteplot": "^0.14.2",
+    "svelteplot": "0.14.2",
     "tailwindcss": "4.3.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.60.0",
@@ -48,6 +48,6 @@
     "@libsql/client": "0.17.3",
     "@lucide/svelte": "1.16.0",
     "drizzle-orm": "0.45.2",
-    "node-cron": "^4.2.1"
+    "node-cron": "4.2.1"
   }
 }
