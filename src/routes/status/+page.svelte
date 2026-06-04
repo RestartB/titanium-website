@@ -188,7 +188,7 @@
   {:else if pingsError}
     <p class="font-bold">An error occurred while fetching data. Please try again.</p>
   {:else}
-    <Plot grid y={{ domain: [80, 300] }}>
+    <Plot grid y={{ domain: [100, 300] }}>
       <Line data={pings} x="time" y="ping" />
     </Plot>
   {/if}
