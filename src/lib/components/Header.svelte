@@ -103,7 +103,6 @@
 {#if menuOpen}
   <nav
     class="fixed inset-0 z-90 mt-12 h-fit w-full bg-linear-to-b from-zinc-300 from-75% pt-2 pb-20 dark:from-zinc-800"
-    
     transition:fly={{ y: prefersReducedMotion.current ? 0 : -10, duration: 200 }}
   >
     {@render menuLink('Home', resolve('/'), page.url.pathname.endsWith('/'), House)}
