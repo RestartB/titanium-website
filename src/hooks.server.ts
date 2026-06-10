@@ -27,9 +27,10 @@ cron.schedule('* * * * *', async () => {
     // get around the last 3-4 minutes to calculate average
     const fourMinutesAgo = new Date(Date.now() - 4 * 60 * 1000);
     const past = await db
-      .select(historicPing)
-      .orderBy(desc(historicPing))
-      .where(gte(historicPing.createdAt, fourMinutesAgo))
+      .select()
+      .from(historicPing)
+      .orderBy(desc(historicPing.time))
+      .where(gte(historicPing.time, fourMinutesAgo))
       .limit(4);
 
     if (past.length === 0) {
@@ -38,7 +39,7 @@ cron.schedule('* * * * *', async () => {
     }
     
     const average =
-      past.reduce((sum, row) => sum + row.ping, 0) / past.length;
+      past.reduce((sum, row) => sum + (row.ping ? row.ping : 0), 0) / past.length;
     await db.insert(historicPingAvg).values({ ping: average });
   } catch {
     console.log("Failed to log Titanium ping")
