@@ -30,3 +30,11 @@ export const historicPing = sqliteTable('historic_ping', {
     .notNull()
     .$defaultFn(() => new Date())
 });
+
+export const historicPingAvg = sqliteTable('historic_ping_avg', {
+  id: integer().primaryKey({ autoIncrement: true }),
+  ping: integer(),
+  time: integer({ mode: 'timestamp' })
+    .notNull()
+    .$defaultFn(() => new Date())
+});
