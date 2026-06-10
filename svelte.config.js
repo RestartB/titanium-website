@@ -9,6 +9,13 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    csp: {
+      directives: {
+        'object-src': ['none'],
+        'script-src': ['self'],
+        'frame-ancestors': ['self']
+      }
+    },
     experimental: {
       remoteFunctions: true
     }
