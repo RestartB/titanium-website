@@ -7,13 +7,14 @@
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 30/05/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 10/06/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
-    This document explains how Titanium treats your data. <span class="font-bold"
+    This document explains how Titanium treats your data.
+    <strong
       >Please note that this Privacy Policy only applies to the official main Titanium bot instance.
-      When using other Titanium instances, please refer to their own Privacy Policies.</span
+      When using other Titanium instances, please refer to their own Privacy Policies.</strong
     >
   </p>
 
@@ -54,28 +55,24 @@
   <section class="flex flex-col gap-2.5" id="moderation">
     <h3 class="font-semibold">Moderation</h3>
     <p>
-      Titanium allows users to moderate their servers. When a user creates a case, the case is
-      stored in Titanium's servers. Data stored on Titanium's servers will include the creator's
-      Discord user ID and the target users's Discord ID, as well as the reason that the user
-      provides. Any provided comments will also be stored, including the creation date and the
-      creator's user ID.
+      Titanium allows users to moderate their guilds. When a user or the bot takes an action that
+      creates a case, the case is stored on Titanium's servers. Data stored on Titanium's guilds
+      will include the creator's Discord user ID and the target users's Discord ID, as well as the
+      reason that the user provides and the action that was taken. Any provided comments will also
+      be stored, including the creation date and the creator's user ID.
     </p>
   </section>
 
   <section class="flex flex-col gap-2.5" id="automod">
     <h3 class="font-semibold">Automod</h3>
     <p>
-      Titanium provides an automod feature that allows server moderators to let Titanium moderate
-      for them. This feature stores basic information about the past 100 messages per user as well
-      as, but not limited to, the following data:
+      Titanium provides an automod feature that allows guild moderators to let Titanium assist with
+      moderation. This feature stores basic information about the past 100 messages per user per
+      guild such as basic message metadata (such as ID), author and guild information, as well as,
+      but not limited to, the following data:
     </p>
 
     <ul class="list-inside list-disc">
-      <li>Message ID</li>
-      <li>Guild ID</li>
-      <li>Channel ID</li>
-      <li>Author ID</li>
-      <li>Timestamp of when the message was sent</li>
       <li>Amount of triggers per word rule</li>
       <li>Amount of malicious links</li>
       <li>Amount of phishing links</li>
@@ -89,16 +86,16 @@
 
     <Alert type="Info">
       No message content or attachments are stored by Titanium's automod feature. Malicious /
-      phishing link checking is processed locally, and your links are not stored or sent to a third
-      party.
+      phishing link checking is processed locally, and your links are not stored or sent to third
+      parties.
     </Alert>
   </section>
 
   <section class="flex flex-col gap-2.5" id="logging">
     <h3 class="font-semibold">Logging</h3>
     <p>
-      Titanium provides a logging feature that allows server moderators to log events that happen in
-      the server. The server admins should ensure that any data logged by this feature is kept
+      Titanium provides a logging feature that allows guild moderators to log events that happen in
+      their guild. The guild admins should ensure that any data logged by this feature is kept
       secure, by utilising Discord channel permissions. We are not responsible for any data leaks
       that may occur as a result of misconfigured channel permissions.
     </p>
@@ -107,47 +104,60 @@
   <section class="flex flex-col gap-2.5" id="fireboard">
     <h3 class="font-semibold">Fireboard</h3>
     <p>
-      Titanium provides a fireboard feature that allows server members to remember messages they
-      love. This feature stores message IDs and corresponding channel IDs that meet the critieria as
-      set by server moderators, but does not store message content, attachments or who reacted.
+      Titanium provides a fireboard feature that allows guild members to highlight messages by
+      using reactions. This feature stores message IDs and corresponding channel IDs that meet
+      the critieria as set by guild moderators, but does not store message content, attachments
+      or who reacted.
     </p>
   </section>
 
   <section class="flex flex-col gap-2.5" id="leaderboard">
     <h3 class="font-semibold">Leaderboard</h3>
     <p>
-      Titanium provides a leaderboard feature that allows server members to see their ranking in
-      various activities. This feature stores user IDs and their corresponding XP and level, but
-      does not store any message content or attachments.
+      Titanium provides a leaderboard feature that allows guild members to see their XP ranking,
+      calculated based on messages and message length. This feature stores user IDs and their
+      corresponding XP and level, but does not store any message content or attachments. The
+      following additional data is also collected and stored for users to view if the leaderboard
+      feature is enabled:
     </p>
+
+    <ul class="list-inside list-disc">
+      <li>Message Count</li>
+      <li>Word Count</li>
+      <li>Attachment Count</li>
+      <li>Swear Count</li>
+      <li>Voice Chat Minutes</li>
+    </ul>
   </section>
 
   <section class="flex flex-col gap-2.5" id="server-counters">
     <h3 class="font-semibold">Server Counters</h3>
     <p>
-      Titanium provides server counters that allow server members to see various statistics about
-      the server. These counters appear as voice channels in the channel list. Titanium will store
-      the created channel ID and the counter type when a counter channel is created. For channels
-      that track user statuses, eg. online members, no user presence data is stored.
+      Titanium provides server counters that allow guild members to see various statistics about
+      the guild. These counters appear as voice channels in the channel list. Titanium will store
+      the created channel ID and the counter type when a counter channel is created, as well as
+      the selected name.
     </p>
   </section>
 
   <section class="flex flex-col gap-2.5" id="confessions">
     <h3 class="font-semibold">Confessions</h3>
     <p>
-      Titanium provides a confessions feature that allows server members to anonymously share their
-      confessions. This feature allows server admins to send confession messages to a private log
+      Titanium provides a confessions feature that allows guild members to anonymously share their
+      confessions. This feature allows guild admins to send confession messages to a private log
       channel that contains the author of the confession, this is intended for moderation and
-      compliance purposes. You should not assume that confession messages are anonymous to the
-      server admins.
+      compliance purposes. You should not assume that confession messages are anonymous to a
+      guild's staff team.
     </p>
   </section>
 
   <section class="flex flex-col gap-2.5" id="tags">
     <h3 class="font-semibold">Tags</h3>
     <p>
-      Users can create user specific tags, and server wide tags. The tag's name, content and creator
-      will be stored.
+      Users can create user specific tags, and guild wide tags. The tag's name, content, creator,
+      and the last user that modified the tag will be stored, as well as the corresponding guild ID
+      if the tag is a "server tag". The amount of times that the tag has been used is stored as
+      well, to sort the suggestions list.
     </p>
   </section>
 
@@ -166,7 +176,10 @@
     <p>
       Unless otherwise specified in feature-specific sections, Titanium will retain data only for as
       long as necessary to provide Titanium's services. When data is no longer needed, it is deleted
-      from Titanium's server.
+      from Titanium's server. If you remove Titanium from your guild and have the "Delete data after
+      3 days" option enabled, any stored data about your guild will be retained up to a 3 day
+      period, then it will be deleted. If this option is disabled, data about your guild will be
+      deleted as soon as possible.
     </p>
   </section>
 
@@ -181,12 +194,12 @@
       <li>Command used</li>
       <li>Time the command was ran at</li>
       <li>User that ran the command</li>
-      <li>Whether the command was ran in user app mode or server mode</li>
+      <li>Whether the command was ran in user app mode or guild mode</li>
     </ul>
 
     <Alert type="Info">
-      We do not collect any arguments that you provide (URLs, attachments, etc) as part of this
-      telemetry.
+      We do not collect any arguments or data that you provide (URLs, attachments, etc) as part of
+      this telemetry.
     </Alert>
   </section>
 
@@ -204,8 +217,8 @@
       <li>Developer information about the error</li>
       <li>Time the command was ran at</li>
       <li>
-        Discord server the command was ran in <span class="italic"
-          >(not collected if the bot is not in the server)</span
+        Guild the command was ran in <span class="italic"
+          >(not collected if the bot is not in the guild)</span
         >
       </li>
       <li>User that ran the command</li>
@@ -279,9 +292,9 @@
 
     <h3 class="font-semibold">User Data</h3>
     <p>
-      To remove all user related data, use the <code class="text-base">/opt-out</code> command - this
-      will remove data such as tags and leaderboard data for your account, and block further data collection
-      of this type.
+      To remove all user related data, use the <code class="text-base">/opt-out</code> command - 
+      this will remove data such as tags and leaderboard data for your account, and block further
+      data collection of this type.
     </p>
 
     <h3 class="font-semibold">Server Data</h3>
@@ -291,7 +304,7 @@
     </p>
     <ul class="list-inside list-decimal">
       <li>Log into the web dashboard, and select your server.</li>
-      <li>In the general settings tab, turn off the "Keep server data for 3 days" option.</li>
+      <li>In the general settings tab, turn off the "Delete data after 3 days" option.</li>
       <li>
         Kick Titanium from your server. Data will be removed automatically. If Titanium is down /
         offline when you kick it, data will be removed when the bot next comes online.
