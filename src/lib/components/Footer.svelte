@@ -15,7 +15,7 @@
         Restart
       </a>
     </p>
-    <div class="flex items-center gap-2 flex-wrap">
+    <div class="flex flex-wrap items-center gap-2">
       <a
         href={resolve('/server')}
         class="transition-all hover:font-bold hover:text-zinc-700 hover:dark:text-zinc-300"

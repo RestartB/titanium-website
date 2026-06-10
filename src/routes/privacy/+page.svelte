@@ -104,10 +104,10 @@
   <section class="flex flex-col gap-2.5" id="fireboard">
     <h3 class="font-semibold">Fireboard</h3>
     <p>
-      Titanium provides a fireboard feature that allows guild members to highlight messages by
-      using reactions. This feature stores message IDs and corresponding channel IDs that meet
-      the critieria as set by guild moderators, but does not store message content, attachments
-      or who reacted.
+      Titanium provides a fireboard feature that allows guild members to highlight messages by using
+      reactions. This feature stores message IDs and corresponding channel IDs that meet the
+      critieria as set by guild moderators, but does not store message content, attachments or who
+      reacted.
     </p>
   </section>
 
@@ -133,10 +133,10 @@
   <section class="flex flex-col gap-2.5" id="server-counters">
     <h3 class="font-semibold">Server Counters</h3>
     <p>
-      Titanium provides server counters that allow guild members to see various statistics about
-      the guild. These counters appear as voice channels in the channel list. Titanium will store
-      the created channel ID and the counter type when a counter channel is created, as well as
-      the selected name.
+      Titanium provides server counters that allow guild members to see various statistics about the
+      guild. These counters appear as voice channels in the channel list. Titanium will store the
+      created channel ID and the counter type when a counter channel is created, as well as the
+      selected name.
     </p>
   </section>
 
@@ -146,8 +146,8 @@
       Titanium provides a confessions feature that allows guild members to anonymously share their
       confessions. This feature allows guild admins to send confession messages to a private log
       channel that contains the author of the confession, this is intended for moderation and
-      compliance purposes. You should not assume that confession messages are anonymous to a
-      guild's staff team.
+      compliance purposes. You should not assume that confession messages are anonymous to a guild's
+      staff team.
     </p>
   </section>
 
@@ -292,9 +292,9 @@
 
     <h3 class="font-semibold">User Data</h3>
     <p>
-      To remove all user related data, use the <code class="text-base">/opt-out</code> command - 
-      this will remove data such as tags and leaderboard data for your account, and block further
-      data collection of this type.
+      To remove all user related data, use the <code class="text-base">/opt-out</code> command - this
+      will remove data such as tags and leaderboard data for your account, and block further data collection
+      of this type.
     </p>
 
     <h3 class="font-semibold">Server Data</h3>

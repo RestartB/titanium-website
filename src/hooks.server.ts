@@ -1,7 +1,7 @@
 import { env } from '$env/dynamic/private';
 import cron from 'node-cron';
 
-import { desc, gte } from 'drizzle-orm';
+import { desc, gte, lte } from 'drizzle-orm';
 import { db } from '$lib/server/db';
 import { historicPing, historicPingAvg } from '$lib/server/db/schema';
 
@@ -37,12 +37,16 @@ cron.schedule('* * * * *', async () => {
       // nothing to do
       return;
     }
-    
-    const average =
-      past.reduce((sum, row) => sum + (row.ping ? row.ping : 0), 0) / past.length;
+
+    const average = past.reduce((sum, row) => sum + (row.ping ? row.ping : 0), 0) / past.length;
     await db.insert(historicPingAvg).values({ ping: average });
+
+    // delete older than 3 days
+    const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+    await db.delete(historicPing).where(lte(historicPing.time, threeDaysAgo));
+    await db.delete(historicPingAvg).where(lte(historicPingAvg.time, threeDaysAgo));
   } catch {
-    console.log("Failed to log Titanium ping")
+    console.log('Failed to log Titanium ping');
     await db.insert(historicPing).values({ ping: null });
   }
 });
