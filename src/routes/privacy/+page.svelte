@@ -7,7 +7,7 @@
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 10/06/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 12/06/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -324,11 +324,17 @@
       time. Older backups are automatically deleted, but we will always retain at least one backup.
       Once enough time has passed, our maximum retention schedule will be:
     </p>
+
     <ul class="list-inside list-disc">
       <li>One backup for each of the last 7 days</li>
       <li>One backup for each of the last 4 weeks</li>
       <li>One backup for each of the last 12 months</li>
     </ul>
+
+    <Alert type="Warning">
+      These backups are for internal use only. If you delete data yourself, for example, deleting a
+      case or configuration, we will not be able to recover it for you at this time.
+    </Alert>
   </section>
 
   <section class="flex flex-col gap-2.5" id="security">
