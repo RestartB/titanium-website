@@ -173,7 +173,7 @@
 
       <ul class="mt-2 list-inside list-disc">
         <li><b>Leaderboard - </b> XP, message stats, add levels and more</li>
-        <li><b>Fireboard - </b> starboard system, with mulitple boards supported</li>
+        <li><b>Fireboard - </b> starboard system, with multiple boards supported</li>
         <li><b>Confessions - </b> users create anonymous messages, with logging for moderation</li>
       </ul>
     </div>
