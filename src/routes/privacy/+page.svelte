@@ -7,7 +7,7 @@
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 12/06/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 14/06/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -158,6 +158,16 @@
       and the last user that modified the tag will be stored, as well as the corresponding guild ID
       if the tag is a "server tag". The amount of times that the tag has been used is stored as
       well, to sort the suggestions list.
+    </p>
+  </section>
+
+  <section class="flex flex-col gap-2.5" id="tags">
+    <h3 class="font-semibold">Reminders</h3>
+    <p>
+      Users can create reminders, where Titanium will send them a message after a certain time. This
+      feature stores the reminder content and the creator's ID, as well as whether the reminder will
+      be sent to DMs. The server ID, creating message's ID, and channel ID will be stored if the
+      reminder is sent to a server.
     </p>
   </section>
 
