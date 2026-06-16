@@ -7,7 +7,7 @@
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 14/06/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 16/06/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -247,9 +247,14 @@
   <section class="flex flex-col gap-2.5" id="location">
     <h2 class="text-xl font-semibold">Processing Location</h2>
     <p>
-      Titanium is hosted on Hetzner servers in Helsinki, Finland. By using Titanium, you agree to
-      your data being processed according to this privacy policy, and local laws / regulations in
-      the European Union, as well as the United Kingdom.
+      Titanium is operated from the United Kingdom and hosted on Hetzner servers located in
+      Helsinki, Finland, within the European Economic Area (EEA).
+    </p>
+
+    <p>
+      By using Titanium, you understand that your data is processed in the United Kingdom and the
+      EEA in accordance with this Privacy Policy and applicable data protection laws, including the
+      UK GDPR where applicable.
     </p>
   </section>
 

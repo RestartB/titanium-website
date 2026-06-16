@@ -6,7 +6,7 @@
   <div>
     <h1 class="text-4xl font-bold">Terms of Use</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 29/05/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 16/06/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -51,9 +51,9 @@
         >
       </li>
       <li>
-        you must not use Titanium to <span class="font-bold"
-          >violate any laws in the European Union (hosting area), United Kingdom, or the country of
-          usage.</span
+        you must not use Titanium <span class="font-bold"
+          >for any unlawful purpose, including in a way that violates laws or regulations that
+          apply to you, to Titanium, or to the location where Titanium is operated or hosted.</span
         >
       </li>
       <li>
@@ -67,7 +67,7 @@
         >
       </li>
       <li>
-        You should not attempt to interact with Titanium API endpoints directly. Titanium API
+        you must not attempt to interact with Titanium API endpoints directly. Titanium API
         endpoints are designed for usage with official Titanium services only.
       </li>
     </ul>
