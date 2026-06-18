@@ -60,11 +60,11 @@
 <svelte:head>
   <title>Titanium</title>
 
-  <meta name="description" content="Your multipurpose, open source Discord bot." />
+  <meta name="description" content="Your multipurpose Discord bot. Moderation, starboards, leaderboards, image tools, and more - all for free." />
   <meta name="theme-color" content="#979C9F" data-react-helmet="true" />
 
   <meta property="og:title" content="Titanium" />
-  <meta property="og:description" content="Your multipurpose, open source Discord bot." />
+  <meta property="og:description" content="Your multipurpose Discord bot. Moderation, starboards, leaderboards, image tools, and more - all for free." />
   <meta property="og:url" content="https://titanium.fyi/" />
   <meta property="og:image" content="https://titanium.fyi/assets/logo.png" />
 
