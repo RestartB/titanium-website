@@ -48,6 +48,6 @@
     "@libsql/client": "0.17.4",
     "@lucide/svelte": "1.17.0",
     "drizzle-orm": "0.45.2",
-    "node-cron": "4.4.1"
+    "node-cron": "4.5.0"
   }
 }
