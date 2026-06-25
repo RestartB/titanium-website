@@ -18,8 +18,8 @@ importers:
         specifier: 0.45.2
         version: 0.45.2(@libsql/client@0.17.4)
       node-cron:
-        specifier: 4.4.1
-        version: 4.4.1
+        specifier: 4.5.0
+        version: 4.5.0
     devDependencies:
       '@eslint/compat':
         specifier: 2.1.0
@@ -2068,8 +2068,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  node-cron@4.4.1:
-    resolution: {integrity: sha512-1e4Gku1qeKx1ywNnMoA0o5hiZ8iA4klH84TIszTHZAME68xVIjLkiBo5KrtowbcOJn8MQqJG/yWHjC/dFdMWyQ==}
+  node-cron@4.5.0:
+    resolution: {integrity: sha512-4Trh+kjvbXokyJkwQumvD5YAgeJfgHLR/sKyu71uSmxfCR5QMO1hldpvmFZOICN5pLgNY+J5Y8+ar3XKo5/4tQ==}
     engines: {node: '>=20'}
 
   obug@2.1.1:
@@ -3962,7 +3962,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  node-cron@4.4.1: {}
+  node-cron@4.5.0: {}
 
   obug@2.1.1: {}
 
