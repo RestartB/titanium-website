@@ -37,7 +37,7 @@
     "prettier-plugin-tailwindcss": "0.8.0",
     "super-sitemap": "1.0.12",
     "svelte": "5.56.3",
-    "svelte-check": "4.6.0",
+    "svelte-check": "4.7.1",
     "svelteplot": "0.14.2",
     "tailwindcss": "4.3.1",
     "typescript": "6.0.3",
