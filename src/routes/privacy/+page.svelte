@@ -151,6 +151,20 @@
     </p>
   </section>
 
+  <section class="flex flex-col gap-2.5" id="anon-polls">
+    <h3 class="font-semibold">Anonymous Polls</h3>
+    <p>
+      When you create an anonymous poll using Titanium, some data about the poll is stored in
+      Titanium's database, including the creator's ID and the content of the poll. This is so
+      Titanium can remember the poll if it restarts. The creator is not displayed to users. When you
+      submit an answer to an anonymous poll, Titanium will store your user ID and vote inside its
+      database, so duplicate votes can be blocked. As with the confessions feature, server
+      moderators are able to receive logs when anonymous polls are created, including who created
+      them. You should not assume that the creator of an anonymous poll is anonymous to a guild's
+      staff team.
+    </p>
+  </section>
+
   <section class="flex flex-col gap-2.5" id="tags">
     <h3 class="font-semibold">Tags</h3>
     <p>
