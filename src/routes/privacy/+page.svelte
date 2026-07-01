@@ -7,7 +7,7 @@
   <div>
     <h1 class="text-4xl font-bold">Privacy Policy</h1>
     <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 16/06/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Updated: 01/07/2026 (dd/mm/yyyy)</h2>
   </div>
 
   <p>
@@ -73,9 +73,6 @@
     </p>
 
     <ul class="list-inside list-disc">
-      <li>Amount of triggers per word rule</li>
-      <li>Amount of malicious links</li>
-      <li>Amount of phishing links</li>
       <li>Amount of mentions</li>
       <li>Amount of words</li>
       <li>Amount of new lines</li>
