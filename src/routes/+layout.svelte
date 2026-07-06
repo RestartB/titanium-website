@@ -68,6 +68,15 @@
   <meta property="og:url" content="https://titanium.fyi/" />
   <meta property="og:image" content="https://titanium.fyi/assets/logo.png" />
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Titanium",
+    "url": "https://titanium.fyi/"
+  }
+  </script>
+
   <link rel="canonical" href={`https://titanium.fyi${page.url.pathname}`} />
 </svelte:head>
 
