@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@libsql/client": "0.17.4",
-    "@lucide/svelte": "1.22.0",
+    "@lucide/svelte": "1.23.0",
     "drizzle-orm": "0.45.2",
     "node-cron": "4.5.0"
   }
