@@ -62,7 +62,7 @@
 
     <div class="flex-1">
       <span class="flex items-center gap-2 text-3xl font-bold">
-        <CodeXmlIcon /> User and Server Support
+        <CodeXmlIcon class="shrink-0" /> User and Server Support
       </span>
       <p>
         Titanium has first class experiences for users and servers. Add Titanium to your server to
@@ -120,7 +120,7 @@
 
     <div class="flex-1">
       <span class="flex items-center gap-2 text-3xl font-bold">
-        <Hammer /> Powerful Server Features
+        <Hammer class="shrink-0" /> Powerful Server Features
       </span>
 
       <p>
@@ -164,7 +164,7 @@
 
     <div class="flex-1">
       <span class="flex items-center gap-2 text-3xl font-bold">
-        <Sparkles /> Enhance Server Engagement
+        <Sparkles class="shrink-0" /> Enhance Server Engagement
       </span>
 
       <p>
@@ -201,7 +201,7 @@
 
     <div class="flex-1">
       <span class="flex items-center gap-2 text-3xl font-bold">
-        <Scroll /> Log Everything
+        <Scroll class="shrink-0" /> Log Everything
       </span>
 
       <p>Log every event that happens in your server with Titanium's advanced logging support.</p>
@@ -244,7 +244,7 @@
 
     <div class="flex-1">
       <span class="flex items-center gap-2 text-3xl font-bold">
-        <Tag /> Respond with Tags
+        <Tag class="shrink-0" /> Respond with Tags
       </span>
 
       <p>
@@ -273,7 +273,7 @@
 
     <div class="flex-1">
       <span class="flex items-center gap-2 text-3xl font-bold">
-        <LayoutDashboard /> Custom Dashboard
+        <LayoutDashboard class="shrink-0" /> Custom Dashboard
       </span>
 
       <p>
