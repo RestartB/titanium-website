@@ -60,21 +60,27 @@
 <svelte:head>
   <title>Titanium</title>
 
-  <meta name="description" content="Titanium is your multipurpose Discord bot. Moderation, starboards, leaderboards, image tools, and more - all for free." />
+  <meta
+    name="description"
+    content="Titanium is your multipurpose Discord bot. Moderation, starboards, leaderboards, image tools, and more - all for free."
+  />
   <meta name="theme-color" content="#979C9F" data-react-helmet="true" />
 
   <meta property="og:title" content="Titanium" />
-  <meta property="og:description" content="Your multipurpose Discord bot. Moderation, starboards, leaderboards, image tools, and more - all for free." />
+  <meta
+    property="og:description"
+    content="Your multipurpose Discord bot. Moderation, starboards, leaderboards, image tools, and more - all for free."
+  />
   <meta property="og:url" content="https://titanium.fyi/" />
   <meta property="og:image" content="https://titanium.fyi/assets/logo.png" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Titanium",
-    "url": "https://titanium.fyi/"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Titanium",
+      "url": "https://titanium.fyi/"
+    }
   </script>
 
   <link rel="canonical" href={`https://titanium.fyi${page.url.pathname}`} />

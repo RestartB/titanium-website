@@ -12,10 +12,7 @@ const config = {
     csp: {
       directives: {
         'object-src': ['none'],
-        'script-src': [
-          'self',
-          'https://static.cloudflareinsights.com'
-        ],
+        'script-src': ['self', 'https://static.cloudflareinsights.com'],
         'frame-ancestors': ['self']
       }
     },

@@ -52,8 +52,8 @@
       </li>
       <li>
         you must not use Titanium <span class="font-bold"
-          >for any unlawful purpose, including in a way that violates laws or regulations that
-          apply to you, to Titanium, or to the location where Titanium is operated or hosted.</span
+          >for any unlawful purpose, including in a way that violates laws or regulations that apply
+          to you, to Titanium, or to the location where Titanium is operated or hosted.</span
         >
       </li>
       <li>
