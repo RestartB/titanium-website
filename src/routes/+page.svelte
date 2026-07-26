@@ -297,10 +297,10 @@
 
   <h3 class="z-10 text-center text-xl xxs:text-2xl">
     {#if (await getStats()).success && (await getStats()).stats}
-      Ready? Join <b>{(await getStats()).stats?.user_count}</b> users and
-      <b>{(await getStats()).stats?.server_count}</b> servers and
+      Ready? Join <b>{(await getStats()).stats?.user_count}</b> users,
+      <b>{(await getStats()).stats?.server_count}</b> servers, and
     {:else}
-      Ready? Join <b>hundreds of other users and servers</b> and
+      Ready? Join <b>hundreds of other users, servers,</b> and
     {/if}
   </h3>
   <h1
