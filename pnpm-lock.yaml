@@ -12,8 +12,8 @@ importers:
         specifier: 0.17.4
         version: 0.17.4
       '@lucide/svelte':
-        specifier: 1.30.0
-        version: 1.30.0(svelte@5.56.8(@typescript-eslint/types@8.67.0))
+        specifier: 1.31.0
+        version: 1.31.0(svelte@5.56.8(@typescript-eslint/types@8.67.0))
       drizzle-orm:
         specifier: 0.45.2
         version: 0.45.2(@libsql/client@0.17.4)
@@ -860,8 +860,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@lucide/svelte@1.30.0':
-    resolution: {integrity: sha512-KtVrqWT3BD41kf1CPaP4QTAyofw0xm5hw/JGwd76+wMk1l0ZcXskA2Wi9ANVWCsk7mGrpFo2SqL3Hl29xTkV3w==}
+  '@lucide/svelte@1.31.0':
+    resolution: {integrity: sha512-pgPuLEJdF0UpsajG9eSw0YvqXVuDxB+/x58BRiC4xE/KEHiopOqT1id3KCUvRN/PUmQkN1F26sslcs/1jutlBQ==}
     peerDependencies:
       svelte: ^5
 
@@ -3039,7 +3039,7 @@ snapshots:
   '@libsql/win32-x64-msvc@0.5.29':
     optional: true
 
-  '@lucide/svelte@1.30.0(svelte@5.56.8(@typescript-eslint/types@8.67.0))':
+  '@lucide/svelte@1.31.0(svelte@5.56.8(@typescript-eslint/types@8.67.0))':
     dependencies:
       svelte: 5.56.8(@typescript-eslint/types@8.67.0)
 
