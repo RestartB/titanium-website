@@ -73,8 +73,8 @@ importers:
         specifier: 0.8.1
         version: 0.8.1(prettier-plugin-svelte@4.1.1(prettier@3.9.6)(svelte@5.56.9(@typescript-eslint/types@8.67.0)))(prettier@3.9.6)
       super-sitemap:
-        specifier: 1.0.12
-        version: 1.0.12(svelte@5.56.9(@typescript-eslint/types@8.67.0))
+        specifier: 2.0.6
+        version: 2.0.6
       svelte:
         specifier: 5.56.9
         version: 5.56.9(@typescript-eslint/types@8.67.0)
@@ -2372,10 +2372,8 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-  super-sitemap@1.0.12:
-    resolution: {integrity: sha512-C3gfAS1RZxL5bbZGtgnIOitMhfqAt8RmhW8AWTia6c8n9RW3Zx7f/SxVeFWZD0I1nUAx2pkxuWazVtev0Nmb5w==}
-    peerDependencies:
-      svelte: '>=4.0.0 <6.0.0'
+  super-sitemap@2.0.6:
+    resolution: {integrity: sha512-SnwRkm5X9+Jq2HDPbFemZwxGya1+r4nJQw30UTu/2jdW1J6HfEz5hrXhy2ktbW/esmv+wOr5xN7s/kojYtAXkg==}
 
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
@@ -4326,9 +4324,7 @@ snapshots:
 
   source-map@0.6.1: {}
 
-  super-sitemap@1.0.12(svelte@5.56.9(@typescript-eslint/types@8.67.0)):
-    dependencies:
-      svelte: 5.56.9(@typescript-eslint/types@8.67.0)
+  super-sitemap@2.0.6: {}
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
