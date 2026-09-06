@@ -45,7 +45,7 @@
     "vite": "8.2.2"
   },
   "dependencies": {
-    "@libsql/client": "0.17.4",
+    "@libsql/client": "0.18.0",
     "@lucide/svelte": "1.39.0",
     "drizzle-orm": "0.45.2",
     "node-cron": "4.6.0"
