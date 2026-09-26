@@ -73,7 +73,7 @@
       <ul class="mt-2 list-inside list-disc">
         <li>Full <b>user app</b> support</li>
         <li>Over <b>80 commands</b> available</li>
-        <li>Use <b>slash commands</b>, and <b>prefix commands with 5 custom prefixes</b></li>
+        <li><b>Slash command support</b>, with <b>autocomplete</b> for arguments</li>
       </ul>
     </div>
   </section>
@@ -254,7 +254,7 @@
 
       <ul class="mt-2 list-inside list-disc">
         <li><b>Server wide</b> or <b>user specific</b> tags</li>
-        <li>Use <b>prefix</b>, as well as <b>slash commands</b></li>
+        <li>Find tags easier with <b>autocomplete support</b> in commands</li>
         <li>Create up to <b>250 tags</b> per user or server</li>
       </ul>
     </div>
@@ -283,7 +283,7 @@
 
       <ul class="mt-2 list-inside list-disc">
         <li>Customise <b>all parts</b> of Titanium</li>
-        <li><b>Monitor cases</b> and add case comments</li>
+        <li>Monitor cases and add case comments</li>
         <li><b>Add roles as managers</b> to grant access</li>
       </ul>
     </div>
