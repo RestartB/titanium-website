@@ -2,18 +2,18 @@
   import { resolve } from '$app/paths';
   import Alert from '$lib/components/Alert.svelte';
   import Link from '$lib/components/Link.svelte';
-  import { Calendar } from '@lucide/svelte';
+  import { ArrowLeft } from '@lucide/svelte';
 </script>
 
 <div class="mx-auto flex max-w-7xl flex-col gap-4 p-4">
   <div>
-    <h1 class="text-4xl font-bold">Privacy Policy</h1>
-    <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 29/09/2026 (dd/mm/yyyy)</h2>
+    <h1 class="text-4xl font-bold">Privacy Policy (previous)</h1>
+    <h2 class="text-xl font-semibold">Effective: 01/07/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Until: 29/09/2026 (dd/mm/yyyy)</h2>
   </div>
 
-  <Link href="/privacy/previous" title="View previous versions">
-    <Calendar />View previous versions
+  <Link href="/privacy/previous" title="Back to list">
+    <ArrowLeft />Back to list
   </Link>
 
   <p>
@@ -63,7 +63,7 @@
     <p>
       Titanium allows users to moderate their guilds. When a user or the bot takes an action that
       creates a case, the case is stored on Titanium's servers. Data stored on Titanium's guilds
-      will include the creator's Discord user ID and the target user's Discord ID, as well as the
+      will include the creator's Discord user ID and the target users's Discord ID, as well as the
       reason that the user provides and the action that was taken. Any provided comments will also
       be stored, including the creation date and the creator's user ID.
     </p>
@@ -285,7 +285,7 @@
     </p>
 
     <p>
-      The full list of third party services that Titanium utilises is provided here for your
+      The full list of third party services that Titanium uses is provided here for your
       convenience, accurate at the time of publishing:
     </p>
     <ul class="list-inside list-disc">
@@ -297,10 +297,8 @@
       <li>The Cat API</li>
       <li>dog.ceo</li>
       <li>sandcat.link</li>
+      <li>ReviewDB (mantikafasi.dev)</li>
       <li>Steam</li>
-      <li>ReviewDB <i>(mantikafasi.dev)</i></li>
-      <li>NASA <i>(for Landsat images, no additional data used/sent)</i></li>
-      <li>jsDelivr <i>(for Twimoji images, no additional data used/sent)</i></li>
     </ul>
   </section>
 
@@ -390,14 +388,6 @@
       addresses are processed strictly at the network edge to securely route traffic and determine
       general, country-level geography. Cloudflare Fonts is also used to serve fonts, replacing
       Google Fonts, to increase performance and privacy.
-    </p>
-    <p>
-      Additionally, when you use the Titanium Dashboard, we log the time and path of each request
-      made. These logs do not include your IP address, device identifiers, or query parameters.
-      However, the requested path may contain a server ID. We use these logs to identify and
-      investigate potential attacks, diagnose technical issues, monitor the reliability of the
-      service, and understand usage patterns. The logs are retained for up to one month, after which
-      they are automatically deleted.
     </p>
   </section>
 

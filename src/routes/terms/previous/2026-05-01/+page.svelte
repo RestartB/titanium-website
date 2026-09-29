@@ -1,17 +1,19 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
-  import { fly } from 'svelte/transition';
-  import { prefersReducedMotion } from 'svelte/motion';
+  import Link from '$lib/components/Link.svelte';
+  import { ArrowLeft } from '@lucide/svelte';
 </script>
 
-<div
-  in:fly={{ y: prefersReducedMotion.current ? 0 : 20, duration: 500 }}
-  class="mx-auto flex max-w-7xl flex-col gap-4 p-4"
->
+<div class="mx-auto flex max-w-7xl flex-col gap-4 p-4">
   <div>
-    <h1 class="text-4xl font-bold">Terms of Use</h1>
-    <h2 class="text-xl font-semibold">Updated: 01/05/2026</h2>
+    <h1 class="text-4xl font-bold">Terms of Use (previous)</h1>
+    <h2 class="text-xl font-semibold">Effective: 01/05/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Until: 16/06/2026 (dd/mm/yyyy)</h2>
   </div>
+
+  <Link href="/terms/previous" title="Back to list">
+    <ArrowLeft />Back to list
+  </Link>
 
   <p>
     This document contains the terms of service that you agree to when using Titanium's services. <span

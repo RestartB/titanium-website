@@ -1,18 +1,18 @@
 <script lang="ts">
   import { resolve } from '$app/paths';
   import Link from '$lib/components/Link.svelte';
-  import { Calendar } from '@lucide/svelte';
+  import { ArrowLeft } from '@lucide/svelte';
 </script>
 
 <div class="mx-auto flex max-w-7xl flex-col gap-4 p-4">
   <div>
-    <h1 class="text-4xl font-bold">Terms of Use</h1>
-    <h2 class="text-xl font-semibold">Effective: 08/12/2025 (dd/mm/yyyy)</h2>
-    <h2 class="text-xl font-semibold">Updated: 29/09/2026 (dd/mm/yyyy)</h2>
+    <h1 class="text-4xl font-bold">Terms of Use (previous)</h1>
+    <h2 class="text-xl font-semibold">Effective: 16/06/2026 (dd/mm/yyyy)</h2>
+    <h2 class="text-xl font-semibold">Until: 29/09/2026 (dd/mm/yyyy)</h2>
   </div>
 
-  <Link href="/terms/previous" title="View previous versions">
-    <Calendar />View previous versions
+  <Link href="/terms/previous" title="Back to list">
+    <ArrowLeft />Back to list
   </Link>
 
   <p>
@@ -73,9 +73,8 @@
         >
       </li>
       <li>
-        you must not <span class="font-bold"
-          >attempt to interact with Titanium API endpoints directly.</span
-        > Titanium API endpoints are designed for usage with official Titanium services only.
+        you must not attempt to interact with Titanium API endpoints directly. Titanium API
+        endpoints are designed for usage with official Titanium services only.
       </li>
     </ul>
 
@@ -105,7 +104,7 @@
       For more information, please see the <a
         href="https://github.com/RestartB/titanium/blob/main/LICENSE"
         target="_blank">licence file</a
-      > in our GitHub repository for more information.
+      > on our GitHub repository for more information.
     </p>
   </div>
 
@@ -143,23 +142,28 @@
     <h2 class="text-xl font-semibold">Third Party Services</h2>
     <p>
       Titanium relies on several third party services. By using features that rely on these
-      services, you agree to their policies. Below is a list of these services, provided for your
-      convenience, accurate as of the release date of this policy:
+      services, you agree to their policies. Below is a list of these services with their terms of
+      service if available, provided for your convenience, accurate as of the release date of this
+      policy:
     </p>
 
     <ul class="list-inside list-disc">
-      <li>Discord</li>
-      <li>Spotify</li>
-      <li>LRCLib</li>
-      <li>Urban Dictionary</li>
-      <li>Wikipedia</li>
-      <li>The Cat API</li>
+      <li><a href="https://discord.com/terms" target="_blank">Discord</a></li>
+      <li>
+        <a href="https://www.spotify.com/us/legal/end-user-agreement/" target="_blank">Spotify</a>
+      </li>
+      <li><a href="https://about.urbandictionary.com/tos/" target="_blank">Urban Dictionary</a></li>
+      <li>
+        <a href="https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/en" target="_blank"
+          >Wikipedia</a
+        >
+      </li>
+      <li><a href="https://odesli.co/terms" target="_blank">Odesli / song.link</a></li>
+      <li><a href="https://thecatapi.com/terms" target="_blank">The Cat API</a></li>
       <li>dog.ceo</li>
       <li>sandcat.link</li>
+      <li>ReviewDB (mantikafasi.dev)</li>
       <li>Steam</li>
-      <li>ReviewDB <i>(mantikafasi.dev)</i></li>
-      <li>NASA <i>(for Landsat images, no additional data used/sent)</i></li>
-      <li>jsDelivr <i>(for Twimoji images, no additional data used/sent)</i></li>
     </ul>
   </div>
 
